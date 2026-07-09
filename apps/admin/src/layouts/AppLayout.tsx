@@ -32,7 +32,7 @@ export default function AppLayout() {
       <aside className="sidebar">
         <div className="brand">
           <strong>PageBuilder</strong>
-          <span>V2 · local presentation</span>
+          <span>V2</span>
         </div>
         <nav className="nav">
           {links.map((link) => (

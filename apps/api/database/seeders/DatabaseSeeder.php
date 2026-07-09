@@ -82,9 +82,9 @@ class DatabaseSeeder extends Seeder
   <p style="letter-spacing:.18em;text-transform:uppercase;font-size:12px;opacity:.7">PageBuilder V2</p>
   <h1 style="font-size:clamp(2.4rem,6vw,4rem);margin:12px 0;font-family:Georgia,serif">Design freely. Publish instantly.</h1>
   <p style="max-width:560px;margin:0 auto 28px;opacity:.85;line-height:1.6">Drag blocks, tune every style, drop custom code, or ask AI to draft a section for you.</p>
-  <a href="#products" style="display:inline-block;padding:12px 22px;background:#f97316;color:#111;border-radius:999px;text-decoration:none;font-weight:700">Explore products</a>
+  <a href="#products" style="display:inline-block;padding:12px 22px;background:#11a4ff;color:#fff;border-radius:999px;text-decoration:none;font-weight:700">Explore products</a>
 </section>
-<section id="products" style="padding:64px 24px;max-width:960px;margin:0 auto">
+<section id="products" style="padding:64px 24px;max-width:960px;background:#fff;margin:0 auto">
   <h2 style="font-family:Georgia,serif;font-size:2rem;margin-bottom:8px">Featured products</h2>
   <p style="color:#64748b;margin-bottom:28px">Managed from the Products module — no developer needed.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
@@ -98,9 +98,9 @@ class DatabaseSeeder extends Seeder
     </article>
   </div>
 </section>
-<section id="contact" style="padding:56px 24px;background:#fff7ed;text-align:center">
+<section id="contact" style="padding:56px 24px;background:#eef8ff;text-align:center">
   <h2 style="font-family:Georgia,serif">Ready to present?</h2>
-  <p style="color:#9a3412">Open the admin at localhost:5173 — login with admin@pagebuilder.test / password</p>
+  <p style="color:#0c4a6e">Open the admin at localhost:5173 — login with admin@pagebuilder.test / password</p>
 </section>
 HTML;
 
@@ -131,7 +131,7 @@ HTML;
                 'published_project_json' => $project,
                 'project_json' => $project,
                 'meta_title' => 'PageBuilder V2 — Home',
-                'meta_description' => 'Local presentation demo of an AI-capable page builder CMS.',
+                'meta_description' => 'AI-capable page builder CMS.',
                 'published_at' => now(),
                 'updated_by' => $admin->id,
             ]

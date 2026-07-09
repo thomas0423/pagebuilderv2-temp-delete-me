@@ -45,7 +45,7 @@ export default function DashboardPage() {
           <div className="stat" style={{ fontSize: '1.4rem' }}>
             {aiReady ? 'Ready' : 'Needs key'}
           </div>
-          <div className="muted">{aiReady ? 'Key configured' : 'Set key in Settings → AI'}</div>
+          <div className="muted">{aiReady ? 'Provider + key configured' : 'Set provider & key in Settings → AI'}</div>
         </div>
         <div className="card">
           <h3>Public site</h3>

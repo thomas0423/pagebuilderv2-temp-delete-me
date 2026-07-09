@@ -22,7 +22,7 @@ const BLOCKS: Array<{
       <p style="letter-spacing:.16em;text-transform:uppercase;font-size:12px;opacity:.7">Eyebrow</p>
       <h1 style="font-family:Georgia,serif;font-size:3rem;margin:10px 0 14px">Your headline here</h1>
       <p style="max-width:540px;margin:0 auto 24px;opacity:.88;line-height:1.6">Double-click to edit. Drag blocks from the left.</p>
-      <a href="#" style="display:inline-block;padding:12px 22px;background:#ff7a18;color:#111;border-radius:999px;text-decoration:none;font-weight:700">Call to action</a>
+      <a href="#" style="display:inline-block;padding:12px 22px;background:#11a4ff;color:#fff;border-radius:999px;text-decoration:none;font-weight:700">Call to action</a>
     </section>`,
   },
   {
@@ -42,10 +42,10 @@ const BLOCKS: Array<{
     id: 'cta',
     label: 'CTA',
     category: 'Sections',
-    content: `<section style="padding:48px 24px;background:#fff7ed;text-align:center;color:#9a3412">
+    content: `<section style="padding:48px 24px;background:#eef8ff;text-align:center;color:#0c4a6e">
       <h2 style="font-family:Georgia,serif;margin:0 0 10px">Ready to publish?</h2>
       <p style="margin:0 0 18px">Edit this band, then hit Publish.</p>
-      <a href="#" style="display:inline-block;padding:11px 20px;background:#0f172a;color:#fff;border-radius:999px;text-decoration:none;font-weight:600">Get started</a>
+      <a href="#" style="display:inline-block;padding:11px 20px;background:#11a4ff;color:#fff;border-radius:999px;text-decoration:none;font-weight:600">Get started</a>
     </section>`,
   },
   {
@@ -75,7 +75,7 @@ const BLOCKS: Array<{
     label: 'Button',
     category: 'Basic',
     content: `<div style="padding:20px;text-align:center">
-      <a href="#" style="display:inline-block;padding:12px 22px;background:#ff7a18;color:#111;border-radius:999px;text-decoration:none;font-weight:700">Button label</a>
+      <a href="#" style="display:inline-block;padding:12px 22px;background:#11a4ff;color:#fff;border-radius:999px;text-decoration:none;font-weight:700">Button label</a>
     </div>`,
   },
   {
@@ -101,7 +101,7 @@ const BLOCKS: Array<{
     id: 'custom-html',
     label: 'HTML',
     category: 'Freedom',
-    content: `<div style="padding:20px;border:2px dashed #ff7a18;border-radius:12px;background:#fff7ed;color:#9a3412">
+    content: `<div style="padding:20px;border:2px dashed #11a4ff;border-radius:12px;background:#eef8ff;color:#0c4a6e">
       <p style="margin:0;font-weight:700">Custom HTML block — edit me</p>
     </div>`,
   },
@@ -730,7 +730,7 @@ export default function EditorPage() {
                 {aiBusy ? 'Generating…' : 'Generate & insert'}
               </button>
               <p className="muted" style={{ fontSize: 12, marginTop: 12 }}>
-                Configure key in <Link to="/settings">Settings → AI</Link>
+                Choose provider + key in <Link to="/settings">Settings → AI</Link>
               </p>
             </>
           )}

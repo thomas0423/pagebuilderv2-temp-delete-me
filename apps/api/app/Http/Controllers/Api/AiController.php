@@ -23,7 +23,7 @@ class AiController extends Controller
         } catch (\Symfony\Component\HttpKernel\Exception\HttpException $e) {
             return response()->json([
                 'message' => $e->getMessage(),
-                'hint' => 'Open Settings → AI and paste your API key, then try again.',
+                'hint' => 'Open Settings → AI, choose a provider (ChatGPT, Claude, MiniMax, etc.), paste that provider’s API key, then try again.',
                 'settings_path' => '/settings',
             ], $e->getStatusCode());
         }

@@ -1,32 +1,71 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { api } from '../api/client'
 
-type SettingsResponse = Record<
-  string,
-  | { group: string; is_secret: boolean; configured: boolean; value: string | null }
-  | { active_db: string; active_filesystem: string; ai_ready: boolean }
->
+type SettingField = { group: string; is_secret: boolean; configured: boolean; value: string | null }
+type Runtime = {
+  active_db: string
+  active_filesystem: string
+  ai_ready: boolean
+  ai_provider?: string
+  ai_model?: string
+}
+type AiProviderOption = {
+  id: string
+  label: string
+  default_model: string
+  models: { value: string; label: string }[]
+  docs?: string | null
+  hint?: string | null
+}
+type SettingsResponse = Record<string, SettingField | Runtime | AiProviderOption[]> & {
+  runtime: Runtime
+  ai_providers: AiProviderOption[]
+}
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState<SettingsResponse | null>(null)
   const [form, setForm] = useState<Record<string, string>>({})
   const [saved, setSaved] = useState('')
+  const [customModel, setCustomModel] = useState(false)
 
   const load = async () => {
     const { data } = await api.get<SettingsResponse>('/settings')
     setSettings(data)
     const next: Record<string, string> = {}
     for (const [key, val] of Object.entries(data)) {
-      if (key === 'runtime') continue
-      const item = val as { value: string | null; is_secret: boolean }
+      if (key === 'runtime' || key === 'ai_providers') continue
+      const item = val as SettingField
       next[key] = item.is_secret ? '' : (item.value ?? '')
     }
     setForm(next)
+
+    const providers = data.ai_providers || []
+    const providerId = next.ai_provider || 'openai'
+    const provider = providers.find((p) => p.id === providerId)
+    const model = next.ai_model || provider?.default_model || ''
+    const known = provider?.models.some((m) => m.value === model) ?? false
+    setCustomModel(!known && model !== '')
   }
 
   useEffect(() => {
     void load()
   }, [])
+
+  const providers = settings?.ai_providers ?? []
+  const selectedProvider = useMemo(
+    () => providers.find((p) => p.id === (form.ai_provider || 'openai')) ?? providers[0],
+    [providers, form.ai_provider],
+  )
+
+  const onProviderChange = (providerId: string) => {
+    const provider = providers.find((p) => p.id === providerId)
+    setCustomModel(false)
+    setForm((prev) => ({
+      ...prev,
+      ai_provider: providerId,
+      ai_model: provider?.default_model || prev.ai_model || '',
+    }))
+  }
 
   const submit = async (e: FormEvent) => {
     e.preventDefault()
@@ -34,15 +73,24 @@ export default function SettingsPage() {
     for (const [key, value] of Object.entries(form)) {
       if (value !== '') payload[key] = value
     }
-    const { data } = await api.put('/settings', payload)
+    const { data } = await api.put<SettingsResponse>('/settings', payload)
     setSettings(data)
     setSaved('Settings saved. AI key and cloud credentials are stored server-side.')
+    // Clear secret fields after save (keep configured state from response)
+    setForm((prev) => ({
+      ...prev,
+      ai_api_key: '',
+      storage_key: '',
+      storage_secret: '',
+      db_password: '',
+    }))
   }
 
   if (!settings) return <div className="muted">Loading settings…</div>
 
-  const runtime = settings.runtime as { active_db: string; active_filesystem: string; ai_ready: boolean }
-  const aiConfigured = (settings.ai_api_key as { configured: boolean })?.configured
+  const runtime = settings.runtime
+  const aiConfigured = (settings.ai_api_key as SettingField)?.configured
+  const providerLabel = selectedProvider?.label || form.ai_provider || 'AI'
 
   return (
     <>
@@ -57,7 +105,7 @@ export default function SettingsPage() {
 
       {!aiConfigured && (
         <div className="alert warn" style={{ marginBottom: 16 }}>
-          AI API key is not configured. When you use AI in the page builder, you’ll see: please configure the key in Settings → AI.
+          AI API key is not configured. Choose a provider below, paste its API key, then use AI in the page builder.
         </div>
       )}
 
@@ -70,32 +118,87 @@ export default function SettingsPage() {
           </div>
           <p className="muted">
             Runtime DB: <code>{runtime.active_db}</code> · Filesystem: <code>{runtime.active_filesystem}</code> · AI:{' '}
-            {runtime.ai_ready ? 'ready' : 'not configured'}
+            {runtime.ai_ready ? `ready (${providerLabel})` : 'not configured'}
           </p>
         </section>
 
         <section className="card">
           <h2>AI</h2>
+          <p className="muted" style={{ marginTop: 0 }}>
+            Pick a provider, paste that provider’s API key, and choose a model. Generation in the editor uses these settings.
+          </p>
+
           <div className="field">
             <label>Provider</label>
-            <select value={form.ai_provider || 'openai'} onChange={(e) => setForm({ ...form, ai_provider: e.target.value })}>
-              <option value="openai">OpenAI</option>
-              <option value="anthropic">Anthropic</option>
-              <option value="gemini">Gemini</option>
+            <select value={form.ai_provider || 'openai'} onChange={(e) => onProviderChange(e.target.value)}>
+              {providers.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.label}
+                </option>
+              ))}
             </select>
+            {selectedProvider?.hint && <span className="muted" style={{ fontSize: 12 }}>{selectedProvider.hint}</span>}
+            {selectedProvider?.docs && (
+              <a className="muted" style={{ fontSize: 12 }} href={selectedProvider.docs} target="_blank" rel="noreferrer">
+                Get API key →
+              </a>
+            )}
           </div>
+
           <div className="field">
             <label>API key {aiConfigured ? '(configured — leave blank to keep)' : '(required to use AI)'}</label>
             <input
               type="password"
-              placeholder={aiConfigured ? '••••••••' : 'Paste API key'}
+              autoComplete="off"
+              placeholder={aiConfigured ? '••••••••' : `Paste ${providerLabel} API key`}
               value={form.ai_api_key || ''}
               onChange={(e) => setForm({ ...form, ai_api_key: e.target.value })}
             />
           </div>
+
           <div className="field">
             <label>Model</label>
-            <input value={form.ai_model || ''} onChange={(e) => setForm({ ...form, ai_model: e.target.value })} />
+            {!customModel ? (
+              <select
+                value={form.ai_model || selectedProvider?.default_model || ''}
+                onChange={(e) => {
+                  if (e.target.value === '__custom__') {
+                    setCustomModel(true)
+                    return
+                  }
+                  setForm({ ...form, ai_model: e.target.value })
+                }}
+              >
+                {(selectedProvider?.models || []).map((m) => (
+                  <option key={m.value} value={m.value}>
+                    {m.label}
+                  </option>
+                ))}
+                <option value="__custom__">Custom model id…</option>
+              </select>
+            ) : (
+              <div className="row" style={{ gap: 8 }}>
+                <input
+                  style={{ flex: 1 }}
+                  value={form.ai_model || ''}
+                  onChange={(e) => setForm({ ...form, ai_model: e.target.value })}
+                  placeholder="e.g. gpt-4o-mini"
+                />
+                <button
+                  type="button"
+                  className="btn secondary"
+                  onClick={() => {
+                    setCustomModel(false)
+                    setForm((prev) => ({
+                      ...prev,
+                      ai_model: selectedProvider?.default_model || prev.ai_model,
+                    }))
+                  }}
+                >
+                  Presets
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
@@ -138,8 +241,8 @@ export default function SettingsPage() {
         <section className="card">
           <h2>Database</h2>
           <div className="alert info">
-            Values are saved for future cloud setup. The running demo uses SQLite locally. Switching live DB requires updating
-            <code> apps/api/.env</code> and running migrations — documented for the next phase.
+            Values are saved for future cloud setup. The running demo uses the connection in
+            <code> apps/api/.env</code>. Switching live DB requires updating that file and running migrations.
           </div>
           <div className="field">
             <label>Driver</label>

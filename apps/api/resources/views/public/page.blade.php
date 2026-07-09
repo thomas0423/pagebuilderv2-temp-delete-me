@@ -23,11 +23,11 @@
 </head>
 <body>
 @if(!empty($isPreview) && $page->has_unpublished_changes)
-    <div style="position:sticky;top:0;z-index:50;padding:8px 16px;background:#fff7ed;color:#9a3412;border-bottom:1px solid #fed7aa;font:500 13px/1.4 system-ui,sans-serif;text-align:center">
+    <div style="position:sticky;top:0;z-index:50;padding:8px 16px;background:#eef8ff;color:#0c4a6e;border-bottom:1px solid #bae6fd;font:500 13px/1.4 system-ui,sans-serif;text-align:center">
         Draft preview — Live site still shows the last published version until you click <strong>Publish</strong>.
     </div>
 @elseif(!empty($isPreview) && ! $page->isLive())
-    <div style="position:sticky;top:0;z-index:50;padding:8px 16px;background:#fff7ed;color:#9a3412;border-bottom:1px solid #fed7aa;font:500 13px/1.4 system-ui,sans-serif;text-align:center">
+    <div style="position:sticky;top:0;z-index:50;padding:8px 16px;background:#eef8ff;color:#0c4a6e;border-bottom:1px solid #bae6fd;font:500 13px/1.4 system-ui,sans-serif;text-align:center">
         Draft preview — this page is not on the live site yet. Click <strong>Publish</strong> to make it public.
     </div>
 @endif

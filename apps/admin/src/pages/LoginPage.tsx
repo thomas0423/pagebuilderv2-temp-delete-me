@@ -30,7 +30,7 @@ export default function LoginPage() {
     <div className="login-page">
       <form className="login-card" onSubmit={onSubmit}>
         <h1>Welcome back</h1>
-        <p className="muted">Modern CMS admin for tonight’s presentation.</p>
+        <p className="muted">Modern CMS admin.</p>
         {error && <div className="alert">{error}</div>}
         <div className="field">
           <label htmlFor="email">Email</label>

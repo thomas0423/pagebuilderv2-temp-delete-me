@@ -47,9 +47,68 @@ class SettingsService
             'active_db' => config('database.default'),
             'active_filesystem' => config('filesystems.default'),
             'ai_ready' => filled(Setting::getValue('ai_api_key')),
+            'ai_provider' => $this->aiProvider(),
+            'ai_model' => $this->aiModel(),
         ];
 
+        $out['ai_providers'] = $this->providersCatalog();
+
         return $out;
+    }
+
+    public function providersCatalog(): array
+    {
+        $catalog = [];
+        foreach (config('ai.providers', []) as $id => $provider) {
+            $catalog[] = [
+                'id' => $id,
+                'label' => $provider['label'],
+                'default_model' => $provider['default_model'],
+                'models' => collect($provider['models'] ?? [])
+                    ->map(fn ($label, $value) => ['value' => $value, 'label' => $label])
+                    ->values()
+                    ->all(),
+                'docs' => $provider['docs'] ?? null,
+                'hint' => $provider['hint'] ?? null,
+            ];
+        }
+
+        return $catalog;
+    }
+
+    public function providerIds(): array
+    {
+        return array_keys(config('ai.providers', []));
+    }
+
+    public function providerConfig(?string $provider = null): ?array
+    {
+        $provider ??= $this->aiProvider();
+
+        return config('ai.providers.'.$provider);
+    }
+
+    public function aiProvider(): string
+    {
+        $provider = (string) Setting::getValue('ai_provider', 'openai');
+
+        return array_key_exists($provider, config('ai.providers', []))
+            ? $provider
+            : 'openai';
+    }
+
+    public function aiModel(): string
+    {
+        $provider = $this->aiProvider();
+        $config = $this->providerConfig($provider) ?? [];
+        $model = (string) Setting::getValue('ai_model', $config['default_model'] ?? 'gpt-4o-mini');
+
+        // Allow custom model ids typed in Settings; only fall back when empty.
+        if ($model === '') {
+            return (string) ($config['default_model'] ?? 'gpt-4o-mini');
+        }
+
+        return $model;
     }
 
     public function update(array $payload): array

@@ -17,6 +17,8 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
+        $providers = $this->settings->providerIds();
+
         $data = $request->validate([
             'site_name' => ['nullable', 'string', 'max:255'],
             'storage_driver' => ['nullable', 'in:local,s3'],
@@ -31,9 +33,9 @@ class SettingController extends Controller
             'db_database' => ['nullable', 'string'],
             'db_username' => ['nullable', 'string'],
             'db_password' => ['nullable', 'string'],
-            'ai_provider' => ['nullable', 'in:openai,anthropic,gemini'],
+            'ai_provider' => ['nullable', 'in:'.implode(',', $providers)],
             'ai_api_key' => ['nullable', 'string'],
-            'ai_model' => ['nullable', 'string'],
+            'ai_model' => ['nullable', 'string', 'max:120'],
         ]);
 
         return $this->settings->update($data);
