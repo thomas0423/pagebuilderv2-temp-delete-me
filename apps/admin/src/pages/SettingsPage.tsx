@@ -1,5 +1,8 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
+import axios from 'axios'
 import { api } from '../api/client'
+
+type SaveStatus = 'idle' | 'saving' | 'success' | 'error'
 
 type SettingField = { group: string; is_secret: boolean; configured: boolean; value: string | null }
 type Runtime = {
@@ -22,33 +25,76 @@ type SettingsResponse = Record<string, SettingField | Runtime | AiProviderOption
   ai_providers: AiProviderOption[]
 }
 
+function formFromSettings(data: SettingsResponse): Record<string, string> {
+  const next: Record<string, string> = {}
+  for (const [key, val] of Object.entries(data)) {
+    if (key === 'runtime' || key === 'ai_providers') continue
+    const item = val as SettingField
+    if (!item || typeof item !== 'object' || !('is_secret' in item)) continue
+    next[key] = item.is_secret ? '' : (item.value ?? '')
+  }
+  return next
+}
+
 export default function SettingsPage() {
   const [settings, setSettings] = useState<SettingsResponse | null>(null)
   const [form, setForm] = useState<Record<string, string>>({})
-  const [saved, setSaved] = useState('')
+  const [status, setStatus] = useState<SaveStatus>('idle')
+  const [message, setMessage] = useState('')
   const [customModel, setCustomModel] = useState(false)
+  const feedbackRef = useRef<HTMLDivElement>(null)
+  const successTimer = useRef<number | null>(null)
 
-  const load = async () => {
-    const { data } = await api.get<SettingsResponse>('/settings')
-    setSettings(data)
-    const next: Record<string, string> = {}
-    for (const [key, val] of Object.entries(data)) {
-      if (key === 'runtime' || key === 'ai_providers') continue
-      const item = val as SettingField
-      next[key] = item.is_secret ? '' : (item.value ?? '')
+  const showFeedback = (next: SaveStatus, text: string) => {
+    setStatus(next)
+    setMessage(text)
+    if (successTimer.current) window.clearTimeout(successTimer.current)
+    if (next === 'success') {
+      successTimer.current = window.setTimeout(() => {
+        setStatus('idle')
+        setMessage('')
+      }, 4000)
     }
+    requestAnimationFrame(() => {
+      feedbackRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    })
+  }
+
+  useEffect(() => {
+    return () => {
+      if (successTimer.current) window.clearTimeout(successTimer.current)
+    }
+  }, [])
+
+  const applySettings = (data: SettingsResponse) => {
+    setSettings(data)
+    const next = formFromSettings(data)
     setForm(next)
 
     const providers = data.ai_providers || []
     const providerId = next.ai_provider || 'openai'
     const provider = providers.find((p) => p.id === providerId)
     const model = next.ai_model || provider?.default_model || ''
+    if (!next.ai_model && provider?.default_model) {
+      next.ai_model = provider.default_model
+      setForm({ ...next })
+    }
     const known = provider?.models.some((m) => m.value === model) ?? false
     setCustomModel(!known && model !== '')
   }
 
+  const load = async () => {
+    const { data } = await api.get<SettingsResponse>('/settings')
+    applySettings(data)
+  }
+
   useEffect(() => {
-    void load()
+    void load().catch((err: unknown) => {
+      const msg = axios.isAxiosError(err)
+        ? (err.response?.data as { message?: string } | undefined)?.message || err.message
+        : 'Failed to load settings'
+      showFeedback('error', msg)
+    })
   }, [])
 
   const providers = settings?.ai_providers ?? []
@@ -69,24 +115,74 @@ export default function SettingsPage() {
 
   const submit = async (e: FormEvent) => {
     e.preventDefault()
+    showFeedback('saving', 'Saving settings…')
+
     const payload: Record<string, string> = {}
     for (const [key, value] of Object.entries(form)) {
-      if (value !== '') payload[key] = value
+      if (typeof value === 'string' && value.trim() !== '') {
+        payload[key] = value.trim()
+      }
     }
-    const { data } = await api.put<SettingsResponse>('/settings', payload)
-    setSettings(data)
-    setSaved('Settings saved. AI key and cloud credentials are stored server-side.')
-    // Clear secret fields after save (keep configured state from response)
-    setForm((prev) => ({
-      ...prev,
-      ai_api_key: '',
-      storage_key: '',
-      storage_secret: '',
-      db_password: '',
-    }))
+
+    // Always send current provider/model/driver selections even if unchanged
+    if (form.ai_provider) payload.ai_provider = form.ai_provider
+    if (form.ai_model) payload.ai_model = form.ai_model
+    if (form.storage_driver) payload.storage_driver = form.storage_driver
+    if (form.db_driver) payload.db_driver = form.db_driver
+    if (form.site_name !== undefined) payload.site_name = form.site_name
+
+    try {
+      const { data } = await api.put<SettingsResponse>('/settings', payload)
+      applySettings(data)
+      showFeedback('success', 'Settings saved successfully.')
+    } catch (err: unknown) {
+      let msg = 'Failed to save settings.'
+      if (axios.isAxiosError(err)) {
+        const body = err.response?.data as { message?: string; errors?: Record<string, string[]> } | undefined
+        if (body?.errors) {
+          msg = Object.values(body.errors).flat().join(' ')
+        } else if (body?.message) {
+          msg = body.message
+        } else if (err.message) {
+          msg = err.message
+        }
+      }
+      showFeedback('error', msg)
+    }
   }
 
-  if (!settings) return <div className="muted">Loading settings…</div>
+  if (!settings && status !== 'error') {
+    return (
+      <div className="alert processing">
+        <span className="spinner" aria-hidden />
+        Loading settings…
+      </div>
+    )
+  }
+  if (!settings && status === 'error') {
+    return (
+      <div className="alert">
+        {message || 'Failed to load settings.'}{' '}
+        <button
+          type="button"
+          className="btn secondary"
+          onClick={() => {
+            setStatus('idle')
+            setMessage('')
+            void load().catch((err: unknown) => {
+              const msg = axios.isAxiosError(err)
+                ? (err.response?.data as { message?: string } | undefined)?.message || err.message
+                : 'Failed to load settings'
+              showFeedback('error', msg)
+            })
+          }}
+        >
+          Retry
+        </button>
+      </div>
+    )
+  }
+  if (!settings) return null
 
   const runtime = settings.runtime
   const aiConfigured = (settings.ai_api_key as SettingField)?.configured
@@ -101,15 +197,13 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {saved && <div className="alert info">{saved}</div>}
-
       {!aiConfigured && (
         <div className="alert warn" style={{ marginBottom: 16 }}>
           AI API key is not configured. Choose a provider below, paste its API key, then use AI in the page builder.
         </div>
       )}
 
-      <form className="settings-sections" onSubmit={submit}>
+      <form className="settings-sections" onSubmit={(e) => void submit(e)}>
         <section className="card">
           <h2>General</h2>
           <div className="field">
@@ -117,8 +211,8 @@ export default function SettingsPage() {
             <input value={form.site_name || ''} onChange={(e) => setForm({ ...form, site_name: e.target.value })} />
           </div>
           <p className="muted">
-            Runtime DB: <code>{runtime.active_db}</code> · Filesystem: <code>{runtime.active_filesystem}</code> · AI:{' '}
-            {runtime.ai_ready ? `ready (${providerLabel})` : 'not configured'}
+            Runtime DB: <code>{runtime?.active_db}</code> · Filesystem: <code>{runtime?.active_filesystem}</code> · AI:{' '}
+            {runtime?.ai_ready ? `ready (${providerLabel})` : 'not configured'}
           </p>
         </section>
 
@@ -246,8 +340,8 @@ export default function SettingsPage() {
           </div>
           <div className="field">
             <label>Driver</label>
-            <select value={form.db_driver || 'sqlite'} onChange={(e) => setForm({ ...form, db_driver: e.target.value })}>
-              <option value="sqlite">SQLite (default)</option>
+            <select value={form.db_driver || 'mysql'} onChange={(e) => setForm({ ...form, db_driver: e.target.value })}>
+              <option value="sqlite">SQLite</option>
               <option value="mysql">MySQL</option>
               <option value="pgsql">PostgreSQL</option>
             </select>
@@ -278,9 +372,27 @@ export default function SettingsPage() {
           </div>
         </section>
 
-        <button className="btn" type="submit">
-          Save settings
-        </button>
+        <div className="settings-status" ref={feedbackRef} aria-live="polite">
+          {status === 'saving' && (
+            <div className="alert processing">
+              <span className="spinner" aria-hidden />
+              {message || 'Saving settings…'}
+            </div>
+          )}
+          {status === 'success' && <div className="alert success">{message || 'Settings saved successfully.'}</div>}
+          {status === 'error' && <div className="alert">{message || 'Failed to save settings.'}</div>}
+
+          <button className="btn" type="submit" disabled={status === 'saving'}>
+            {status === 'saving' ? (
+              <>
+                <span className="spinner inline" aria-hidden />
+                Saving…
+              </>
+            ) : (
+              'Save settings'
+            )}
+          </button>
+        </div>
       </form>
     </>
   )

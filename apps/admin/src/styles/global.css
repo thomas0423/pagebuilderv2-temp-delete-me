@@ -238,10 +238,59 @@ button { cursor: pointer; }
   border-color: rgba(94, 234, 212, 0.35);
   color: #ccfbf1;
 }
+.alert.success {
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #a7f3d0;
+}
 .alert.warn {
   background: rgba(17, 164, 255, 0.12);
   border-color: rgba(17, 164, 255, 0.4);
-  color: #ffedd5;
+  color: #bae6fd;
+}
+.alert.processing {
+  background: rgba(17, 164, 255, 0.1);
+  border-color: rgba(17, 164, 255, 0.35);
+  color: #e0f2fe;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.spinner.inline {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 8px;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.settings-status {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: grid;
+  gap: 10px;
+  padding-top: 4px;
+}
+.settings-status .btn {
+  justify-self: start;
+}
+.settings-status .alert {
+  margin-bottom: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* ===== Full-screen page builder studio ===== */

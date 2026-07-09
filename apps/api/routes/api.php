@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('media/{medium}', [MediaController::class, 'destroy']);
 
     Route::get('settings', [SettingController::class, 'index']);
-    Route::put('settings', [SettingController::class, 'update']);
+    Route::match(['put', 'patch', 'post'], 'settings', [SettingController::class, 'update']);
 
     Route::post('ai/generate', [AiController::class, 'generate']);
 });
