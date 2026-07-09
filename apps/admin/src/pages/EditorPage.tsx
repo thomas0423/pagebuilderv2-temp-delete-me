@@ -318,6 +318,199 @@ function injectPublicCss(editor: Editor | null | undefined) {
   }
 }
 
+function mergeScriptBlock(existing: string, incoming: string, marker: string): string {
+  const next = incoming.trim()
+  if (!next) return existing
+  if (existing.includes(next)) return existing
+  const wrapped = next.includes('<script')
+    ? next
+    : `<script>\n// ${marker}\n${next}\n</script>`
+  return existing.trim() ? `${existing.trim()}\n\n${wrapped}` : wrapped
+}
+
+function extractStyleCssFromHead(headHtml: string): string {
+  const parts: string[] = []
+  const re = /<style\b[^>]*>([\s\S]*?)<\/style>/gi
+  let m: RegExpExecArray | null
+  while ((m = re.exec(headHtml))) {
+    const css = m[1]?.trim()
+    if (css) parts.push(css)
+  }
+  return parts.join('\n\n')
+}
+
+function extractInlineScripts(bodyHtml: string): string[] {
+  const parts: string[] = []
+  const re = /<script\b[^>]*>([\s\S]*?)<\/script>/gi
+  let m: RegExpExecArray | null
+  while ((m = re.exec(bodyHtml))) {
+    const js = m[1]?.trim()
+    if (js) parts.push(js)
+  }
+  return parts
+}
+
+const FALLBACK_MOUSE_JS = `(function () {
+  var cards = document.querySelectorAll('.pb-ai-card, article, [class*="card"]');
+  if (!cards.length) return;
+  cards.forEach(function (card) {
+    if (card.getAttribute('data-pb-mouse') === '1') return;
+    card.setAttribute('data-pb-mouse', '1');
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / Math.max(r.width, 1) - 0.5;
+      var y = (e.clientY - r.top) / Math.max(r.height, 1) - 0.5;
+      card.style.transform = 'perspective(700px) rotateX(' + (-y * 8) + 'deg) rotateY(' + (x * 10) + 'deg) translateY(-4px)';
+      card.classList.add('is-hot');
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+      card.classList.remove('is-hot');
+    });
+  });
+})();`
+
+/** Reject scripts that wipe the canvas / page when previewed. */
+function sanitizePreviewJs(js: string): string {
+  const dangerous =
+    /\bdocument\.write(?:ln)?\s*\(|\b(?:document\.)?(?:body|documentElement)\.(?:inner|outer)HTML\s*=|\bquerySelector\s*\(\s*['"](?:body|html|main)\s*['"]\s*\)\s*\.innerHTML\s*=|\b(?:window\.)?location\s*=/i
+  if (dangerous.test(js)) return FALLBACK_MOUSE_JS
+  return js
+}
+
+function htmlLooksWeak(html: string, selectedHtml: string): boolean {
+  const ai = (html || '').trim()
+  const sel = (selectedHtml || '').trim()
+  if (!sel) return false
+  if (!ai) return true
+  if (/<section\b/i.test(ai) && !/<\/section>/i.test(ai)) return true
+  const count = (h: string) => {
+    const article = (h.match(/<article\b/gi) || []).length
+    const cards = (h.match(/class=["'][^"']*\b(?:pb-ai-)?(?:card|feature|pros?|benefit|item)\b/gi) || []).length
+    const h3 = (h.match(/<h3\b/gi) || []).length
+    return Math.max(article, cards, h3 >= 3 ? h3 : 0)
+  }
+  const aiN = count(ai)
+  const selN = count(sel)
+  if (selN >= 3 && aiN < selN) return true
+  const aiText = ai.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  const selText = sel.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  if (selText.length > 120 && aiText.length < selText.length * 0.35) return true
+  if (/\bpb-ai-hero\b/i.test(ai) && !/\bpb-ai-card\b/i.test(ai) && selN >= 2) return true
+  return false
+}
+
+/** Preview custom head CSS + body scripts inside the GrapesJS iframe. */
+function injectCustomCodePreview(
+  editor: Editor | null | undefined,
+  headHtml: string,
+  bodyHtml: string,
+  extraCss = '',
+  extraJs = '',
+) {
+  try {
+    if (!editor?.Canvas) return
+    const doc = editor.Canvas.getDocument?.()
+    if (!doc) return
+
+    const css = [extractStyleCssFromHead(headHtml), extraCss.trim()].filter(Boolean).join('\n\n')
+    let styleEl = doc.getElementById('pb-custom-head-css') as HTMLStyleElement | null
+    if (!styleEl) {
+      styleEl = doc.createElement('style')
+      styleEl.id = 'pb-custom-head-css'
+      doc.head.appendChild(styleEl)
+    }
+    styleEl.textContent = css
+
+    // Remove previous AI/custom preview scripts, then re-run
+    doc.querySelectorAll('script[data-pb-preview="1"]').forEach((n) => n.remove())
+    const scripts = [...extractInlineScripts(bodyHtml), ...(extraJs.trim() ? [extraJs.trim()] : [])]
+      .map(sanitizePreviewJs)
+      .filter(Boolean)
+    for (const js of scripts) {
+      const script = doc.createElement('script')
+      script.setAttribute('data-pb-preview', '1')
+      // Concatenate (do not interpolate AI JS into a template literal — backticks/${ break it).
+      script.textContent = [
+        '(function(doc){',
+        "  var ready = doc.readyState !== 'loading';",
+        '  var orig = doc.addEventListener.bind(doc);',
+        "  var blockedWrite = function(){ console.warn('AI preview blocked document.write'); };",
+        '  try { doc.write = blockedWrite; doc.writeln = blockedWrite; } catch (e) {}',
+        '  doc.addEventListener = function(type, fn, opts) {',
+        "    if (String(type) === 'DOMContentLoaded' && ready) {",
+        "      try { fn.call(doc); } catch (e) { console.warn('AI preview script error', e); }",
+        '      return;',
+        '    }',
+        '    return orig(type, fn, opts);',
+        '  };',
+        '  try {',
+        js,
+        '  } catch (e) {',
+        "    console.warn('AI preview script error', e);",
+        '  }',
+        '  doc.addEventListener = orig;',
+        '})(document);',
+      ].join('\n')
+      doc.body.appendChild(script)
+    }
+  } catch {
+    // ignore
+  }
+}
+
+/** Apply AI CSS into GrapesJS + Code→Head, and AI JS into Code→Body. Preview after HTML is on canvas. */
+function applyAiAssets(
+  editor: Editor,
+  data: { css?: string | null; js?: string | null },
+  setCustomHead: (value: string | ((prev: string) => string)) => void,
+  setCustomBody: (value: string | ((prev: string) => string)) => void,
+  currentHead = '',
+  currentBody = '',
+) {
+  const css = (data.css || '').trim()
+  const js = (data.js || '').trim()
+  const stamp = `AI ${new Date().toLocaleTimeString()}`
+
+  let nextHead = currentHead
+  if (css) {
+    editor.addStyle(css)
+    if (!currentHead.includes(css)) {
+      const block = `<!-- ${stamp} -->\n<style>\n${css}\n</style>`
+      nextHead = currentHead.trim() ? `${currentHead.trim()}\n\n${block}` : block
+      setCustomHead(nextHead)
+    }
+  }
+
+  let nextBody = currentBody
+  if (js) {
+    nextBody = mergeScriptBlock(currentBody, sanitizePreviewJs(js), stamp)
+    if (nextBody !== currentBody) setCustomBody(nextBody)
+  }
+
+  const preview = () => injectCustomCodePreview(editor, nextHead, nextBody, css, js)
+
+  return {
+    cssApplied: Boolean(css),
+    jsApplied: Boolean(js),
+    preview,
+  }
+}
+
+function countCardsInHtml(html: string): number {
+  if (!html) return 0
+  const article = (html.match(/<article\b/gi) || []).length
+  const cards = (html.match(/class=["'][^"']*\b(?:pb-ai-)?(?:card|feature|pros?|benefit|item)\b/gi) || []).length
+  // Grid children often look like <div class="..."> with an h3 inside a features grid
+  const h3InSection = (html.match(/<h3\b/gi) || []).length
+  return Math.max(article, cards, h3InSection >= 3 ? h3InSection : 0)
+}
+
+function scheduleAiPreview(preview: () => void) {
+  // Run after GrapesJS finishes inserting components into the iframe.
+  ;[80, 250, 700, 1400].forEach((ms) => window.setTimeout(preview, ms))
+}
+
 export default function EditorPage() {
   const { id } = useParams()
   const canvasRef = useRef<HTMLDivElement>(null)
@@ -525,16 +718,20 @@ export default function EditorPage() {
   useEffect(() => {
     if (!ready || !editorRef.current) return
     const ed = editorRef.current
-    const t = window.setTimeout(() => injectPublicCss(ed), 80)
+    const t = window.setTimeout(() => {
+      injectPublicCss(ed)
+      injectCustomCodePreview(ed, customHead, customBody)
+    }, 80)
     return () => window.clearTimeout(t)
-  }, [ready, showBlocks, showInspector])
+  }, [ready, showBlocks, showInspector, customHead, customBody])
 
   // Toggle site chrome: always both header+footer, or neither
   useEffect(() => {
     if (!ready || !editorRef.current) return
     syncSiteChrome(editorRef.current, showChrome)
     injectPublicCss(editorRef.current)
-  }, [ready, showChrome])
+    injectCustomCodePreview(editorRef.current, customHead, customBody)
+  }, [ready, showChrome, customHead, customBody])
 
   const persist = useCallback(
     async (publish = false) => {
@@ -642,31 +839,54 @@ export default function EditorPage() {
       }
 
       // Selecting alone does nothing — only this button updates the canvas.
-      const target = aiTab === 'page' ? null : resolveReplaceTarget(editor, aiTab)
-      const selectedHtml = target ? target.toHTML() : ''
-      const selectedText = target
-        ? (target.get('content') as string) || target.getEl()?.textContent?.trim() || ''
-        : ''
+      // For page mode, send the whole body HTML (without site chrome) as context.
+      let target = aiTab === 'page' ? null : resolveReplaceTarget(editor, aiTab)
+      let selectedHtml = ''
+      let selectedText = ''
+
+      if (aiTab === 'page') {
+        stripSiteChrome(editor)
+        selectedHtml = (editor.getHtml() || '').slice(0, 40000)
+        selectedText = editor.getWrapper()?.getEl()?.textContent?.trim()?.slice(0, 4000) || ''
+        syncSiteChrome(editor, showChromeRef.current)
+      } else if (target) {
+        selectedHtml = (target.toHTML() || '').slice(0, 40000)
+        selectedText =
+          ((target.get('content') as string) || target.getEl()?.textContent || '').trim().slice(0, 4000)
+      }
+
+      if (aiTab === 'content' && !selectedHtml) {
+        setAiError('Select a text block on the canvas first, then generate.')
+        setMessage('')
+        return
+      }
 
       const contextParts = [
-        selectedText ? `Selected text: ${selectedText}` : '',
-        selectedHtml ? `Selected HTML: ${selectedHtml.slice(0, 2500)}` : '',
-        aiTab === 'content' && target
-          ? 'Rewrite/replace the selected element only. Keep a similar HTML tag when possible.'
+        aiTab === 'content' && selectedHtml
+          ? 'Update the selected content only. Keep a similar HTML tag/structure.'
           : '',
-        aiTab === 'section' && target
-          ? 'Replace only this selected section/block. Return one <section> (or equivalent block), not a full page.'
+        aiTab === 'section' && selectedHtml
+          ? 'Update the selected section only. Return one <section>…</section>.'
           : '',
+        aiTab === 'section' && !selectedHtml
+          ? 'No section selected — create a new <section> to insert.'
+          : '',
+        aiTab === 'page' && selectedHtml
+          ? 'CURRENT page HTML is included — revise it according to the request.'
+          : '',
+        'Always return HTML markup only. Do not return plain text without tags.',
       ].filter(Boolean)
 
       const { data } = await api.post(
         '/ai/generate',
         {
           type: aiTab,
-          prompt,
+          prompt: prompt.trim(),
+          selected_html: selectedHtml || undefined,
+          selected_text: selectedText || undefined,
           context: contextParts.join('\n') || undefined,
         },
-        { timeout: 100_000 },
+        { timeout: 160_000 },
       )
 
       if (aiTab === 'image' && data.url) {
@@ -685,47 +905,125 @@ export default function EditorPage() {
         return
       }
 
-      if (!data.html) {
-        setAiError('AI returned no HTML to insert.')
+      const keepExisting =
+        Boolean(data.kept_existing) ||
+        Boolean(data.effect_only && selectedHtml) ||
+        (Boolean(selectedHtml) && htmlLooksWeak(String(data.html || ''), selectedHtml))
+
+      // Effect-only / weak HTML: keep canvas markup, only attach CSS/JS.
+      const htmlToApply = keepExisting && selectedHtml ? selectedHtml : String(data.html || '')
+
+      if (!htmlToApply.trim() && !data.css && !data.js) {
+        setAiError('AI returned no HTML/CSS/JS to apply.')
         setMessage('')
         return
       }
 
+      const assets = applyAiAssets(editor, data, setCustomHead, setCustomBody, customHead, customBody)
+      const assetNote = [
+        assets.cssApplied ? 'CSS' : null,
+        assets.jsApplied ? 'JS' : null,
+      ]
+        .filter(Boolean)
+        .join(' + ')
+
+      const requestedMatch =
+        prompt.match(/\b(\d+)\b.*\b(card|cards|point|points|feature|features|pros?|benefit|benefits|item|items)\b/i) ||
+        prompt.match(/\b(card|cards|point|points|feature|features|pros?|benefit|benefits|item|items)\b.*\b(\d+)\b/i)
+      const requestedCount = requestedMatch
+        ? Number(requestedMatch[1] && /^\d+$/.test(requestedMatch[1]) ? requestedMatch[1] : requestedMatch[2])
+        : 0
+      const gotCount = countCardsInHtml(htmlToApply)
+      const truncated = Boolean(data.truncated) && !keepExisting
+      const incompleteNote = keepExisting
+        ? assetNote
+          ? ' Kept your existing cards; applied effect CSS/JS under Code.'
+          : ' Kept your existing cards (AI HTML looked empty/incomplete).'
+        : truncated
+          ? ' Warning: AI output was cut off (token limit). Generate again — ask for shorter card copy if needed.'
+          : requestedCount > 0 && gotCount > 0 && gotCount < requestedCount
+            ? ` Warning: asked for ${requestedCount} items but only ${gotCount} were returned — generate again or ask “include all ${requestedCount} cards with short copy”.`
+            : requestedCount > 0 && gotCount === 0
+              ? ' Tip: if cards look missing, generate again (response may have been cut off).'
+              : !assets.jsApplied &&
+                  /\b(animat|motion|effect|js|javascript|function|fade|slide|mouse)\b/i.test(prompt)
+                ? ' Note: no JS was returned — CSS motion may still apply; check Code → Body scripts.'
+                : ''
+
       if (aiTab === 'page') {
+        if (keepExisting) {
+          scheduleAiPreview(assets.preview)
+          setMessage((assetNote ? `Page HTML kept. ${assetNote} saved under Code.` : 'Page HTML kept.') + incompleteNote)
+          if (assets.cssApplied || assets.jsApplied) setSideTab('code')
+          return
+        }
         const ok = window.confirm('Replace the ENTIRE page content with AI output? This cannot be undone except via Undo.')
         if (!ok) {
           setMessage('Whole-page AI cancelled.')
           return
         }
-        editor.setComponents(data.html)
-        if (data.css) editor.addStyle(data.css)
+        editor.setComponents(htmlToApply)
         syncSiteChrome(editor, showChromeRef.current)
-        setMessage('Whole page replaced with AI content.')
+        scheduleAiPreview(assets.preview)
+        setMessage(
+          (assetNote
+            ? `Whole page replaced. ${assetNote} saved under Code (and previewed on canvas).`
+            : 'Whole page replaced with AI content.') + incompleteNote,
+        )
+        if (assets.cssApplied || assets.jsApplied) setSideTab('code')
         return
       }
 
       // Content / Section: replace a real selected block (never Body/wrapper).
       if (target && (aiTab === 'content' || aiTab === 'section')) {
+        if (keepExisting) {
+          // Do not remove/replace — only preview CSS/JS on the current selection.
+          scheduleAiPreview(assets.preview)
+          setMessage(
+            (assetNote
+              ? `${aiTab === 'content' ? 'Selected text' : 'Selected section'} kept. ${assetNote} auto-saved under Code.`
+              : 'Selection kept; AI returned incomplete HTML.') + incompleteNote,
+          )
+          if (assets.cssApplied || assets.jsApplied) setSideTab('code')
+          return
+        }
         const parent = target.parent()
         if (parent) {
           const index = target.index()
           target.remove()
-          const added = parent.append(data.html, { at: index })
+          const added = parent.append(htmlToApply, { at: index })
           const first = Array.isArray(added) ? added[0] : added
           if (first) editor.select(first)
-          if (data.css) editor.addStyle(data.css)
-          setMessage(aiTab === 'content' ? 'Selected text updated with AI.' : 'Selected section updated with AI.')
+          scheduleAiPreview(assets.preview)
+          setMessage(
+            (assetNote
+              ? `${aiTab === 'content' ? 'Selected text' : 'Selected section'} updated. ${assetNote} auto-saved under Code.`
+              : aiTab === 'content'
+                ? 'Selected text updated with AI.'
+                : 'Selected section updated with AI.') + incompleteNote,
+          )
+          if (assets.cssApplied || assets.jsApplied) setSideTab('code')
           return
         }
       }
 
-      editor.addComponents(data.html)
-      if (data.css) editor.addStyle(data.css)
+      if (keepExisting) {
+        scheduleAiPreview(assets.preview)
+        setMessage((assetNote ? `${assetNote} applied under Code.` : 'Nothing to insert.') + incompleteNote)
+        if (assets.cssApplied || assets.jsApplied) setSideTab('code')
+        return
+      }
+
+      editor.addComponents(htmlToApply)
+      scheduleAiPreview(assets.preview)
       setMessage(
-        aiTab === 'content'
-          ? 'AI content inserted (select a text block first to replace it).'
-          : 'AI section inserted at the end. Select a section first to replace that section.',
+        (assetNote
+          ? `AI content inserted. ${assetNote} auto-saved under Code.`
+          : aiTab === 'content'
+            ? 'AI content inserted (select a text block first to replace it).'
+            : 'AI section inserted at the end. Select a section first to replace that section.') + incompleteNote,
       )
+      if (assets.cssApplied || assets.jsApplied) setSideTab('code')
     } catch (err: unknown) {
       const axiosErr = err as {
         code?: string
@@ -936,8 +1234,7 @@ export default function EditorPage() {
             <>
               <h3>Generate with AI</h3>
               <p className="muted" style={{ fontSize: 13, marginTop: 0 }}>
-                Selecting a block does <strong>not</strong> auto-update it. Click a section, choose a type, then press{' '}
-                <strong>Generate & insert</strong>.
+                Just describe the change in plain language. We automatically send the selected HTML and ask the AI to return HTML.
               </p>
               <div className="field">
                 <label>Type</label>
@@ -956,25 +1253,47 @@ export default function EditorPage() {
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder={
                     aiTab === 'content'
-                      ? 'Example: Rewrite this into a short, attractive product description for a modern CMS.'
+                      ? 'Make this more persuasive and product-focused.'
                       : aiTab === 'section'
-                        ? 'Example: Create a features section for a page builder product.'
+                        ? 'Make this hero bolder with a clearer CTA.'
                         : aiTab === 'page'
-                          ? 'Example: Build a landing page for an AI page builder CMS.'
-                          : 'Example: Modern desk lamp on a clean desk'
+                          ? 'Refresh the whole page for a modern SaaS launch.'
+                          : 'Modern desk lamp on a clean desk'
                   }
                 />
               </div>
-              <p className="muted" style={{ fontSize: 12, marginTop: 0 }}>
-                {aiTab === 'content' && 'Tip: click a paragraph/heading (not Body), choose Content, then Generate.'}
-                {aiTab === 'section' && 'Tip: click a section (blue outline), then Generate to replace that section only.'}
-                {aiTab === 'page' && 'Tip: replaces the entire canvas — asks for confirmation first.'}
-                {aiTab === 'image' && 'Tip: inserts an image (or updates a selected image).'}
+              <p className="muted" style={{ fontSize: 12, marginTop: 0, lineHeight: 1.5 }}>
+                {aiTab === 'content' && (
+                  <>
+                    1) Click a paragraph/heading on the canvas
+                    <br />
+                    2) Write what to change
+                    <br />
+                    3) Generate — selected HTML is included automatically
+                  </>
+                )}
+                {aiTab === 'section' && (
+                  <>
+                    1) Click a section (not Body)
+                    <br />
+                    2) For effects only: “Add mouse tilt effect to these 6 cards” (keeps your HTML)
+                    <br />
+                    3) Generate — CSS/JS go to Code; canvas content is not wiped for effect-only prompts
+                  </>
+                )}
+                {aiTab === 'page' && (
+                  <>
+                    Sends the current page HTML with your request.
+                    <br />
+                    Replaces the whole canvas after confirmation.
+                  </>
+                )}
+                {aiTab === 'image' && 'Inserts an image, or updates the selected image.'}
               </p>
               {aiBusy && (
                 <div className="alert processing" style={{ marginBottom: 12 }}>
                   <span className="spinner" aria-hidden />
-                  Generating with AI — this can take a few seconds…
+                  Generating HTML with AI…
                 </div>
               )}
               {aiError && <div className="alert">{aiError}</div>}
@@ -984,12 +1303,14 @@ export default function EditorPage() {
                     <span className="spinner inline" aria-hidden />
                     Generating…
                   </>
+                ) : aiTab === 'content' || aiTab === 'section' ? (
+                  'Generate & update'
                 ) : (
                   'Generate & insert'
                 )}
               </button>
               <p className="muted" style={{ fontSize: 12, marginTop: 12 }}>
-                Choose provider + key in <Link to="/settings">Settings → AI</Link>
+                Provider + key: <Link to="/settings">Settings → AI</Link>
               </p>
             </>
           )}
@@ -997,6 +1318,9 @@ export default function EditorPage() {
           {sideTab === 'code' && (
             <>
               <h3>Custom scripts</h3>
+              <p className="muted" style={{ fontSize: 12, marginTop: 0 }}>
+                AI CSS/JS is saved here automatically. Preview runs in the canvas; publish to use on the live site.
+              </p>
               <div className="field">
                 <label>Head HTML / CSS</label>
                 <textarea rows={7} value={customHead} onChange={(e) => setCustomHead(e.target.value)} />

@@ -15,15 +15,23 @@ class AiController extends Controller
         $data = $request->validate([
             'type' => ['required', 'in:content,section,page,image'],
             'prompt' => ['required', 'string', 'max:4000'],
-            'context' => ['nullable', 'string'],
+            'context' => ['nullable', 'string', 'max:20000'],
+            'selected_html' => ['nullable', 'string', 'max:50000'],
+            'selected_text' => ['nullable', 'string', 'max:8000'],
         ]);
 
         if (function_exists('set_time_limit')) {
-            @set_time_limit(120);
+            @set_time_limit(180);
         }
 
         try {
-            $result = $this->ai->generate($data['type'], $data['prompt'], $data['context'] ?? null);
+            $result = $this->ai->generate(
+                $data['type'],
+                $data['prompt'],
+                $data['context'] ?? null,
+                $data['selected_html'] ?? null,
+                $data['selected_text'] ?? null,
+            );
         } catch (\Symfony\Component\HttpKernel\Exception\HttpException $e) {
             $message = $e->getMessage();
             $needsKey = str_contains(strtolower($message), 'api key')
@@ -32,8 +40,8 @@ class AiController extends Controller
             return response()->json([
                 'message' => $message,
                 'hint' => $needsKey
-                    ? 'Open Settings → AI, choose MiniMax (or another provider), paste that provider’s API key, then try again.'
-                    : 'Check the provider, model, and API key in Settings → AI. If this keeps failing, restart `npm run dev` so the API is running.',
+                    ? 'Open Settings → AI, choose a provider, paste that provider’s API key, then try again.'
+                    : 'Try selecting a section on the canvas, keep the prompt short, and generate again.',
                 'settings_path' => '/settings',
             ], $e->getStatusCode() ?: 422);
         } catch (\Throwable $e) {
