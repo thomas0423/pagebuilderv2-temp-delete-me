@@ -18,14 +18,30 @@ class AiController extends Controller
             'context' => ['nullable', 'string'],
         ]);
 
+        if (function_exists('set_time_limit')) {
+            @set_time_limit(120);
+        }
+
         try {
             $result = $this->ai->generate($data['type'], $data['prompt'], $data['context'] ?? null);
         } catch (\Symfony\Component\HttpKernel\Exception\HttpException $e) {
+            $message = $e->getMessage();
+            $needsKey = str_contains(strtolower($message), 'api key')
+                || str_contains(strtolower($message), 'not configured');
+
             return response()->json([
-                'message' => $e->getMessage(),
-                'hint' => 'Open Settings → AI, choose a provider (ChatGPT, Claude, MiniMax, etc.), paste that provider’s API key, then try again.',
+                'message' => $message,
+                'hint' => $needsKey
+                    ? 'Open Settings → AI, choose MiniMax (or another provider), paste that provider’s API key, then try again.'
+                    : 'Check the provider, model, and API key in Settings → AI. If this keeps failing, restart `npm run dev` so the API is running.',
                 'settings_path' => '/settings',
-            ], $e->getStatusCode());
+            ], $e->getStatusCode() ?: 422);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'message' => 'AI request failed: '.$e->getMessage(),
+                'hint' => 'The API may have timed out. Restart `npm run dev` and try a shorter prompt.',
+                'settings_path' => '/settings',
+            ], 422);
         }
 
         return response()->json($result);

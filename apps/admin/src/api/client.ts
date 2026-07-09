@@ -1,6 +1,37 @@
-import axios from 'axios'
+import axios, { type AxiosResponse } from 'axios'
 
 const TOKEN_KEY = 'pbv2_token'
+
+/** artisan serve sometimes prefixes JSON with PHP Notice HTML — recover the payload. */
+function parsePossiblyPollutedJson(raw: unknown): unknown {
+  if (raw == null) return raw
+  if (typeof raw !== 'string') return raw
+
+  const text = raw.trim()
+  if (!text) return text
+
+  try {
+    return JSON.parse(text)
+  } catch {
+    const arr = text.indexOf('[')
+    const obj = text.indexOf('{')
+    let start = -1
+    if (arr === -1) start = obj
+    else if (obj === -1) start = arr
+    else start = Math.min(arr, obj)
+
+    if (start >= 0) {
+      const slice = text.slice(start)
+      try {
+        return JSON.parse(slice)
+      } catch {
+        // fall through
+      }
+    }
+  }
+
+  return raw
+}
 
 export const api = axios.create({
   baseURL: '/api',
@@ -8,12 +39,22 @@ export const api = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
+  // Keep raw text so we can salvage JSON after PHP notice noise
+  transformResponse: [
+    (data) => parsePossiblyPollutedJson(data),
+  ],
 })
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem(TOKEN_KEY)
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
+  }
+  // Let the browser set multipart boundary for FormData
+  if (typeof FormData !== 'undefined' && config.data instanceof FormData) {
+    if (config.headers && 'Content-Type' in config.headers) {
+      delete (config.headers as Record<string, unknown>)['Content-Type']
+    }
   }
   return config
 })
@@ -25,6 +66,22 @@ export function setToken(token: string | null) {
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
+}
+
+/** Normalize list endpoints that must return arrays. */
+export function asArray<T>(data: unknown): T[] {
+  if (Array.isArray(data)) return data as T[]
+  if (data && typeof data === 'object') {
+    const obj = data as Record<string, unknown>
+    if (Array.isArray(obj.data)) return obj.data as T[]
+    if (Array.isArray(obj.items)) return obj.items as T[]
+  }
+  return []
+}
+
+export async function getList<T>(url: string): Promise<T[]> {
+  const { data }: AxiosResponse<unknown> = await api.get(url)
+  return asArray<T>(data)
 }
 
 export type User = {

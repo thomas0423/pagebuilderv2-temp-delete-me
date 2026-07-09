@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { api, type Page, type Product } from '../api/client'
+import { api, getList, type Page, type Product } from '../api/client'
 
 export default function DashboardPage() {
   const [pages, setPages] = useState<Page[]>([])
@@ -9,10 +9,13 @@ export default function DashboardPage() {
 
   useEffect(() => {
     void Promise.all([
-      api.get<Page[]>('/pages').then((r) => setPages(r.data)),
-      api.get<Product[]>('/products').then((r) => setProducts(r.data)),
-      api.get('/settings').then((r) => setAiReady(Boolean(r.data.runtime?.ai_ready))),
-    ])
+      getList<Page>('/pages').then(setPages),
+      getList<Product>('/products').then(setProducts),
+      api.get('/settings').then((r) => setAiReady(Boolean((r.data as { runtime?: { ai_ready?: boolean } })?.runtime?.ai_ready))),
+    ]).catch(() => {
+      setPages([])
+      setProducts([])
+    })
   }, [])
 
   const published = pages.filter((p) => p.status === 'published').length

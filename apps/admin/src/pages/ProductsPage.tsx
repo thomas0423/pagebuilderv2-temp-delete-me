@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { api, type Product } from '../api/client'
+import { api, getList, type Product } from '../api/client'
 
 const empty = { name: '', description: '', price: '0', image_url: '', is_active: true }
 
@@ -9,8 +9,7 @@ export default function ProductsPage() {
   const [editingId, setEditingId] = useState<number | null>(null)
 
   const load = async () => {
-    const { data } = await api.get<Product[]>('/products')
-    setItems(data)
+    setItems(await getList<Product>('/products'))
   }
 
   useEffect(() => {

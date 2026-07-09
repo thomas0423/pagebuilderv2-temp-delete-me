@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
-import { api, type MediaItem } from '../api/client'
+import { api, getList, type MediaItem } from '../api/client'
 
 export default function MediaPage() {
   const [items, setItems] = useState<MediaItem[]>([])
   const [uploading, setUploading] = useState(false)
 
   const load = async () => {
-    const { data } = await api.get<MediaItem[]>('/media')
-    setItems(data)
+    setItems(await getList<MediaItem>('/media'))
   }
 
   useEffect(() => {

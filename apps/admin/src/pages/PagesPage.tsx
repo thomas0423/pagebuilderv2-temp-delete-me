@@ -1,15 +1,21 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { api, type Page } from '../api/client'
+import { api, getList, type Page } from '../api/client'
 
 export default function PagesPage() {
   const [pages, setPages] = useState<Page[]>([])
   const [title, setTitle] = useState('')
   const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
 
   const load = async () => {
-    const { data } = await api.get<Page[]>('/pages')
-    setPages(data)
+    try {
+      setError('')
+      setPages(await getList<Page>('/pages'))
+    } catch (err: unknown) {
+      setPages([])
+      setError(err instanceof Error ? err.message : 'Failed to load pages')
+    }
   }
 
   useEffect(() => {
@@ -43,6 +49,8 @@ export default function PagesPage() {
           <p>Create pages, open the builder, publish to the public site.</p>
         </div>
       </div>
+
+      {error && <div className="alert" style={{ marginBottom: 16 }}>{error}</div>}
 
       <div className="card" style={{ marginBottom: 16 }}>
         <form className="row" onSubmit={create}>

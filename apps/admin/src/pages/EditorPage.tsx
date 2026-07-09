@@ -208,62 +208,114 @@ function syncSiteChrome(editor: Editor, show: boolean) {
   editor.refresh()
 }
 
-function loadContent(editor: Editor, page: Page, showChrome: boolean) {
-  const body = page.compiled_html?.trim()
-    ? page.compiled_html
-    : `<section style="padding:80px 24px;text-align:center;color:#334155;background:#fff">
+function stripSavedChrome(html: string): string {
+  return html
+    .replace(/<header[^>]*pb-site-header[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer[^>]*pb-site-footer[\s\S]*?<\/footer>/gi, '')
+    .replace(/data-pb-chrome="1"/gi, '')
+    .replace(/^[\s\S]*?<body[^>]*>/i, '')
+    .replace(/<\/body>[\s\S]*$/i, '')
+    .trim()
+}
+
+function pageBodyHtml(page: Page): string {
+  const draft = stripSavedChrome(page.compiled_html || '')
+  if (draft) return draft
+  // Fall back to last published snapshot if draft was wiped
+  const live = stripSavedChrome(page.published_html || '')
+  if (live) return live
+  return `<section style="padding:80px 24px;text-align:center;color:#334155;background:#fff">
         <h1 style="font-family:Georgia,serif;margin:0 0 12px">Empty canvas</h1>
         <p style="margin:0">Drag a block from the left to start.</p>
       </section>`
+}
 
+function loadContent(editor: Editor, page: Page, showChrome: boolean) {
   // Load page body only — chrome is applied via syncSiteChrome (both or none)
   // NEVER call setStyle() after setComponents — it wipes parsed inline CSS.
-  editor.setComponents(body)
+  editor.setComponents(pageBodyHtml(page))
 
-  const extra = (page.compiled_css || '').trim()
+  const extra = (page.compiled_css || page.published_css || '').trim()
   if (extra) editor.addStyle(extra)
 
   syncSiteChrome(editor, showChrome)
 }
 
-function injectPublicCss(editor: Editor) {
-  const doc = editor.Canvas.getDocument()
-  if (!doc) return false
+/** Prefer a real section/block — never the Body/wrapper root. */
+function resolveReplaceTarget(editor: Editor, aiTab: AiTab) {
+  const selected = editor.getSelected()
+  if (!selected) return null
 
-  let styleEl = doc.getElementById('pb-public-base') as HTMLStyleElement | null
-  if (!styleEl) {
-    styleEl = doc.createElement('style')
-    styleEl.id = 'pb-public-base'
-    doc.head.appendChild(styleEl)
-  }
-  styleEl.textContent = PUBLIC_CANVAS_CSS
+  const wrapper = editor.getWrapper()
+  if (!wrapper) return null
+  if (selected === wrapper || selected.is('wrapper')) return null
 
-  doc.documentElement.style.cssText = 'width:100%;height:100%;margin:0;padding:0;background:#fff;'
-  doc.body.style.cssText = 'width:100%;min-height:100%;margin:0;padding:0;background:#fff;color:#0f172a;font-family:"Segoe UI",system-ui,sans-serif;'
-
-  // Force the iframe element to the active device width (GrapesJS sometimes leaves it at 100%)
-  const frame = editor.Canvas.getFrameEl()
-  const device = editor.getDevice()
-  const width = device === 'Tablet' ? '768px' : device === 'Mobile' ? '390px' : '1280px'
-  if (frame) {
-    frame.style.width = width
-    frame.style.maxWidth = 'none'
-    frame.style.minHeight = '100%'
-    frame.style.background = '#fff'
-    frame.style.border = '0'
-    frame.style.display = 'block'
-  }
-  const wrapper = frame?.parentElement as HTMLElement | null
-  if (wrapper) {
-    wrapper.style.width = width
-    wrapper.style.maxWidth = 'none'
-    wrapper.style.margin = '0 auto'
-    wrapper.style.background = '#fff'
-    wrapper.style.boxShadow = '0 12px 48px rgba(0,0,0,0.28)'
+  // Skip locked site chrome
+  if (
+    selected.getAttributes()?.['data-pb-chrome'] === '1' ||
+    selected.getClasses?.()?.includes?.('pb-site-header') ||
+    selected.getClasses?.()?.includes?.('pb-site-footer')
+  ) {
+    return null
   }
 
-  editor.refresh()
-  return true
+  if (aiTab === 'content') return selected
+
+  // Section mode: walk up to the nearest top-level block / <section>
+  let current = selected
+  while (current && current.parent() && current.parent() !== wrapper) {
+    const tag = String(current.get('tagName') || '').toLowerCase()
+    if (tag === 'section') return current
+    current = current.parent()!
+  }
+  if (current && current.parent() === wrapper) return current
+  return selected
+}
+
+function injectPublicCss(editor: Editor | null | undefined) {
+  try {
+    if (!editor?.Canvas) return false
+    const doc = editor.Canvas.getDocument?.()
+    if (!doc) return false
+
+    let styleEl = doc.getElementById('pb-public-base') as HTMLStyleElement | null
+    if (!styleEl) {
+      styleEl = doc.createElement('style')
+      styleEl.id = 'pb-public-base'
+      doc.head.appendChild(styleEl)
+    }
+    styleEl.textContent = PUBLIC_CANVAS_CSS
+
+    doc.documentElement.style.cssText = 'width:100%;height:100%;margin:0;padding:0;background:#fff;'
+    doc.body.style.cssText =
+      'width:100%;min-height:100%;margin:0;padding:0;background:#fff;color:#0f172a;font-family:"Segoe UI",system-ui,sans-serif;'
+
+    // Force the iframe element to the active device width (GrapesJS sometimes leaves it at 100%)
+    const frame = editor.Canvas.getFrameEl?.()
+    const device = editor.getDevice()
+    const width = device === 'Tablet' ? '768px' : device === 'Mobile' ? '390px' : '1280px'
+    if (frame) {
+      frame.style.width = width
+      frame.style.maxWidth = 'none'
+      frame.style.minHeight = '100%'
+      frame.style.background = '#fff'
+      frame.style.border = '0'
+      frame.style.display = 'block'
+    }
+    const wrapper = frame?.parentElement as HTMLElement | null
+    if (wrapper) {
+      wrapper.style.width = width
+      wrapper.style.maxWidth = 'none'
+      wrapper.style.margin = '0 auto'
+      wrapper.style.background = '#fff'
+      wrapper.style.boxShadow = '0 12px 48px rgba(0,0,0,0.28)'
+    }
+
+    editor.refresh?.()
+    return true
+  } catch {
+    return false
+  }
 }
 
 export default function EditorPage() {
@@ -278,6 +330,7 @@ export default function EditorPage() {
   const [page, setPage] = useState<Page | null>(null)
   const [ready, setReady] = useState(false)
   const [initError, setInitError] = useState('')
+  const [bootKey, setBootKey] = useState(0)
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
   const [aiTab, setAiTab] = useState<AiTab>('section')
@@ -297,6 +350,8 @@ export default function EditorPage() {
   const [showChrome, setShowChrome] = useState(true)
   const showChromeRef = useRef(true)
   showChromeRef.current = showChrome
+  const pageRef = useRef<Page | null>(null)
+  pageRef.current = page
 
   useEffect(() => {
     let cancelled = false
@@ -318,20 +373,32 @@ export default function EditorPage() {
     }
   }, [id])
 
+  // Init GrapesJS once per page id / manual reboot.
+  // Do NOT depend on the whole `page` object — Save draft must not remount the canvas.
   useEffect(() => {
-    if (!page) return
+    if (!page?.id) return
 
     let editor: Editor | null = null
     let cancelled = false
+    const pageSnapshot = page
+    const polishTimers: number[] = []
 
-    // Wait one frame so refs are attached after paint
-    const raf = requestAnimationFrame(() => {
-      if (cancelled || !canvasRef.current || !blocksRef.current) {
-        setInitError('Editor DOM not ready. Refresh the page.')
+    const start = () => {
+      if (cancelled) return
+      if (!canvasRef.current || !blocksRef.current || !stylesRef.current || !layersRef.current || !traitsRef.current) {
+        // DOM hosts not painted yet (common after HMR) — retry shortly
+        polishTimers.push(window.setTimeout(start, 50))
         return
       }
 
       try {
+        // Clear any leftover GrapesJS markup from a previous destroyed instance
+        canvasRef.current.innerHTML = ''
+        blocksRef.current.innerHTML = ''
+        stylesRef.current.innerHTML = ''
+        layersRef.current.innerHTML = ''
+        traitsRef.current.innerHTML = ''
+
         editor = grapesjs.init({
           container: canvasRef.current,
           height: '100%',
@@ -344,9 +411,9 @@ export default function EditorPage() {
           avoidInlineStyle: false,
           panels: { defaults: [] },
           blockManager: { appendTo: blocksRef.current },
-          layerManager: { appendTo: layersRef.current! },
+          layerManager: { appendTo: layersRef.current },
           styleManager: {
-            appendTo: stylesRef.current!,
+            appendTo: stylesRef.current,
             sectors: [
               {
                 name: 'Dimension',
@@ -365,7 +432,7 @@ export default function EditorPage() {
               },
             ],
           },
-          traitManager: { appendTo: traitsRef.current! },
+          traitManager: { appendTo: traitsRef.current },
           deviceManager: {
             devices: [
               { id: 'desktop', name: 'Desktop', width: '1280px' },
@@ -380,6 +447,15 @@ export default function EditorPage() {
           },
         })
 
+        if (cancelled) {
+          try {
+            editor.destroy()
+          } catch {
+            // ignore
+          }
+          return
+        }
+
         for (const block of BLOCKS) {
           editor.BlockManager.add(block.id, {
             label: block.label,
@@ -388,48 +464,53 @@ export default function EditorPage() {
           })
         }
 
-        loadContent(editor, page, showChromeRef.current)
+        loadContent(editor, pageSnapshot, showChromeRef.current)
         editor.setDevice('Desktop')
 
         const polishCanvas = () => {
-          try {
-            if (editor) injectPublicCss(editor)
-          } catch (e) {
-            console.warn('canvas polish failed', e)
-          }
+          if (cancelled || !editor || editor !== editorRef.current) return
+          injectPublicCss(editor)
         }
 
         editor.on('canvas:frame:load', polishCanvas)
         editor.on('change:device', polishCanvas)
-        // GrapesJS emits styles into the iframe asynchronously — re-inject base CSS after load
-        requestAnimationFrame(polishCanvas)
-        window.setTimeout(polishCanvas, 100)
-        window.setTimeout(polishCanvas, 400)
-        window.setTimeout(polishCanvas, 1000)
+        polishTimers.push(window.setTimeout(polishCanvas, 0))
+        polishTimers.push(window.setTimeout(polishCanvas, 120))
+        polishTimers.push(window.setTimeout(polishCanvas, 400))
+        polishTimers.push(window.setTimeout(polishCanvas, 1000))
 
         editorRef.current = editor
         setReady(true)
         setInitError('')
-        setMessage('')
       } catch (err) {
         console.error('GrapesJS init failed', err)
-        setInitError(err instanceof Error ? err.message : 'GrapesJS failed to start')
+        editorRef.current = null
         setReady(false)
+        setInitError(err instanceof Error ? err.message : 'GrapesJS failed to start')
       }
+    }
+
+    // Two frames: wait for editor layout (blocks/side hosts) to mount
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(start)
     })
 
     return () => {
       cancelled = true
       cancelAnimationFrame(raf)
+      for (const t of polishTimers) window.clearTimeout(t)
+      const current = editor
+      editorRef.current = null
+      setReady(false)
       try {
-        editor?.destroy()
+        current?.destroy()
       } catch {
         // ignore
       }
-      if (editorRef.current === editor) editorRef.current = null
-      setReady(false)
+      if (canvasRef.current) canvasRef.current.innerHTML = ''
     }
-  }, [page])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- remount only when navigating / manual reboot
+  }, [page?.id, bootKey])
 
   const setEditorDevice = (name: 'Desktop' | 'Tablet' | 'Mobile') => {
     setDevice(name)
@@ -518,33 +599,162 @@ export default function EditorPage() {
     [page, customHead, customBody, metaTitle, metaDescription],
   )
 
+  const rebootBuilder = () => {
+    setInitError('')
+    setAiError('')
+    setReady(false)
+    setBootKey((k) => k + 1)
+    setMessage('Rebooting builder…')
+  }
+
+  const reloadFromServer = async () => {
+    if (!id) return
+    setMessage('Reloading page content…')
+    try {
+      const { data } = await api.get<Page>(`/pages/${id}`)
+      setPage(data)
+      pageRef.current = data
+      const editor = editorRef.current
+      if (editor?.Canvas) {
+        loadContent(editor, data, showChromeRef.current)
+        injectPublicCss(editor)
+        setMessage('Canvas restored from saved page content.')
+      } else {
+        // Builder dead — reboot GrapesJS with the fresh page snapshot
+        setBootKey((k) => k + 1)
+        setMessage('Builder restarted with saved page content.')
+      }
+    } catch {
+      setMessage('Failed to reload page content.')
+    }
+  }
+
   const runAi = async () => {
     setAiBusy(true)
     setAiError('')
+    setMessage('Generating with AI…')
     try {
-      const { data } = await api.post('/ai/generate', { type: aiTab, prompt })
       const editor = editorRef.current
-      if (!editor) {
-        setAiError('Builder not ready.')
+      if (!editor?.Canvas) {
+        setAiError('Builder not ready — click “Reboot builder” or refresh the page.')
+        setMessage('')
         return
       }
+
+      // Selecting alone does nothing — only this button updates the canvas.
+      const target = aiTab === 'page' ? null : resolveReplaceTarget(editor, aiTab)
+      const selectedHtml = target ? target.toHTML() : ''
+      const selectedText = target
+        ? (target.get('content') as string) || target.getEl()?.textContent?.trim() || ''
+        : ''
+
+      const contextParts = [
+        selectedText ? `Selected text: ${selectedText}` : '',
+        selectedHtml ? `Selected HTML: ${selectedHtml.slice(0, 2500)}` : '',
+        aiTab === 'content' && target
+          ? 'Rewrite/replace the selected element only. Keep a similar HTML tag when possible.'
+          : '',
+        aiTab === 'section' && target
+          ? 'Replace only this selected section/block. Return one <section> (or equivalent block), not a full page.'
+          : '',
+      ].filter(Boolean)
+
+      const { data } = await api.post(
+        '/ai/generate',
+        {
+          type: aiTab,
+          prompt,
+          context: contextParts.join('\n') || undefined,
+        },
+        { timeout: 100_000 },
+      )
+
       if (aiTab === 'image' && data.url) {
-        editor.addComponents({
-          type: 'image',
-          src: data.url,
-          style: { width: '100%', height: 'auto' },
-        })
-      } else if (data.html) {
-        if (aiTab === 'page') editor.setComponents(data.html)
-        else editor.addComponents(data.html)
-        if (data.css) editor.addStyle(data.css)
+        const imageTarget = editor.getSelected()
+        if (imageTarget && imageTarget.is('image')) {
+          imageTarget.set('src', data.url)
+          setMessage('Selected image updated.')
+        } else {
+          editor.addComponents({
+            type: 'image',
+            src: data.url,
+            style: { width: '100%', height: 'auto' },
+          })
+          setMessage('AI image inserted.')
+        }
+        return
       }
-      setMessage('AI content inserted.')
+
+      if (!data.html) {
+        setAiError('AI returned no HTML to insert.')
+        setMessage('')
+        return
+      }
+
+      if (aiTab === 'page') {
+        const ok = window.confirm('Replace the ENTIRE page content with AI output? This cannot be undone except via Undo.')
+        if (!ok) {
+          setMessage('Whole-page AI cancelled.')
+          return
+        }
+        editor.setComponents(data.html)
+        if (data.css) editor.addStyle(data.css)
+        syncSiteChrome(editor, showChromeRef.current)
+        setMessage('Whole page replaced with AI content.')
+        return
+      }
+
+      // Content / Section: replace a real selected block (never Body/wrapper).
+      if (target && (aiTab === 'content' || aiTab === 'section')) {
+        const parent = target.parent()
+        if (parent) {
+          const index = target.index()
+          target.remove()
+          const added = parent.append(data.html, { at: index })
+          const first = Array.isArray(added) ? added[0] : added
+          if (first) editor.select(first)
+          if (data.css) editor.addStyle(data.css)
+          setMessage(aiTab === 'content' ? 'Selected text updated with AI.' : 'Selected section updated with AI.')
+          return
+        }
+      }
+
+      editor.addComponents(data.html)
+      if (data.css) editor.addStyle(data.css)
+      setMessage(
+        aiTab === 'content'
+          ? 'AI content inserted (select a text block first to replace it).'
+          : 'AI section inserted at the end. Select a section first to replace that section.',
+      )
     } catch (err: unknown) {
-      const axiosErr = err as { response?: { data?: { message?: string; hint?: string } } }
-      const msg = axiosErr.response?.data?.message || 'AI request failed'
-      const hint = axiosErr.response?.data?.hint
+      const axiosErr = err as {
+        code?: string
+        message?: string
+        response?: { status?: number; data?: { message?: string; hint?: string } }
+      }
+      const status = axiosErr.response?.status
+      const apiMessage = axiosErr.response?.data?.message
+      const apiHint = axiosErr.response?.data?.hint
+      let msg = apiMessage || 'AI request failed'
+      let hint = apiHint
+
+      // Only treat true transport failures as "API unreachable".
+      // Keep provider 4xx messages (wrong key/model) visible as-is.
+      const transportFail =
+        !axiosErr.response ||
+        status === 502 ||
+        status === 503 ||
+        status === 504 ||
+        axiosErr.code === 'ECONNABORTED' ||
+        axiosErr.code === 'ERR_NETWORK'
+
+      if (transportFail && !apiMessage) {
+        msg = 'Cannot reach the API right now.'
+        hint = 'Wait 2 seconds and try again — the API auto-restarts if it crashed. If it keeps failing, run `npm run dev` from the project root.'
+      }
+
       setAiError(hint ? `${msg} ${hint}` : msg)
+      setMessage('')
     } finally {
       setAiBusy(false)
     }
@@ -572,6 +782,12 @@ export default function EditorPage() {
               ← Exit
             </Link>
             <strong style={{ fontFamily: 'var(--display)' }}>{page?.title || 'Page'}</strong>
+            <button type="button" className="btn ghost" onClick={() => void reloadFromServer()} title="Reload saved page HTML into the canvas">
+              Restore content
+            </button>
+            <button type="button" className="btn ghost" onClick={rebootBuilder} title="Restart GrapesJS if the canvas is grey / stuck">
+              Reboot builder
+            </button>
             {page && (
               <span className={`badge ${page.published_html || page.status === 'published' ? 'published' : 'draft'}`}>
                 {page.published_html || page.status === 'published' ? 'live' : 'draft'}
@@ -645,8 +861,18 @@ export default function EditorPage() {
       </div>
 
       {initError && (
-        <div className="alert warn" style={{ margin: 0, borderRadius: 0 }}>
-          {initError}
+        <div className="alert" style={{ margin: 0, borderRadius: 0 }}>
+          {initError}{' '}
+          <button type="button" className="btn secondary" onClick={rebootBuilder}>
+            Reboot builder
+          </button>
+        </div>
+      )}
+
+      {!ready && !initError && page && (
+        <div className="alert processing" style={{ margin: 0, borderRadius: 0 }}>
+          <span className="spinner" aria-hidden />
+          Starting builder…
         </div>
       )}
 
@@ -710,24 +936,57 @@ export default function EditorPage() {
             <>
               <h3>Generate with AI</h3>
               <p className="muted" style={{ fontSize: 13, marginTop: 0 }}>
-                Optional — drag-and-drop works without a key.
+                Selecting a block does <strong>not</strong> auto-update it. Click a section, choose a type, then press{' '}
+                <strong>Generate & insert</strong>.
               </p>
               <div className="field">
                 <label>Type</label>
                 <select value={aiTab} onChange={(e) => setAiTab(e.target.value as AiTab)}>
-                  <option value="content">Content</option>
-                  <option value="section">Section</option>
-                  <option value="page">Whole page</option>
+                  <option value="content">Content (rewrite selection)</option>
+                  <option value="section">Section (new / replace selection)</option>
+                  <option value="page">Whole page (replace all)</option>
                   <option value="image">Image</option>
                 </select>
               </div>
               <div className="field">
                 <label>Prompt</label>
-                <textarea rows={5} value={prompt} onChange={(e) => setPrompt(e.target.value)} />
+                <textarea
+                  rows={5}
+                  value={prompt}
+                  onChange={(e) => setPrompt(e.target.value)}
+                  placeholder={
+                    aiTab === 'content'
+                      ? 'Example: Rewrite this into a short, attractive product description for a modern CMS.'
+                      : aiTab === 'section'
+                        ? 'Example: Create a features section for a page builder product.'
+                        : aiTab === 'page'
+                          ? 'Example: Build a landing page for an AI page builder CMS.'
+                          : 'Example: Modern desk lamp on a clean desk'
+                  }
+                />
               </div>
-              {aiError && <div className="alert warn">{aiError}</div>}
-              <button className="btn" type="button" disabled={aiBusy} onClick={() => void runAi()} style={{ width: '100%' }}>
-                {aiBusy ? 'Generating…' : 'Generate & insert'}
+              <p className="muted" style={{ fontSize: 12, marginTop: 0 }}>
+                {aiTab === 'content' && 'Tip: click a paragraph/heading (not Body), choose Content, then Generate.'}
+                {aiTab === 'section' && 'Tip: click a section (blue outline), then Generate to replace that section only.'}
+                {aiTab === 'page' && 'Tip: replaces the entire canvas — asks for confirmation first.'}
+                {aiTab === 'image' && 'Tip: inserts an image (or updates a selected image).'}
+              </p>
+              {aiBusy && (
+                <div className="alert processing" style={{ marginBottom: 12 }}>
+                  <span className="spinner" aria-hidden />
+                  Generating with AI — this can take a few seconds…
+                </div>
+              )}
+              {aiError && <div className="alert">{aiError}</div>}
+              <button className="btn" type="button" disabled={aiBusy || !prompt.trim()} onClick={() => void runAi()} style={{ width: '100%' }}>
+                {aiBusy ? (
+                  <>
+                    <span className="spinner inline" aria-hidden />
+                    Generating…
+                  </>
+                ) : (
+                  'Generate & insert'
+                )}
               </button>
               <p className="muted" style={{ fontSize: 12, marginTop: 12 }}>
                 Choose provider + key in <Link to="/settings">Settings → AI</Link>

@@ -1,13 +1,12 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { api, type User } from '../api/client'
+import { api, getList, type User } from '../api/client'
 
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([])
   const [form, setForm] = useState({ name: '', email: '', password: '', role: 'editor' })
 
   const load = async () => {
-    const { data } = await api.get<User[]>('/users')
-    setUsers(data)
+    setUsers(await getList<User>('/users'))
   }
 
   useEffect(() => {

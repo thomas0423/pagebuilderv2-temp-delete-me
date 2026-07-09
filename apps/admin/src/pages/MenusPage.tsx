@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { api, type MenuItem } from '../api/client'
+import { api, getList, type MenuItem } from '../api/client'
 
 const empty: { location: 'header' | 'footer'; label: string; url: string; sort_order: number; is_active: boolean } = {
   location: 'header',
@@ -14,8 +14,7 @@ export default function MenusPage() {
   const [form, setForm] = useState(empty)
 
   const load = async () => {
-    const { data } = await api.get<MenuItem[]>('/menus')
-    setItems(data)
+    setItems(await getList<MenuItem>('/menus'))
   }
 
   useEffect(() => {

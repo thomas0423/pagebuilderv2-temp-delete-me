@@ -61,6 +61,11 @@ class AiService
             abort(422, 'AI provider is not configured.');
         }
 
+        // MiniMax / long models can exceed PHP's default 30s and kill `artisan serve`.
+        if (function_exists('set_time_limit')) {
+            @set_time_limit(120);
+        }
+
         try {
             $text = match ($config['driver']) {
                 'anthropic' => $this->chatAnthropic($config, $model, $apiKey, $system, $user),
@@ -72,15 +77,16 @@ class AiService
         } catch (RequestException $e) {
             $body = $e->response?->json();
             $message = data_get($body, 'error.message')
+                ?? data_get($body, 'base_resp.status_msg')
                 ?? data_get($body, 'message')
                 ?? $e->getMessage();
 
-            abort(422, 'AI provider error: '.$message);
+            abort(422, 'AI provider error ('.$providerKey.'): '.$message);
         } catch (\Throwable $e) {
             abort(422, 'AI request failed: '.$e->getMessage());
         }
 
-        $text = trim($text);
+        $text = $this->normalizeModelText($text);
         if ($text === '') {
             abort(422, 'AI returned an empty response. Check the model name and try again.');
         }
@@ -100,6 +106,7 @@ class AiService
         $headers = [
             'Authorization' => 'Bearer '.$apiKey,
             'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
         ];
 
         if ($providerKey === 'openrouter') {
@@ -107,21 +114,64 @@ class AiService
             $headers['X-Title'] = config('app.name', 'PageBuilder V2');
         }
 
-        $response = Http::timeout(90)
-            ->withHeaders($headers)
-            ->post($base.'/chat/completions', [
-                'model' => $model,
-                'messages' => [
-                    ['role' => 'system', 'content' => $system],
-                    ['role' => 'user', 'content' => $user],
-                ],
-                'temperature' => 0.7,
-            ])
-            ->throw();
+        $payload = [
+            'model' => $model,
+            'messages' => [
+                ['role' => 'system', 'content' => $system],
+                ['role' => 'user', 'content' => $user],
+            ],
+            'temperature' => 0.7,
+            'max_tokens' => 1200,
+            'max_completion_tokens' => 1200,
+        ];
 
-        $content = data_get($response->json(), 'choices.0.message.content');
+        // MiniMax-M* models think by default and can take >30s; disable for pagebuilder latency.
+        if ($providerKey === 'minimax') {
+            $payload['thinking'] = ['type' => 'disabled'];
+            // Prefer shorter generations in the builder so artisan serve stays healthy.
+            $payload['max_tokens'] = 800;
+            $payload['max_completion_tokens'] = 800;
+        }
+
+        $response = Http::timeout(60)
+            ->connectTimeout(10)
+            ->retry(1, 500, throw: false)
+            ->withHeaders($headers)
+            ->post($base.'/chat/completions', $payload);
+
+        if ($response->failed()) {
+            $json = $response->json();
+            $message = data_get($json, 'error.message')
+                ?? data_get($json, 'base_resp.status_msg')
+                ?? data_get($json, 'message')
+                ?? ('HTTP '.$response->status());
+
+            abort(422, 'AI provider error ('.$providerKey.'): '.$message);
+        }
+
+        $json = $response->json();
+        $statusCode = data_get($json, 'base_resp.status_code');
+        if (is_numeric($statusCode) && (int) $statusCode !== 0) {
+            abort(422, 'AI provider error ('.$providerKey.'): '.(string) data_get($json, 'base_resp.status_msg', 'Unknown MiniMax error'));
+        }
+
+        $content = data_get($json, 'choices.0.message.content');
+        if (! is_string($content) || trim($content) === '') {
+            // Some MiniMax responses put the final answer after reasoning fields.
+            $content = data_get($json, 'choices.0.message.reasoning_content');
+        }
 
         return is_string($content) ? $content : '';
+    }
+
+    private function normalizeModelText(string $text): string
+    {
+        $text = trim($text);
+        // Strip MiniMax / reasoning wrappers that leak into content
+        $text = preg_replace('/<think\b[^>]*>.*?<\/think>/is', '', $text) ?? $text;
+        $text = preg_replace('/<\/?think\b[^>]*>/i', '', $text) ?? $text;
+
+        return trim($text);
     }
 
     private function chatAnthropic(
@@ -214,8 +264,10 @@ class AiService
     {
         return match ($type) {
             'content' => <<<'TXT'
-You write short website copy for a page builder CMS.
-Return clean HTML only (p, strong, em, a, ul, ol, li, h2, h3). No markdown fences, no explanation.
+You rewrite short website copy for a page builder CMS.
+If selected text/HTML is provided, rewrite that content only — do not invent a full page or section.
+Return clean HTML only (prefer a single p/h2/h3/div). Allowed tags: p, strong, em, a, ul, ol, li, h2, h3, div, span, br.
+No markdown fences, no explanation, no surrounding <section>.
 TXT,
             'section' => <<<'TXT'
 You generate one self-contained website section for a visual page builder.
