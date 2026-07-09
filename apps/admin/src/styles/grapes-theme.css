@@ -1,0 +1,277 @@
+/**
+ * GrapesJS chrome theme — maps editor UI to PageBuilder tokens.
+ * Loaded AFTER grapes.min.css so these overrides win.
+ * Canvas page content (iframe) is unaffected; only the builder chrome.
+ */
+:root {
+  --gjs-main-color: #0c1224;
+  --gjs-primary-color: #121933;
+  --gjs-secondary-color: #9aa6c3;
+  --gjs-tertiary-color: #ff7a18;
+  --gjs-quaternary-color: #ff7a18;
+  --gjs-font-color: #9aa6c3;
+  --gjs-font-color-active: #f4f7ff;
+  --gjs-main-dark-color: rgba(0, 0, 0, 0.35);
+  --gjs-secondary-dark-color: rgba(0, 0, 0, 0.2);
+  --gjs-main-light-color: rgba(255, 255, 255, 0.08);
+  --gjs-secondary-light-color: rgba(255, 255, 255, 0.7);
+  --gjs-soft-light-color: rgba(255, 255, 255, 0.03);
+  --gjs-color-blue: #5eead4;
+  --gjs-color-red: #fb7185;
+  --gjs-color-yellow: #ff7a18;
+  --gjs-color-green: #34d399;
+  --gjs-color-highlight: #ff7a18;
+  --gjs-color-warn: #ff7a18;
+  --gjs-light-border: rgba(255, 255, 255, 0.08);
+  --gjs-arrow-color: #9aa6c3;
+  --gjs-main-font: 'Sora', system-ui, sans-serif;
+  --gjs-font-size: 12px;
+}
+
+/* Atomic palette classes (docs theming API) */
+.gjs-one-bg {
+  background-color: #0c1224 !important;
+}
+.gjs-two-color {
+  color: #9aa6c3 !important;
+}
+.gjs-three-bg {
+  background-color: #ff7a18 !important;
+  color: #111 !important;
+}
+.gjs-four-color,
+.gjs-four-color-h:hover {
+  color: #ff7a18 !important;
+}
+
+/* —— Blocks panel —— */
+.pb-blocks-host,
+.pb-blocks-host .gjs-blocks-c {
+  font-family: var(--gjs-main-font);
+}
+.pb-blocks-host .gjs-blocks-c {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.pb-blocks-host .gjs-block-category {
+  margin-bottom: 10px;
+}
+.pb-blocks-host .gjs-title,
+.pb-blocks-host .gjs-category-title {
+  color: var(--muted, #9aa6c3) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08)) !important;
+  padding: 8px 2px 6px !important;
+  margin-bottom: 8px;
+}
+.pb-blocks-host .gjs-block {
+  width: auto !important;
+  min-height: 56px;
+  margin: 0 !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08)) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--text, #f4f7ff) !important;
+  box-shadow: none !important;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.pb-blocks-host .gjs-block:hover {
+  border-color: rgba(255, 122, 24, 0.55) !important;
+  background: rgba(255, 122, 24, 0.12) !important;
+}
+.pb-blocks-host .gjs-block.gjs-block-no-label .gjs-block__media,
+.pb-blocks-host .gjs-block__media {
+  margin-bottom: 4px;
+}
+.pb-blocks-host .gjs-block-label {
+  font-size: 11px;
+  color: var(--text, #f4f7ff);
+}
+.pb-blocks-host .gjs-block-svg-path {
+  fill: #9aa6c3;
+}
+
+/* —— Style manager —— */
+.gjs-sm-host {
+  font-family: var(--gjs-main-font);
+  color: var(--text, #f4f7ff);
+}
+.gjs-sm-host .gjs-sm-sector {
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+}
+.gjs-sm-host .gjs-sm-title,
+.gjs-sm-host .gjs-sm-sector-title {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--text, #f4f7ff) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08)) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  padding: 10px 12px !important;
+}
+.gjs-sm-host .gjs-sm-properties {
+  padding: 8px 10px 10px;
+}
+.gjs-sm-host .gjs-sm-label {
+  color: var(--muted, #9aa6c3) !important;
+  font-size: 11px !important;
+}
+.gjs-sm-host .gjs-field,
+.gjs-sm-host .gjs-sm-property .gjs-field,
+.gjs-sm-host input,
+.gjs-sm-host select {
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: 8px !important;
+  color: var(--text, #f4f7ff) !important;
+  box-shadow: none !important;
+}
+.gjs-sm-host .gjs-field:focus-within,
+.gjs-sm-host input:focus,
+.gjs-sm-host select:focus {
+  border-color: rgba(255, 122, 24, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(255, 122, 24, 0.15) !important;
+}
+.gjs-sm-host .gjs-sm-btn,
+.gjs-sm-host .gjs-btn-prim {
+  background: rgba(255, 122, 24, 0.18) !important;
+  color: var(--text, #f4f7ff) !important;
+  border: 1px solid rgba(255, 122, 24, 0.35) !important;
+  border-radius: 8px !important;
+}
+.gjs-sm-host .gjs-radio-item input:checked + .gjs-radio-item-label,
+.gjs-sm-host .gjs-sm-radio input:checked + label {
+  background: rgba(255, 122, 24, 0.2) !important;
+  color: var(--text, #f4f7ff) !important;
+  border-color: rgba(255, 122, 24, 0.45) !important;
+}
+
+/* —— Traits (component fields) —— */
+.gjs-traits-host {
+  font-family: var(--gjs-main-font);
+  color: var(--text, #f4f7ff);
+}
+.gjs-traits-host .gjs-trt-trait {
+  margin-bottom: 10px;
+}
+.gjs-traits-host .gjs-label,
+.gjs-traits-host .gjs-label-wrp {
+  color: var(--muted, #9aa6c3) !important;
+  font-size: 11px !important;
+}
+.gjs-traits-host .gjs-field,
+.gjs-traits-host input,
+.gjs-traits-host select,
+.gjs-traits-host textarea {
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: 8px !important;
+  color: var(--text, #f4f7ff) !important;
+}
+.gjs-traits-host .gjs-field:focus-within,
+.gjs-traits-host input:focus,
+.gjs-traits-host select:focus,
+.gjs-traits-host textarea:focus {
+  border-color: rgba(255, 122, 24, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(255, 122, 24, 0.15) !important;
+}
+
+/* —— Layers —— */
+.gjs-layers-host {
+  font-family: var(--gjs-main-font);
+  color: var(--text, #f4f7ff);
+}
+.gjs-layers-host .gjs-layer {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.06));
+  color: var(--text, #f4f7ff) !important;
+}
+.gjs-layers-host .gjs-layer-title,
+.gjs-layers-host .gjs-layer__title {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--text, #f4f7ff) !important;
+  border-color: var(--border, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: 8px;
+  font-size: 12px !important;
+}
+.gjs-layers-host .gjs-layer.gjs-selected .gjs-layer-title,
+.gjs-layers-host .gjs-layer.gjs-hovered .gjs-layer-title,
+.gjs-layers-host .gjs-layer__title:hover {
+  background: rgba(255, 122, 24, 0.12) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 122, 24, 0.35);
+}
+.gjs-layers-host .gjs-layer-count,
+.gjs-layers-host .gjs-layer-vis,
+.gjs-layers-host .gjs-layer-move {
+  color: var(--muted, #9aa6c3) !important;
+}
+
+/* —— Canvas chrome (selection / badges) —— */
+.editor-canvas .gjs-badge {
+  background: #ff7a18 !important;
+  color: #111 !important;
+  border-radius: 6px !important;
+  font-family: var(--gjs-main-font);
+  font-weight: 600;
+}
+.editor-canvas .gjs-toolbar {
+  background: #121933 !important;
+  border: 1px solid rgba(255, 122, 24, 0.4) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.editor-canvas .gjs-toolbar-item {
+  color: #f4f7ff !important;
+}
+.editor-canvas .gjs-toolbar-item:hover {
+  color: #ff7a18 !important;
+}
+.editor-canvas .gjs-resizer-h,
+.editor-canvas .gjs-resizer-v {
+  border-color: #ff7a18 !important;
+}
+.editor-canvas .gjs-highlighter,
+.editor-canvas .gjs-highlighter-sel {
+  outline-color: #ff7a18 !important;
+}
+.editor-canvas .gjs-dashed *[data-highlightable] {
+  outline-color: rgba(255, 122, 24, 0.45) !important;
+}
+
+/* Color picker / modals that attach to body */
+.gjs-field-colorp-c,
+.sp-container {
+  border-radius: 10px;
+}
+.gjs-mdl-dialog {
+  background: #121933 !important;
+  color: #f4f7ff !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  font-family: var(--gjs-main-font);
+}
+.gjs-mdl-header {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.gjs-mdl-btn-close {
+  color: #9aa6c3 !important;
+}
+.gjs-btn-prim {
+  background: #ff7a18 !important;
+  color: #111 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+}
