@@ -8,7 +8,7 @@ Servers verified: admin `:5173`, API/public `:8000`, login OK, AI null-key hint 
 
 ### Done
 
-- [x] Repo at `/Users/binghaothai/Workspace/Twiport/pagebuilderv2`
+- [x] Repo at project root (`pagebuilderv2`)
 - [x] Laravel API + Sanctum auth
 - [x] React admin shell (modern dark UI)
 - [x] GrapesJS editor (save draft / publish / preview)
@@ -57,4 +57,4 @@ Servers verified: admin `:5173`, API/public `:8000`, login OK, AI null-key hint 
 
 Tell the agent:
 
-> Continue PageBuilder V2 at `/Users/binghaothai/Workspace/Twiport/pagebuilderv2`. Read `docs/SETUP_AND_SERVE.md`, `docs/PROGRESS.md`, and `CONTINUITY.md`, then keep building from “Not done yet”.
+> Continue PageBuilder V2 in this repo. Read `docs/SETUP_AND_SERVE.md`, `docs/PROGRESS.md`, and `CONTINUITY.md`, then keep building from “Not done yet”.

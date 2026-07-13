@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-07-09  
 **Plan file:** [.cursor/plans/cms_pagebuilder_plan_72fd36a3.plan.md](../.cursor/plans/cms_pagebuilder_plan_72fd36a3.plan.md)  
-**Repo:** `/Users/binghaothai/Workspace/Twiport/pagebuilderv2`
+**Repo:** project root (`pagebuilderv2`)
 
 ---
 

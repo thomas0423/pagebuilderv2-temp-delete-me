@@ -2,7 +2,9 @@
 
 Complete guide to install, configure, and run the project locally for development or presentation.
 
-**Repo path:** `/Users/binghaothai/Workspace/Twiport/pagebuilderv2`
+For a beginner walkthrough (Mac + Windows prerequisites), start with [README.md](../README.md).
+
+Run all commands from the **project root** (the folder that contains `package.json`).
 
 ---
 
@@ -29,21 +31,26 @@ Install these on your machine:
 
 | Tool | Suggested version | Check |
 |---|---|---|
-| PHP | 8.2+ (tested on 8.4) | `php -v` |
+| PHP | **8.3+** (tested on 8.4) | `php -v` |
 | Composer | 2.x | `composer -V` |
 | Node.js | 20+ (tested on 26) | `node -v` |
 | npm | 10+ | `npm -v` |
+| MySQL | 8.x | `mysql --version` |
 
-Optional later: MySQL/PostgreSQL, AWS/R2 credentials (only if you leave local defaults).
+Required for local setup: **MySQL** database `pagebuilderv2`.
+
+Optional later: PostgreSQL, AWS/R2 credentials (only if you leave local defaults for storage).
+
+Step-by-step install instructions for macOS and Windows (WSL2): see [README.md](../README.md).
 
 ---
 
 ## 3. First-time setup (clean machine)
 
-Run from the repo root:
+From the project root:
 
 ```bash
-cd /Users/binghaothai/Workspace/Twiport/pagebuilderv2
+cd path/to/pagebuilderv2
 ```
 
 ### 3.1 Root npm (for `npm run dev`)
@@ -108,10 +115,9 @@ That runs migrate, seed, storage link, and admin `npm install`.
 
 ## 4. Serve locally (daily use)
 
-From repo root:
+From the project root:
 
 ```bash
-cd /Users/binghaothai/Workspace/Twiport/pagebuilderv2
 npm run dev
 ```
 
@@ -187,9 +193,9 @@ Open **Settings** in the admin.
 
 ### Database
 
-- Fields for `sqlite` / `mysql` / `pgsql` are saved in Settings for later
-- **Runtime today still uses SQLite** via `apps/api/.env`
-- To really switch DB later: update `.env`, create DB, `php artisan migrate --force`
+- Fields for `sqlite` / `mysql` / `pgsql` are saved in Settings for later cloud/deploy planning
+- **Local runtime today uses MySQL** via `apps/api/.env` (`DB_CONNECTION=mysql`, database `pagebuilderv2`)
+- To switch DB later: update `.env`, create the database, `php artisan migrate --force`
 
 ---
 
@@ -253,6 +259,7 @@ pagebuilderv2/
 | Port in use | Kill old process or change ports in root `package.json` / `vite.config.ts` |
 | AI always errors | Expected without key — set key in Settings → AI |
 | Fresh clone, no `.env` | Follow section 3.2 |
+| MySQL access denied / unknown database | Fix `DB_*` in `.env` and create DB `pagebuilderv2` |
 
 ---
 
@@ -260,7 +267,7 @@ pagebuilderv2/
 
 | File | Purpose |
 |---|---|
-| [README.md](../README.md) | Short overview |
+| [README.md](../README.md) | Beginner Mac/Windows setup guide |
 | [CONTINUITY.md](../CONTINUITY.md) | What’s done / next / how to resume |
 | [PROGRESS.md](./PROGRESS.md) | Progress vs original plan |
 | [.cursor/plans/cms_pagebuilder_plan_72fd36a3.plan.md](../.cursor/plans/cms_pagebuilder_plan_72fd36a3.plan.md) | Full product plan |
@@ -271,4 +278,4 @@ pagebuilderv2/
 
 Paste:
 
-> Continue PageBuilder V2 at `/Users/binghaothai/Workspace/Twiport/pagebuilderv2`. Read `docs/SETUP_AND_SERVE.md`, `docs/PROGRESS.md`, and `CONTINUITY.md`, then keep building from remaining items.
+> Continue PageBuilder V2 in this repo. Read `docs/SETUP_AND_SERVE.md`, `docs/PROGRESS.md`, and `CONTINUITY.md`, then keep building from remaining items.
