@@ -119,6 +119,30 @@ export type Product = {
   is_active: boolean
 }
 
+export type ContentModuleType = 'promotion' | 'announcement' | 'news' | 'article'
+
+export type ContentModule = {
+  id: number
+  type: ContentModuleType
+  title: string
+  slug: string
+  summary: string | null
+  body: string | null
+  image_url: string | null
+  banner_url: string | null
+  external_url: string | null
+  status: 'draft' | 'published' | 'archived'
+  published_on: string | null
+  starts_at: string | null
+  ends_at: string | null
+  is_pinned: boolean
+  sort_order: number
+  source_table?: string | null
+  source_id?: string | null
+  source_channel?: string | null
+  meta?: Record<string, unknown> | null
+}
+
 export type MenuItem = {
   id: number
   location: 'header' | 'footer'

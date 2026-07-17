@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AiController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ContentModuleController;
 use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\PageController;
@@ -19,6 +20,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('pages', PageController::class);
     Route::post('pages/{page}/publish', [PageController::class, 'publish']);
 
+    Route::apiResource('content-modules', ContentModuleController::class);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('menus', MenuController::class)->except(['show']);
     Route::apiResource('users', UserController::class)->except(['show']);

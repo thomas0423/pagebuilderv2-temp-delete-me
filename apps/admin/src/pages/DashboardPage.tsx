@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { api, getList, type Page, type Product } from '../api/client'
+import { api, getList, type ContentModule, type Page, type Product } from '../api/client'
 
 export default function DashboardPage() {
   const [pages, setPages] = useState<Page[]>([])
   const [products, setProducts] = useState<Product[]>([])
+  const [modules, setModules] = useState<ContentModule[]>([])
   const [aiReady, setAiReady] = useState(false)
 
   useEffect(() => {
     void Promise.all([
       getList<Page>('/pages').then(setPages),
       getList<Product>('/products').then(setProducts),
+      getList<ContentModule>('/content-modules').then(setModules),
       api.get('/settings').then((r) => setAiReady(Boolean((r.data as { runtime?: { ai_ready?: boolean } })?.runtime?.ai_ready))),
     ]).catch(() => {
       setPages([])
       setProducts([])
+      setModules([])
     })
   }, [])
 
@@ -37,6 +40,13 @@ export default function DashboardPage() {
           <h3>Pages</h3>
           <div className="stat">{pages.length}</div>
           <div className="muted">{published} published</div>
+        </div>
+        <div className="card">
+          <h3>Modules</h3>
+          <div className="stat">{modules.length}</div>
+          <div className="muted">
+            <Link to="/modules">Promotions, announcements, news</Link>
+          </div>
         </div>
         <div className="card">
           <h3>Products</h3>

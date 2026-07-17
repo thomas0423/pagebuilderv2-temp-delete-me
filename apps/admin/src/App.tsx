@@ -6,6 +6,7 @@ import EditorPage from './pages/EditorPage'
 import LoginPage from './pages/LoginPage'
 import MediaPage from './pages/MediaPage'
 import MenusPage from './pages/MenusPage'
+import ModulesPage from './pages/ModulesPage'
 import PagesPage from './pages/PagesPage'
 import ProductsPage from './pages/ProductsPage'
 import SettingsPage from './pages/SettingsPage'
@@ -35,6 +36,7 @@ export default function App() {
           <Route index element={<DashboardPage />} />
           <Route path="pages" element={<PagesPage />} />
           <Route path="pages/:id/edit" element={<EditorPage />} />
+          <Route path="modules" element={<ModulesPage />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="menus" element={<MenusPage />} />
           <Route path="media" element={<MediaPage />} />

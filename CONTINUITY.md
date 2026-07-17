@@ -24,6 +24,14 @@ Servers verified: admin `:5173`, API/public `:8000`, login OK, AI null-key hint 
 - [x] Editor now shows **Blocks panel** (drag-and-drop), loads existing Home HTML, Styles/Layers tabs for editing — not AI-only
 - [x] Database switched to **MySQL** (`pagebuilderv2` on `127.0.0.1`) — see `apps/api/.env`
 
+### AffinCMS migration (2026-07-17)
+
+- [x] Migration plan: `docs/AFFINCMS_MIGRATION_PLAN.md`
+- [x] `content_modules` CRUD (API + admin Modules screen)
+- [x] `php artisan affin:migrate-from-legacy` importer
+- [x] Extract helper: `scripts/extract_affincms_tables.php`
+- [ ] Load `affincms_legacy` DB from dump and run importer on this machine
+
 ### Not done yet (add slowly after presentation)
 
 - [ ] Real OpenAI/Anthropic/Gemini HTTP calls (currently: key required, then structured placeholder generation)
@@ -33,6 +41,7 @@ Servers verified: admin `:5173`, API/public `:8000`, login OK, AI null-key hint 
 - [ ] Revisions, schedule publish, redirects, sitemap
 - [ ] GitHub Actions split deploy
 - [ ] Multi-tenant
+- [ ] Phase 2 AffinCMS: media binaries, menus, FAQ/branches/etc.
 
 ### Demo credentials
 

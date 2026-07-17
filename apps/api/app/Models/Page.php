@@ -24,6 +24,8 @@ class Page extends Model
         'meta_description',
         'published_at',
         'updated_by',
+        'source_table',
+        'source_id',
     ];
 
     protected function casts(): array
