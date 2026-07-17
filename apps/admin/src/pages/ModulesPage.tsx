@@ -1,57 +1,78 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
+import { Navigate } from 'react-router-dom'
 import { api, getList, type ContentModule, type ContentModuleType } from '../api/client'
 
-const TYPES: { value: ContentModuleType | 'all'; label: string }[] = [
-  { value: 'all', label: 'All types' },
-  { value: 'promotion', label: 'Promotions' },
-  { value: 'announcement', label: 'Announcements' },
-  { value: 'news', label: 'News' },
-  { value: 'article', label: 'Articles' },
-]
-
-const empty = {
-  type: 'promotion' as ContentModuleType,
-  title: '',
-  summary: '',
-  body: '',
-  image_url: '',
-  banner_url: '',
-  external_url: '',
-  status: 'draft' as ContentModule['status'],
-  published_on: '',
-  starts_at: '',
-  ends_at: '',
-  is_pinned: false,
-  sort_order: '0',
+const MODULE_META: Record<ContentModuleType, { title: string; description: string; singular: string }> = {
+  promotion: {
+    title: 'Promotions',
+    description: 'Manage Discover and channel promotions.',
+    singular: 'promotion',
+  },
+  announcement: {
+    title: 'Announcements',
+    description: 'Manage announcement lists and notices.',
+    singular: 'announcement',
+  },
+  news: {
+    title: 'News',
+    description: 'Manage news items.',
+    singular: 'news item',
+  },
+  article: {
+    title: 'Articles',
+    description: 'Manage editorial articles.',
+    singular: 'article',
+  },
 }
 
-export default function ModulesPage() {
+function emptyForm(type: ContentModuleType) {
+  return {
+    type,
+    title: '',
+    summary: '',
+    body: '',
+    image_url: '',
+    banner_url: '',
+    external_url: '',
+    status: 'draft' as ContentModule['status'],
+    published_on: '',
+    starts_at: '',
+    ends_at: '',
+    is_pinned: false,
+    sort_order: '0',
+  }
+}
+
+export default function ModulesPage({ type }: { type: ContentModuleType }) {
+  const meta = MODULE_META[type]
   const [items, setItems] = useState<ContentModule[]>([])
-  const [filter, setFilter] = useState<ContentModuleType | 'all'>('all')
-  const [form, setForm] = useState(empty)
+  const [form, setForm] = useState(() => emptyForm(type))
   const [editingId, setEditingId] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
 
   const load = async () => {
-    const qs = filter === 'all' ? '' : `?type=${filter}`
-    setItems(await getList<ContentModule>(`/content-modules${qs}`))
+    setLoading(true)
+    try {
+      setItems(await getList<ContentModule>(`/content-modules?type=${type}`))
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
+    setForm(emptyForm(type))
+    setEditingId(null)
+    setError(null)
     void load()
-  }, [filter])
-
-  const counts = useMemo(() => {
-    const map: Record<string, number> = {}
-    for (const item of items) map[item.type] = (map[item.type] || 0) + 1
-    return map
-  }, [items])
+  }, [type])
 
   const submit = async (e: FormEvent) => {
     e.preventDefault()
     setError(null)
     const payload = {
       ...form,
+      type,
       sort_order: Number(form.sort_order) || 0,
       published_on: form.published_on || null,
       starts_at: form.starts_at || null,
@@ -65,7 +86,7 @@ export default function ModulesPage() {
     try {
       if (editingId) await api.put(`/content-modules/${editingId}`, payload)
       else await api.post('/content-modules', payload)
-      setForm(empty)
+      setForm(emptyForm(type))
       setEditingId(null)
       await load()
     } catch (err: unknown) {
@@ -76,7 +97,7 @@ export default function ModulesPage() {
   const edit = (m: ContentModule) => {
     setEditingId(m.id)
     setForm({
-      type: m.type,
+      type,
       title: m.title,
       summary: m.summary || '',
       body: m.body || '',
@@ -93,36 +114,24 @@ export default function ModulesPage() {
   }
 
   const remove = async (id: number) => {
-    if (!confirm('Delete this module?')) return
+    if (!confirm(`Delete this ${meta.singular}?`)) return
     await api.delete(`/content-modules/${id}`)
     await load()
   }
+
+  if (!meta) return <Navigate to="/" replace />
 
   return (
     <>
       <div className="topbar">
         <div>
-          <h1>Modules</h1>
-          <p>Manage Promotions, Announcements, News, and similar content modules.</p>
-        </div>
-        <div className="row">
-          <select value={filter} onChange={(e) => setFilter(e.target.value as ContentModuleType | 'all')}>
-            {TYPES.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
+          <h1>{meta.title}</h1>
+          <p>{meta.description}</p>
         </div>
       </div>
 
       <div className="row muted" style={{ marginBottom: 12, gap: 16 }}>
-        <span>{items.length} shown</span>
-        {Object.entries(counts).map(([type, n]) => (
-          <span key={type}>
-            {type}: {n}
-          </span>
-        ))}
+        <span>{loading ? 'Loading…' : `${items.length} ${meta.title.toLowerCase()}`}</span>
       </div>
 
       <div className="grid two">
@@ -131,7 +140,6 @@ export default function ModulesPage() {
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Type</th>
                 <th>Status</th>
                 <th>Date</th>
                 <th></th>
@@ -145,7 +153,6 @@ export default function ModulesPage() {
                     {m.title}
                     {m.source_channel ? <div className="muted">{m.source_channel}</div> : null}
                   </td>
-                  <td>{m.type}</td>
                   <td>{m.status}</td>
                   <td>{m.published_on?.slice(0, 10) || '—'}</td>
                   <td className="row" style={{ justifyContent: 'flex-end' }}>
@@ -158,10 +165,10 @@ export default function ModulesPage() {
                   </td>
                 </tr>
               ))}
-              {items.length === 0 && (
+              {!loading && items.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="muted">
-                    No modules yet. Create one or run the AffinCMS importer.
+                  <td colSpan={4} className="muted">
+                    No {meta.title.toLowerCase()} yet. Create one with the form.
                   </td>
                 </tr>
               )}
@@ -170,18 +177,8 @@ export default function ModulesPage() {
         </div>
 
         <form className="card" onSubmit={(e) => void submit(e)}>
-          <h3>{editingId ? 'Edit module' : 'New module'}</h3>
+          <h3>{editingId ? `Edit ${meta.singular}` : `New ${meta.singular}`}</h3>
           {error && <p className="muted">{error}</p>}
-          <div className="field">
-            <label>Type</label>
-            <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value as ContentModuleType })}>
-              {TYPES.filter((t) => t.value !== 'all').map((t) => (
-                <option key={t.value} value={t.value}>
-                  {t.label}
-                </option>
-              ))}
-            </select>
-          </div>
           <div className="field">
             <label>Title</label>
             <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
@@ -254,7 +251,7 @@ export default function ModulesPage() {
                 type="button"
                 onClick={() => {
                   setEditingId(null)
-                  setForm(empty)
+                  setForm(emptyForm(type))
                 }}
               >
                 Cancel

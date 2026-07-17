@@ -42,10 +42,13 @@ export default function DashboardPage() {
           <div className="muted">{published} published</div>
         </div>
         <div className="card">
-          <h3>Modules</h3>
+          <h3>Content modules</h3>
           <div className="stat">{modules.length}</div>
-          <div className="muted">
-            <Link to="/modules">Promotions, announcements, news</Link>
+          <div className="muted row" style={{ gap: 8, flexWrap: 'wrap' }}>
+            <Link to="/promotions">Promotions</Link>
+            <Link to="/announcements">Announcements</Link>
+            <Link to="/news">News</Link>
+            <Link to="/articles">Articles</Link>
           </div>
         </div>
         <div className="card">

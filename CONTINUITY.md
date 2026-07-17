@@ -27,7 +27,7 @@ Servers verified: admin `:5173`, API/public `:8000`, login OK, AI null-key hint 
 ### AffinCMS migration (2026-07-17)
 
 - [x] Migration plan: `docs/AFFINCMS_MIGRATION_PLAN.md`
-- [x] `content_modules` CRUD (API + admin Modules screen)
+- [x] Separate admin sidebar screens per module type (Promotions / Announcements / News / Articles)
 - [x] `php artisan affin:migrate-from-legacy` importer
 - [x] Extract helper: `scripts/extract_affincms_tables.php`
 - [ ] Load `affincms_legacy` DB from dump and run importer on this machine

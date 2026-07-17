@@ -36,7 +36,11 @@ export default function App() {
           <Route index element={<DashboardPage />} />
           <Route path="pages" element={<PagesPage />} />
           <Route path="pages/:id/edit" element={<EditorPage />} />
-          <Route path="modules" element={<ModulesPage />} />
+          <Route path="promotions" element={<ModulesPage type="promotion" />} />
+          <Route path="announcements" element={<ModulesPage type="announcement" />} />
+          <Route path="news" element={<ModulesPage type="news" />} />
+          <Route path="articles" element={<ModulesPage type="article" />} />
+          <Route path="modules" element={<Navigate to="/promotions" replace />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="menus" element={<MenusPage />} />
           <Route path="media" element={<MediaPage />} />

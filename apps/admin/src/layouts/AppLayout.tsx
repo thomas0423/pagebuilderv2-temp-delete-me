@@ -4,7 +4,10 @@ import { useAuth } from '../lib/auth'
 const links = [
   { to: '/', label: 'Dashboard', end: true },
   { to: '/pages', label: 'Pages' },
-  { to: '/modules', label: 'Modules' },
+  { to: '/promotions', label: 'Promotions' },
+  { to: '/announcements', label: 'Announcements' },
+  { to: '/news', label: 'News' },
+  { to: '/articles', label: 'Articles' },
   { to: '/products', label: 'Products' },
   { to: '/menus', label: 'Menus' },
   { to: '/media', label: 'Media' },
