@@ -1,0 +1,53 @@
+.block-cta {
+    background-image: url('/img/cta with blue filter.jpg');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.block-cta .sub-header {
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+}
+
+.block-cta .header {
+    font-weight: 400;
+    font-size: 48px;
+    color: #fff;
+    margin: 0;
+}
+
+.block-cta .link-text-red {
+    color: #FF0000;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.block-cta .button {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #0768B3;
+}
+
+.block-cta .link-text-white {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+@media only screen and (max-width: 576px) {
+    .block-cta .header {
+        font-size: 38px;
+    }
+}

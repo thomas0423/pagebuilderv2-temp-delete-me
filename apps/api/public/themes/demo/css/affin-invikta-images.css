@@ -1,0 +1,8 @@
+.block-affin-invikta-images .bg-black {
+    background-color: #000;
+}
+
+.block-affin-invikta-images img {
+    object-fit: cover;
+    padding: 0;
+}

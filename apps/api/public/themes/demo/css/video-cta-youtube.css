@@ -1,0 +1,135 @@
+.block-video-cta-youtube .bg-video-background {
+    position: relative;
+    padding-top: 56.25%;
+    height: 750px;
+    overflow-x: hidden;
+}
+
+.block-video-cta-youtube .bg-video-foreground {
+    background-image: url('https://www.affinalways.com/storage/assets/images/AFFINs%20heritage%20and%20logos-cut-desktop.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 500%;
+    height: 100%;
+}
+
+.block-video-cta-youtube .bg-video-foreground iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.block-video-cta-youtube .overlap-layer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+
+.block-video-cta-youtube .title-text {
+    font-size: 45px;
+    font-weight: 600;
+    color: white;
+}
+
+.block-video-cta-youtube .play-link {
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.block-video-cta-youtube .play-circle {
+    max-width: 60px;
+    max-height: 60px;
+    width: 100%;
+}
+
+.block-video-cta-youtube .play-triangle {
+    max-width: 45px;
+    max-height: 45px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-video-cta-youtube .play-text {
+    font-size: 20px;
+    font-weight: 200;
+    color: white;
+    margin-left: 15px;
+    margin: 0 0 0 15px;
+    align-self: center;
+    word-break: break-word;
+}
+
+.block-video-cta-youtube .block-layer {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.block-video-cta-youtube .popup-content {
+    position: relative;
+    height: 100%;
+    padding-top: 56.25%;
+}
+
+.block-video-cta-youtube .popup-content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Modal */
+.block-video-cta-youtube .close-button-x {
+    font-size: 40px;
+    color: white;
+}
+
+.block-video-cta-youtube .modal-content {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.block-video-cta-youtube .modal {
+    padding-left: 0 !important;
+    z-index: 10000 !important;
+}
+
+.block-video-cta-youtube .modal-lg {
+    max-width: 75%;
+}
+
+@media (max-width: 768px) {
+    .block-video-cta-youtube .title-text {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .block-video-cta-youtube .modal-lg {
+        max-width: 100%;
+    }
+
+    .block-video-cta-youtube .title-text {
+        font-size: 35px;
+    }
+
+    .block-video-cta-youtube .bg-video-foreground {
+        background-image: url('https://www.affinalways.com/storage/assets/images/AFFINs%20heritage%20and%20logos-cut-mobile.gif');
+    }
+}

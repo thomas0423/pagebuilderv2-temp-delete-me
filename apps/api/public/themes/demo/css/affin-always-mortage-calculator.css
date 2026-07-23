@@ -1,0 +1,210 @@
+.__range-step-salary input, .__range-step-mortage input
+{
+    outline: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    height: 8px;
+    width: 100%;
+    margin: 10px auto;
+}
+.__range-step-salary input::-webkit-slider-thumb, .__range-step-mortage input::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: -moz-grab;
+    cursor: -webkit-grab; 
+}            
+.__range-step-salary input::-moz-range-thumb, .__range-step-mortage input::-moz-range-thumb
+{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: -moz-grab;
+    cursor: -webkit-grab; 
+}
+.__range-step-salary input::-ms-thumb, .__range-step-mortage input::-ms-thumb
+{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: -moz-grab;
+    cursor: -webkit-grab; 
+}
+.__range-step-mortage, .__range-step-salary{
+    position: relative;                
+}
+
+.__range-max{
+    float: right;
+}
+.__range-step-mortage input::-webkit-slider-thumb, .__range-step-salary input::-webkit-slider-thumb
+{
+    background: transparent;
+}            
+.__range-step-mortage input::-moz-range-thumb, .__range-step-salary input::-moz-range-thumb
+{
+    background: transparent;
+}
+.__range-step-mortage input::-ms-thumb, .__range-step-salary input::-moz-range-thumb
+{
+    background: transparent;
+}
+.__range-step-mortage datalist, .__range-step-salary datalist{
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    bottom: 30px;
+    /* disable text selection */
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */                
+    user-select: none; /* Standard */
+    /* disable click events */
+    pointer-events:none;  
+}
+.__range-step-mortage datalist option, .__range-step-salary datalist option{
+    width: 30px;
+    height: 30px;
+    min-height: 20px;
+    border-radius: 100px;
+    /* hide text */
+    white-space: nowrap;       
+    padding:0;
+    line-height: 130px;
+    color: #fff;
+    font-size: 25px;
+}
+.__range-step-popup .__range-output-square{
+    padding: 0 5px; 
+    min-width: 25px;
+    width: auto !important;                
+    border-radius: 5px !important;
+}
+.__range-step-popup output:after 
+{ 
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid#0768B3;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    top: 90%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -1px;
+}
+.__range-step-mortage, .__range-step-salary{
+margin:0 40px;
+}
+.__range-step-popup{
+margin:40px 40px;
+}
+/* Block Range */
+
+.block-affin-always-mortage-calculator .bg-color {
+    background-color: #0768B3;
+}
+
+.block-affin-always-mortage-calculator p, .block-affin-always-mortage-calculator h2{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+}
+.block-affin-always-mortage-calculator p.how-much{
+    font-size: 21px;
+}
+.block-affin-always-mortage-calculator p.income{
+    font-size: 20px;
+}
+
+.block-affin-always-mortage-calculator h2{
+    font-size: 35px;
+}
+
+.block-affin-always-mortage-calculator .default-button{
+    background-color: #fff;
+    color: #0768B3;
+    width: 200px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.mortage-purpose-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+}
+
+.loan-purpose-btn{
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 17px;
+    padding: 16px;
+    width: 23rem;
+    background-color: #0768B3;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mortage-purpose-close-btn{
+    position:absolute;
+    top: -6px;
+    right:-6px; 
+    background-color:red;
+    border-radius:50%;
+    padding:8px; 
+    color:#fff;
+}
+
+@media only screen and (max-width: 992px) {
+    .loan-purpose-btn {
+        margin-right: 1rem;
+    }
+
+    .__range input{
+        height: 5px;
+    }
+
+    .__range-step-mortage datalist option, .__range-step-salary datalist option{
+        width: 24px;
+        height: 24px;
+       
+    }
+
+    .__range-step-mortage datalist, .__range-step-salary datalist{
+        bottom: 26px;
+    }
+
+}
+@media only screen and (max-width: 500px) { 
+    .__range-step-mortage datalist option, .__range-step-salary datalist option{
+        min-height: 24px;
+        font-size: 18px;
+        line-height: 106px;
+    }
+    .loan-purpose-btn {
+        width: 16rem;
+        margin-right: 1rem;
+        font-size: 14px;
+    }
+}
+
+

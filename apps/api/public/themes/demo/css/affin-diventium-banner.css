@@ -1,0 +1,78 @@
+.block-affin-diventium-banner {
+    background-image: url('/img/affin-diventium/hero-banner-desktop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 730px;
+    position: relative;
+}
+
+.block-affin-diventium-banner .hero-container {
+    position: initial;
+}
+
+.block-affin-diventium-banner .banner-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+
+.block-affin-diventium-banner .title-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 1;
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 5rem;
+}
+
+.block-affin-diventium-banner .subtitle-text {
+    padding-top: 10px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.block-affin-diventium-banner .align-items-button {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.block-affin-diventium-banner .align-items-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.block-affin-diventium-banner .apply-button {
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    background: #AC8B3F;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 768px) {
+    .block-affin-diventium-banner .title-text {
+        font-size: 48px;
+    }
+
+    .block-affin-diventium-banner {
+        background-image: url('/img/affin-diventium/hero-banner-mobile.png');
+        height: 700px;
+    }
+
+    .block-affin-diventium-banner .banner-container {
+        top: 60%;
+    }
+}

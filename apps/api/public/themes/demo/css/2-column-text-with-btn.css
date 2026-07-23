@@ -1,0 +1,86 @@
+.block-2-column-text-with-btn .bg-color{
+    background-color: #0768B3;
+}
+
+.block-2-column-text-with-btn .header{
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+}
+
+/* .block-2-column-text-with-btn .card {
+    background: #fff;
+    border-radius: 20px;
+} */
+
+.block-2-column-text-with-btn .card {
+    background: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: 100% !important;
+}
+
+.block-2-column-text-with-btn .card-radius {
+    margin-bottom: 2rem;
+    border-radius: 25px;
+}
+
+.block-2-column-text-with-btn .button {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #0768B3;
+    width: 50%;
+}
+
+.block-2-column-text-with-btn .button-text {
+    font-size: 17px;
+    font-weight: 300;
+    color: white;
+}
+
+.block-2-column-text-with-btn .card-title-text{
+    font-size: 20px;
+    font-weight: 600;
+    color: #0768B3;
+}
+
+.block-2-column-text-with-btn .card-description-text{
+    font-size: 15px;
+    font-weight: 200;
+    color: #888888; 
+}
+
+.block-2-column-text-with-btn .default-button{
+    display: inline-block;
+    background: #0768B3;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 10px solid transparent;
+    line-height: 1.5;
+    border-radius: .75em;
+    width: 50%;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+
+
+
+
+

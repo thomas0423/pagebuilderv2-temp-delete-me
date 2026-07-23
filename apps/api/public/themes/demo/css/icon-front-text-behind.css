@@ -1,0 +1,15 @@
+.block-icon-front-text-behind .icon-text-wrapper {
+    display: flex;
+    padding: 10px 0;
+}
+
+.block-icon-front-text-behind .icon {
+    min-width: 18px;
+    max-width: 18px;
+    max-height: 18px;
+}
+
+.block-icon-front-text-behind .text {
+    margin-bottom: 0;
+    margin-left: 20px;
+}

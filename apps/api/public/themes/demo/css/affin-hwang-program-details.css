@@ -1,0 +1,27 @@
+.irlBlockAffinHwangprogramTypeDetails .irlprogramTypeHeader {
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 65px;
+  color: #0768B3;
+}
+
+.irlBlockAffinHwangprogramTypeDetails .irlprogramTypeBanner {
+  height: 540px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 576px) {
+  .irlBlockAffinHwangprogramTypeDetails .irlprogramTypeHeader {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .irlBlockAffinHwangprogramTypeDetails .block-affin-always-hero {
+    height: 300px;
+  }
+
+  .irlBlockAffinHwangprogramTypeDetails .irlprogramTypeBanner {
+    height: 420px;
+    object-fit: contain;
+  }
+}

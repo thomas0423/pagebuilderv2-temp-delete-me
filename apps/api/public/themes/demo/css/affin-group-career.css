@@ -1,0 +1,67 @@
+.block-affin-group-career input,
+.block-affin-group-career select {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    border: none;
+    border-bottom: 1px solid #C4C4C4;
+    font-size: 16px;
+    color: #999999;
+}
+
+.block-affin-group-career .input-container {
+    padding: 0 10px;
+}
+
+.block-affin-group-career .career-search-btn {
+    color: #0768B3;
+    font-size: 16px;
+    border: 1px solid #0768B3;
+    border-radius: 25px;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.block-affin-group-career .hiring-text {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.block-affin-group-career .career-list-title,
+.block-affin-group-career .career-list-division-text,
+.block-affin-group-career .career-list-specialization-text,
+.block-affin-group-career .career-list-location-list {
+    font-size: 20px;
+}
+
+.block-affin-group-career .row.career-list {
+    padding: 10px;
+}
+
+.block-affin-group-career .career-list-title-link {
+    text-decoration: none;
+}
+
+.block-affin-group-career .career-list-title-link:link,
+.block-affin-group-career .career-list-title-link:visited,
+.block-affin-group-career .career-list-title-link:focus,
+.block-affin-group-career .career-list-title-link:active {
+    color: #0768B3;
+}
+
+.block-affin-group-career .row.career-list:nth-child(even) {
+    background-color: #D3D3D3;
+}
+
+.block-affin-group-career .load-more-career-btn {
+    font-size: 24px;
+    border-radius: 10px;
+    border: 3px solid;
+    padding: 5px 50px;
+}
+
+.block-affin-group-career .hide-career-list,
+.block-affin-group-career .no-result-text{
+    display: none;
+}

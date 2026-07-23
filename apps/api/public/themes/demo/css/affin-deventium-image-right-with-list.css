@@ -1,0 +1,46 @@
+.block-affin-deventium-image-right-with-list .card-image {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.block-affin-deventium-image-right-with-list .bg-gold {
+    background: #FFFFFF;
+}
+
+.block-affin-deventium-image-right-with-list .header-text {
+    font-weight: 700;
+    font-size: 28px;
+    color: #AC8B3F;
+}
+
+.block-affin-deventium-image-right-with-list .content-text {
+    font-weight: 300;
+    font-size: 20px;
+    color: #000000;
+}
+
+.block-affin-deventium-image-right-with-list .content-text strong {
+    font-weight: 700;
+}
+
+.block-affin-deventium-image-right-with-list .reminder-text {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    padding-left: 0;
+}
+
+.block-affin-deventium-image-right-with-list .link-button {
+    justify-content: center;
+    align-items: center;
+    padding: 12px 48px;
+    background: #000000;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    text-decoration: none;
+}

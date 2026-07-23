@@ -1,0 +1,154 @@
+.block-discover-promotions .background-image {
+    background-image: url('/img/bg-image-1.png');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.block-discover-promotions .content {
+    background: rgba(76, 157, 202, 0.8);
+}
+
+.block-discover-promotions .header {
+    font-weight: 300;
+    font-size: 48px;
+}
+
+.block-discover-promotions .card {
+    height: 100% !important;
+    min-height: 300px;
+    max-height: 300px;
+    border: 1px solid #C4C4C4;
+    box-shadow: 0 4px 4px 0 #00000040;
+}
+
+.block-discover-promotions .card-urllink {
+    text-decoration: none;
+}
+
+.block-discover-promotions .card-radius {
+    /* margin-bottom: 2rem; */
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.block-discover-promotions .card-img {
+    width: 100%;
+    object-fit: cover;
+    min-height: 150px;
+    max-height: 150px;
+}
+
+.block-discover-promotions .card-body {
+    padding: 1.25rem 2rem 1.25rem 2rem;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.block-discover-promotions .card-body::-webkit-scrollbar {
+    display: none;
+}
+
+.block-discover-promotions .card-title, .card-content, .card-foot {
+    color: #888888;
+}
+
+.block-discover-promotions .card-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.block-discover-promotions .card-content {
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.block-discover-promotions .card-foot {
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.block-discover-promotions .button { 
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #0768B3;
+    color: white;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+}
+
+.block-discover-promotions .button-text {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.block-discover-promotions .link-text {
+    color: white;
+}
+
+.block-discover-promotions .listing-carousel{
+    position: relative;
+}
+
+/* carousel btn */
+.block-discover-promotions .carousel-button-prev,
+.block-discover-promotions .carousel-button-next {
+    position: absolute;
+    top:50%;
+    width: 5rem;
+    height: 5rem;
+    background-color: #0768B3;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 2;
+}
+
+.block-discover-promotions .carousel-button-prev {
+    left: 5px;
+}
+
+.block-discover-promotions .carousel-button-next {
+    right: 5px;
+}
+
+.block-discover-promotions .carousel-button-next img,
+.block-discover-promotions .carousel-button-prev img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.block-discover-promotions .carousel-button-next img {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.block-discover-promotions .carousel-button-prev img {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+@media (max-width: 577.98px) {
+    .block-discover-promotions .button {
+        padding: 15px 20px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .block-discover-promotions .link-text {
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}
+/* carousel btn end */

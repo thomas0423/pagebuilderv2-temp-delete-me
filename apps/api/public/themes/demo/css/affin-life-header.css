@@ -1,0 +1,58 @@
+.block-affin-life-header .affin-life-logo {
+    display: inherit;
+    padding: 10px;
+    margin: 0;
+
+    justify-content: center;
+}
+
+.block-affin-life-header .affin-life-top-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.block-affin-life-header .home-logo a img {
+    width: 225px!important;
+}
+
+.block-affin-life-header .affin-life-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.block-affin-life-header .affin-life-menu #affin-life-menu-element {
+    margin-top: 10px;
+}
+
+.block-affin-life-header .affin-life-menu #affin-life-menu-element li {
+    float: left;
+    position: relative;
+    display: block;
+    padding: 0;
+}
+
+.block-affin-life-header .affin-life-menu #affin-life-menu-element li:hover {
+    background: #a7d5d3;
+    border-radius: 3px;
+}
+
+.block-affin-life-header .affin-life-menu #affin-life-menu-element li a {
+    position: relative;
+    line-height: 20px;
+    color: #666;
+    background: none;
+    font-size: 17px;
+    font-weight: 300;
+    height: auto;
+    display: inline-table;
+    text-transform: capitalize;
+    padding: 10px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.block-affin-life-header .padding-10px {
+    padding: 10px;
+}

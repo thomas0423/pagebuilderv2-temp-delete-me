@@ -1,0 +1,19 @@
+.block-img-top-text-bottom .image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.block-img-top-text-bottom .custom-padding {
+    padding-top: 50px;
+}
+
+.block-img-top-text-bottom .content-text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #444444;
+}

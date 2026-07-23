@@ -1,0 +1,61 @@
+.block-affin-customer-feedback .card-container {
+    border: 1px solid #888888;
+    height: 100%;
+}
+
+.block-affin-customer-feedback .content-container {
+    padding: 10px 15px;
+}
+
+.block-affin-customer-feedback .feedback-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    padding: 30px 0 0;
+}
+
+.block-affin-customer-feedback .feedback-team {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #888888;
+}
+
+.block-affin-customer-feedback .feedback-content {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #888888;
+}
+
+.block-affin-customer-feedback .card-image-container {
+    padding: 15px;
+}
+
+.block-affin-customer-feedback .card-image {
+    width: 30px;
+    height: 30px;
+}
+
+.block-affin-customer-feedback .card-box {
+    padding: 10px;
+}
+
+.block-affin-customer-feedback .hidden-feedback-card {
+    display: none;
+}
+
+.block-affin-customer-feedback .load-more-button {
+    color: #0768B3;
+    background: #FFFFFF;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    border: 2px solid #0768B3;
+    border-radius: 5px;
+}

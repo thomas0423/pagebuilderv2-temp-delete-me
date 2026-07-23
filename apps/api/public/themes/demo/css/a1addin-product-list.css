@@ -1,0 +1,96 @@
+.block-a1addin-product-list .category-title-text {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 55px;
+    color: #0066FF;
+}
+
+.block-a1addin-product-list .bold-title-text {
+    font-weight: 600;
+}
+
+.block-a1addin-product-list .a1addin-product-category-arrow-icon {
+    font-size: 40px;
+    align-self: center;
+    color: #666666;
+    cursor: pointer;
+    -webkit-text-stroke: 4px #FFFFFF;
+}
+
+.block-a1addin-product-list .product-categories {
+    display: flex;
+    overflow-x: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.block-a1addin-product-list .product-categories::-webkit-scrollbar {
+    display: none;
+}
+
+.block-a1addin-product-list .product-category-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.block-a1addin-product-list .category-card {
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 30px 15px;
+
+
+    margin-left: 10px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.block-a1addin-product-list .category-card-title-text {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 42px;
+    color: #999999;
+    white-space: break-spaces;
+}
+
+.block-a1addin-product-list .category-card-subtitle-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #999999;
+    white-space: break-spaces;
+}
+
+.block-a1addin-product-list .category-btn {
+    display: inline-block;
+    background: #0066FF;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375em .75em;
+    line-height: 1.5;
+    border-radius: 40px;
+    white-space: break-spaces;
+}
+
+.block-a1addin-product-list .category-btn-link {
+    text-decoration: none;
+}
+
+.block-a1addin-product-list .place-self-center {
+    place-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .block-a1addin-product-list .product-category-image {
+        width: 80px;
+        height: 80px;
+    }
+}

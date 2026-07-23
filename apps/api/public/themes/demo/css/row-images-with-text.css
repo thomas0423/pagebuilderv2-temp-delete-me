@@ -1,0 +1,38 @@
+.block-row-images-with-text .card-container {
+    border: 1px solid #C4C4C4;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.block-row-images-with-text .content-container {
+    padding: 10px 15px;
+}
+
+.block-row-images-with-text .content-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #888888;
+}
+
+.block-row-images-with-text .content-description {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #888888;
+    padding-top: 10px;
+}
+
+.block-row-images-with-text .card-image-container {
+    padding: 15px;
+}
+
+.block-row-images-with-text .card-image {
+    width: 100%;
+}
+
+.block-row-images-with-text .card-box {
+    padding: 10px;
+}

@@ -1,0 +1,70 @@
+.block-affin-invikta-promotions .bg-dark-grey {
+  background-color: #2B2A29;
+}
+
+.block-affin-invikta-promotions .load-more-button {
+  background: #CD7F32;
+  border-radius: 10px;
+  padding: 20px 50px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.block-affin-invikta-promotions .affin-invikta-promotion-container {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px #888888;
+  border-radius: 10px;
+  height: 250px;
+  overflow: scroll;
+}
+
+.block-affin-invikta-promotions .hide-promotion {
+  display: none;
+}
+
+.block-affin-invikta-promotions .affin-invikta-promotion-container::-webkit-scrollbar {
+  display: none;
+}
+
+.block-affin-invikta-promotions .promotion-title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #CD7F32;
+}
+
+.block-affin-invikta-promotions .affin-invikta-promotion-thumbnail-container,
+.block-affin-invikta-promotions .affin-invikta-promotion-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.block-affin-invikta-promotions .promotion-description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.block-affin-invikta-promotions .view-details-button {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 55px;
+  color: #CD7F32;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .block-affin-invikta-promotions .affin-invikta-promotion-thumbnail-container,
+  .block-affin-invikta-promotions .affin-invikta-promotion-thumbnail {
+    border-radius: 10px;
+  }
+}

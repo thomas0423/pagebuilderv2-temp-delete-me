@@ -1,0 +1,232 @@
+.block-rates-and-pricing .display-flow-root {
+    display: flow-root;
+}
+
+.block-rates-and-pricing .r-n-p-tab {
+    display: table-cell;
+    font-weight: lighter;
+    font-size: 38px;
+    color: #888888;
+    cursor: pointer;
+    padding: 5px 50px;
+}
+
+.block-rates-and-pricing .tab--active {
+    border-bottom: 4px solid #00ACFB;
+}
+
+.block-rates-and-pricing .tab-content {
+    display: none;
+}
+
+.block-rates-and-pricing .content--active {
+    display: block;
+}
+
+.block-rates-and-pricing .header-2 {
+    font-weight: lighter;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+    max-width: 80%;
+}
+
+.block-rates-and-pricing .header-3 {
+    font-weight: lighter;
+    font-size: 18px;
+    color: #888888;
+    cursor: pointer;
+    max-width: 80%;
+}
+
+.block-rates-and-pricing .thead-blue {
+    background-color: #0768B3;
+    color: #FFFFFF;
+}
+
+.block-rates-and-pricing .content {
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.block-rates-and-pricing .content-header {
+    color: #888888;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.block-rates-and-pricing .content-header-2 {
+    color: #888888;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.block-rates-and-pricing .pdf-icon img {
+    size: 30px;
+    margin-right: 20px;
+}
+
+.block-rates-and-pricing hr.solid-lightgrey-hr {
+    border-top: 1px solid #C4C4C4;
+}
+
+.block-rates-and-pricing hr.dotted-lightgrey-hr {
+    border-top: 1px dotted #C4C4C4;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.block-rates-and-pricing .link-text-blue {
+    font-size: 20px;
+    color: #00ACFB;
+    font-weight: lighter;
+}
+
+.block-rates-and-pricing .display-inline {
+    display: inline-block;
+}
+
+.block-rates-and-pricing .display-inline {
+    display: inline-block;
+}
+
+.block-rates-and-pricing .text-grey {
+    color: #888888;
+    text-decoration: none;
+}
+
+.block-rates-and-pricing .rates-details {
+    display: inline-block;
+    padding: 5px;
+}
+
+.block-rates-and-pricing .flag-img {
+    max-width: 90px;
+    min-width: 90px;
+    width: 100%;
+    height: 55px;
+    object-fit: contain;
+}
+
+.block-rates-and-pricing .sub-text-paragraph {
+    color: #888888;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.block-rates-and-pricing .sub-text-currency-code {
+    color: #888888;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    max-width: 90px;
+    min-height: 35px;
+    white-space: normal;
+}
+
+.block-rates-and-pricing .sub-text-buy-sell {
+    color: #888888;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.block-rates-and-pricing .sub-text-warning {
+    color: red;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.block-rates-and-pricing .forex-1,
+.block-rates-and-pricing .forex-100 {
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.block-rates-and-pricing .button-container {
+    width: 100%;
+}
+
+.block-rates-and-pricing hr.dotted-hr-grey {
+    border: 1px dashed #C4C4C4;
+    margin: 5px -4%;
+}
+
+.block-rates-and-pricing .forex-1__button--prev,
+.block-rates-and-pricing .forex-1__button--next,
+.block-rates-and-pricing .forex-100__button--prev,
+.block-rates-and-pricing .forex-100__button--next {
+    position: absolute;
+    top: -25px;
+    width: 3rem;
+    height: 3rem;
+    background-color: #0768B3;
+    transform: translateY(-50%) scale(1.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    border: 1px solid white;
+}
+
+.block-rates-and-pricing .forex-1__button--prev,
+.block-rates-and-pricing .forex-100__button--prev {
+    right: 14%;
+}
+
+.block-rates-and-pricing .forex-1__button--next,
+.block-rates-and-pricing .forex-100__button--next {
+    right: 8%;
+}
+
+.block-rates-and-pricing .forex-1__button--next img,
+.block-rates-and-pricing .forex-1__button--prev img,
+.block-rates-and-pricing .forex-100__button--next img,
+.block-rates-and-pricing .forex-100__button--prev img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.block-rates-and-pricing .forex-1__button--next img,
+.block-rates-and-pricing .forex-100__button--next img {
+    transform: translate(-50%, -50%) rotate(90deg) scale(.8);
+}
+
+.block-rates-and-pricing .forex-1__button--prev img,
+.block-rates-and-pricing .forex-100__button--prev img {
+    transform: translate(-50%, -50%) rotate(-90deg) scale(.8);
+}
+
+@media only screen and (max-width: 767.98px) {
+    .block-rates-and-pricing .forex-1__button--next,
+    .block-rates-and-pricing .forex-100__button--next {
+        right: 5%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .block-rates-and-pricing .r-n-p-tab {
+        font-size: 24px;
+    }
+
+    .block-rates-and-pricing .header-2 {
+        font-size: 20px;
+    }
+
+    .block-rates-and-pricing .header-3 {
+        font-size: 16px;
+    }
+
+    .block-rates-and-pricing .table {
+        font-size: 12px;
+    }
+
+    .block-rates-and-pricing .forex-1__button--next,
+    .block-rates-and-pricing .forex-100__button--next {
+        right: 0%;
+    }
+}

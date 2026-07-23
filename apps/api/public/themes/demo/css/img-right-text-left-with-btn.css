@@ -1,0 +1,77 @@
+.block-img-right-text-left-with-btn {
+    background-image: url("/img/welcome-to-a-world-of-possibilities.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.block-img-right-text-left-with-btn .container-height {
+    min-height: 450px;
+}
+
+.block-img-right-text-left-with-btn .img-right{
+    width: 100%;
+    max-width: 450px;
+    max-height: 450px;
+}
+
+.block-img-right-text-left-with-btn .title-logo {
+    width: 100%;
+    max-width: 350px;
+    max-height: 75px;
+}
+
+.block-img-right-text-left-with-btn .title-text{
+    font-weight: 600;
+    font-size: 32px;
+    color: white
+}
+
+.block-img-right-text-left-with-btn .description-text{
+    font-weight: 300;
+    font-size: 18px;
+    color: white
+}
+
+.block-img-right-text-left-with-btn .button {
+    border: none;
+    border-radius: 10px;
+    color: #0768B3;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    width: 100%;
+    height: 55px;
+    max-width: 200px;
+    max-height: 55px;
+}
+
+.block-img-right-text-left-with-btn .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-img-right-text-left-with-btn .link-text{
+    font-weight: lighter;
+    font-size: 18px;
+    color: #0768B3;
+    align-self: center;
+}
+
+/* @media only screen and (max-width: 992px) {
+    .block-img-right-text-left-with-btn .background-image {
+        height: 1000px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .block-img-right-text-left-with-btn .background-image {
+        height: 900px;
+    }
+} */

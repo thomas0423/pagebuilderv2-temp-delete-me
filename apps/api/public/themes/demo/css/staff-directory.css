@@ -1,0 +1,51 @@
+.block-staff-directory a.direcory-link {
+    color: #0768B3;
+    padding-left: 1.5rem;
+}
+
+.block-staff-directory a.direcory-link:hover {
+    text-decoration-color: green;
+}
+
+.block-staff-directory .directoy-desc {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+
+.block-staff-directory p {
+    font-size: 1.1em;
+    margin: 1em 0;
+}
+
+.block-staff-directory ul.accordion, ul.inner li {
+    list-style: none;
+    padding: 0;
+}
+
+.block-staff-directory ul .inner {
+    padding-left: 1em;
+    overflow: hidden;
+    display: none;
+
+}
+
+.block-staff-directory ul .inner.show {
+    /*display: block;*/
+}
+
+.block-staff-directory ul.inner li {
+    margin: 0.5em 0;
+}
+
+.block-staff-directory ul li .toggle {
+    width: 100%;
+    display: block;
+    background: transparent;
+    color: #0768B3;
+    padding: 0.75em 0;
+    border-radius: 0.15em;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}

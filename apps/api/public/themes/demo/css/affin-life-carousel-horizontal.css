@@ -1,0 +1,143 @@
+.block-affin-life-carousel-horizontal .bg-color{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    justify-content: center;
+}
+
+.block-affin-life-carousel-horizontal .bg-white{
+    background-color: #FFFFFF;
+    width: 160px;
+    height: 160px;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-affin-life-carousel-horizontal .affin-bg-image{
+    width: 260px;
+    height: 165px;
+    object-fit: cover;
+}
+
+.block-affin-life-carousel-horizontal .title-text{
+    font-size: 25px;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.block-affin-life-carousel-horizontal a.text-link:hover {
+    text-decoration: none !important;
+}
+
+.block-affin-life-carousel-horizontal .content-box {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.block-affin-life-carousel-horizontal .img-size{
+    width: 260px;
+    height: 165px;
+}
+
+.block-affin-life-carousel-horizontal .mySlides {display: none}
+
+/* Slideshow container */
+.block-affin-life-carousel-horizontal .slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.block-affin-life-carousel-horizontal .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.block-affin-life-carousel-horizontal .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.block-affin-life-carousel-horizontal .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.block-affin-life-carousel-horizontal .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.block-affin-life-carousel-horizontal .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.block-affin-life-carousel-horizontal .dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 3px 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: block;
+  transition: background-color 0.6s ease;
+}
+
+.block-affin-life-carousel-horizontal .text-link-carousel {
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.block-affin-life-carousel-horizontal .dotted-line {
+    position: absolute;
+    top: 8%;
+    left: 90%;
+}
+
+.block-affin-life-carousel-horizontal .active, .dot:hover {
+  background-color: #717171;
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .block-affin-life-carousel-horizontal .prev, .next,.text {font-size: 11px}
+}

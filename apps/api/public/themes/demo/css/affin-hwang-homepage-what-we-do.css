@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.block-affin-hwang-homepage-what-we-do {
+    background-color: #E5EBF2;
+    padding: 50px;
+}
+
+.block-affin-hwang-homepage-what-we-do .homepage-what-we-do-heading {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.block-affin-hwang-homepage-what-we-do .homepage-what-we-do-heading-3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 27px;
+    color: #0768B3;
+    font-weight: 300;
+}
+
+.block-affin-hwang-homepage-what-we-do .homepage-what-we-do-hr {
+    width: 85px;
+    height: 3px;
+    background-color: #FF0000;
+    border: none;
+    margin: 0;
+}
+
+.block-affin-hwang-homepage-what-we-do .homepage-what-we-do-p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.block-affin-hwang-homepage-what-we-do .homepage-what-we-do-img {
+    object-fit: cover;
+    width: 261px;
+    height: 376px;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .block-affin-hwang-homepage-what-we-do .homepage-what-we-do-img {
+        display: block;
+        width: 100%;        
+    }
+
+    .block-affin-hwang-homepage-what-we-do .homepage-what-we-do-heading{
+        margin-top: 20px;
+    }
+}

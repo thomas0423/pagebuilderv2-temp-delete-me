@@ -1,0 +1,83 @@
+.block-4-column-with-icon-and-btn .background-image {
+    width: 100%;
+    height: 550px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.block-4-column-with-icon-and-btn .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-4-column-with-icon-and-btn .header{
+    font-weight: 600;
+    font-size: 35px;
+    color: white
+}
+
+.block-4-column-with-icon-and-btn .icon-image{
+    max-width: 70px;
+    max-height: 70px;
+    width: 100%;
+}
+
+.block-4-column-with-icon-and-btn .title-text{
+    font-weight: 600;
+    font-size: 18px;
+    word-break: break-word;
+    color: white
+}
+
+.block-4-column-with-icon-and-btn .description-text{
+    font-weight: 300;
+    font-size: 16px;
+    word-break: break-word;
+    color: white
+}
+
+.block-4-column-with-icon-and-btn .button{
+    border: none;
+    border-radius: 10px;
+    color: #0768B3;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    max-width: 200px;
+    width: 100%;
+    height: 55px;
+}
+
+.block-4-column-with-icon-and-btn .button-text{
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+.block-4-column-with-icon-and-btn .link-text{
+    color: #0768B3;
+}
+
+@media only screen and (max-width: 992px) {
+    .block-4-column-with-icon-and-btn .background-image {
+        height: 1300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .block-4-column-with-icon-and-btn .background-image {
+        height: 1350px;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .block-4-column-with-icon-and-btn .background-image {
+        height: 1400px;
+    }
+}

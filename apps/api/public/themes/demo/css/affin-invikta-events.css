@@ -1,0 +1,120 @@
+.block-affin-invikta-events .bg-dark-grey {
+  background-color: #2B2A29;
+}
+
+.block-affin-invikta-events .load-more-button {
+  background: #CD7F32;
+  border-radius: 10px;
+  padding: 20px 50px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.block-affin-invikta-events .hide-event {
+  display: none;
+}
+
+.block-affin-invikta-events .affin-invikta-event-container::-webkit-scrollbar {
+  display: none;
+}
+
+.block-affin-invikta-events .event-title {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 25px;
+  color: #CD7F32;
+  padding-bottom: 20px;
+}
+
+.block-affin-invikta-events .affin-invikta-event-thumbnail-container,
+.block-affin-invikta-events .affin-invikta-event-thumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.block-affin-invikta-events .event-description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.block-affin-invikta-events .view-details-button {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 55px;
+  color: #CD7F32;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.block-affin-invikta-events .affin-invikta-event-month {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #FFFFFF;
+}
+
+.block-affin-invikta-events .affin-invikta-event-day {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 50px;
+  color: #FFFFFF;
+}
+
+.block-affin-invikta-events .event-date-container {
+  padding: 15px;
+}
+
+.block-affin-invikta-events .event-separator {
+  border-top: 1px solid #CD7F32;
+}
+
+.block-affin-invikta-events .irlInviktaEventHeroWithDropdown .irlInviktaEventBanner {
+  min-height: 600px;
+  width: 100%;
+  background-image: url('/img/affin-invikta/invikta-banner-2.png');
+}
+
+.block-affin-invikta-events .irlInviktaEventHeroWithDropdown .irlInviktaEventBannerContent {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.block-affin-invikta-events .irlInviktaEventHeroWithDropdown .irlInviktaEventBannerContentText {
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 55px;
+  color: #CD7F32;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.block-affin-invikta-events .irlInviktaEventHeroWithDropdown .irlInviktaEventDiscoverButton {
+  background-color: #CD7F32;
+}
+
+.block-affin-invikta-events .irlInviktaEventHeroWithDropdown .irlDropdownOption {
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+
+  .block-affin-invikta-events .affin-invikta-event-thumbnail-container,
+  .block-affin-invikta-events .affin-invikta-event-thumbnail {
+    border-radius: 10px;
+  }
+
+  .block-affin-invikta-events .event-title {
+    padding-top: 20px;
+  }
+}

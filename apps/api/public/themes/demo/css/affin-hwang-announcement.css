@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.block-affin-hwang-announcement .announcement-title{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.block-affin-hwang-announcement .announcement-content{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 16px;    
+}
+
+.block-affin-hwang-announcement .announcement-read-more{
+    font-family: 'Roboto', sans-serif;
+    color: #FF0000;
+    font-weight: 300;
+    font-size: 16px;    
+}
+
+.block-affin-hwang-announcement .irlAnnouncementCloseIcon{
+    cursor: pointer;
+    font-size: 35px;
+    color: #888888;
+}
+
+.block-affin-hwang-announcement .sticky-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    z-index: 9999;
+}
+
+.block-affin-hwang-announcement .affin-hwang-announcement-preview-content {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    -webkit-box-orient: vertical;
+}

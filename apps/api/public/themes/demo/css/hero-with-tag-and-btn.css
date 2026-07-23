@@ -1,0 +1,255 @@
+.block-hero-with-tag-and-btn {
+    background-image: url("/img/serve_better.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    max-height: 600px;
+    position: relative;
+}
+
+.block-hero-with-tag-and-btn .position-relative:not(#crossSellModal .position-relative) {
+    position: initial !important;
+}
+
+.block-hero-with-tag-and-btn .container:not(#crossSellModal .container) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-hero-with-tag-and-btn .white-text {
+    color: white;
+}
+
+.block-hero-with-tag-and-btn .title-text {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    text-shadow: 2px 2px 5px black;
+}
+
+.block-hero-with-tag-and-btn .description-text {
+    font-size:  24px;
+    padding-left: 5px;
+}
+
+.block-hero-with-tag-and-btn .item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+
+.block-hero-with-tag-and-btn .link-tag {
+    padding-left: 5px;
+}
+
+.block-hero-with-tag-and-btn .caption {
+    display: block;
+}
+
+.block-hero-with-tag-and-btn .align-items-button {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.block-hero-with-tag-and-btn .align-items-button a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.block-hero-with-tag-and-btn .align-items-button img {
+    min-height: 35px;
+    max-height: 35px;
+    object-fit: contain;
+    padding: 2px;
+}
+
+.block-hero-with-tag-and-btn .apply-button {
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    background: #0768B3;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Cross Sell Modal */
+/* Cross Sell*/
+.block-hero-with-tag-and-btn .cross-sell-tagline-text {
+    color: #888888;
+    font-size: 48px;
+    text-align: center;
+    margin: 0px;
+}
+
+/* Cross Sell Product*/
+.block-hero-with-tag-and-btn .cross-sell-selected {
+    border: 2px solid #0768B3;
+}
+
+.block-hero-with-tag-and-btn .cross-sell-product-img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.block-hero-with-tag-and-btn .cross-sell-product-title-text {
+    color: #888888;
+    font-size: 28px;
+    padding-left: 25px;
+    margin: 0;
+}
+
+.block-hero-with-tag-and-btn .cross-sell-product-description-text {
+    color: #888888;
+    text-align: center;
+}
+
+/* Cross Sell Modal */
+.block-hero-with-tag-and-btn .modal {
+    padding: 0 !important;
+    z-index: 10000 !important;
+}
+
+.block-hero-with-tag-and-btn .modal-dialog {
+    margin: 1.75rem auto;
+}
+
+.block-hero-with-tag-and-btn .modal-lg {
+    max-width: 85%;
+}
+
+.block-hero-with-tag-and-btn .modal-header {
+    border-bottom: 0 none;
+}
+
+.block-hero-with-tag-and-btn .close-button-x {
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+    left: 100%;
+    margin-left: 20px;
+    color: white;
+}
+
+.block-hero-with-tag-and-btn .modal-content {
+    border-radius: 20px;
+}
+
+.block-hero-with-tag-and-btn .modal-footer {
+    border-top: 0 none;
+}
+
+.block-hero-with-tag-and-btn .button {
+    border: none;
+    border-radius: 10px;
+    color: #0768B3;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #0768B3;
+    font-size: 20px;
+    width: 100%;
+}
+
+.block-hero-with-tag-and-btn .button-no-thanks {
+    border: 1px solid #0768B3;
+    color: #0768B3;
+    background-color: #fff;
+}
+
+.block-hero-with-tag-and-btn .button-im-interested {
+    border: 1px solid #0768B3;
+    color: #0768B3;
+    background-color: #0768B3;
+}
+
+.block-hero-with-tag-and-btn .button-im-interested a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.block-hero-with-tag-and-btn .button-no-thanks a {
+    text-decoration: none;
+}
+
+@media (min-width: 1980px) {
+    .block-hero-with-tag-and-btn .modal-lg {
+        max-width: 1450px;
+    }
+}
+
+@media (max-width: 576px) {
+    .block-hero-with-tag-and-btn .close-button-x {
+        margin-left: 7px;
+    }
+
+    .block-hero-with-tag-and-btn .button-no-thanks {
+        font-size: 15px;
+    }
+
+    .block-hero-with-tag-and-btn .button-im-interested {
+        font-size: 15px;
+    }
+
+    .block-hero-with-tag-and-btn .cross-sell-tagline-text {
+        font-size: 25px;
+    }
+
+    .block-hero-with-tag-and-btn .cross-sell-product-img {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
+    .block-hero-with-tag-and-btn .cross-sell-product-title-text {
+        font-size: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* Cross Sell Modal */
+
+@media only screen and (max-width: 767.98px) {
+    /* .block-hero-with-tag-and-btn .white-text {
+        padding: 110px 0 25px;
+    } */
+
+    .block-hero-with-tag-and-btn .title-text {
+        font-size: 32px;;
+    }
+
+    .block-hero-with-tag-and-btn .description-text {
+        font-size:  18px;
+        padding-left: 2px;
+    }
+
+    .block-hero-with-tag-and-btn .link-tag {
+        font-size:  10px;
+        padding-left: 2px;
+    }
+
+    .block-hero-with-tag-and-btn .align-items-button img {
+        min-height: 20px;
+        max-height: 20px;
+    }
+}
+
+/* @media only screen and (max-width: 575.98px) {
+    .block-hero-with-tag-and-btn {
+        height: 1000px;
+        max-height: 1000px;
+    }
+} */

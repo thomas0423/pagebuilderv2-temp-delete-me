@@ -1,0 +1,19 @@
+.block-affin-invikta-title-with-text .bg-grey {
+    background-color: #2B2A29;
+}
+
+.block-affin-invikta-title-with-text .title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 55px;
+    color: #CD7F32;
+}
+
+.block-affin-invikta-title-with-text .text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+}

@@ -1,0 +1,89 @@
+.block-form .display-flow-root {
+    display: flow-root;
+}
+
+.block-form .header {
+    display: table-cell;
+    font-weight: lighter;
+    font-size: 38px;
+    color: #888888;
+    cursor: pointer;
+    padding: 5px 50px;
+}
+
+.block-form .active {
+    border-bottom: 4px solid #00ACFB;
+}
+
+.block-form .header-2 {
+    font-weight: lighter;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+}
+
+.block-form .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.block-form .content-header {
+    color: #888888;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.block-form .content-header-2 {
+    color: #888888;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.block-form .pdf-icon img{
+    size: 30px;
+    margin-right: 20px;
+}
+
+.block-form hr.solid-lightgrey-hr {
+    border-top: 1px solid #C4C4C4;
+}
+
+.block-form hr.dotted-lightgrey-hr {
+    border-top: 1px dotted #C4C4C4;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.block-form .link-text-blue {
+    font-size: 20px;
+    color: #00ACFB;
+    font-weight: lighter;
+}
+
+.block-form .display-inline {
+    display: inline-block;
+}
+
+.block-form .display-inline {
+    display: inline-block;
+}
+
+.block-form .text-grey {
+    color: #888888;
+    text-decoration: none;
+}
+
+.block-form a:link {
+    color: #0768B3 !important;
+}
+
+.block-form a:visited {
+    color: #0768B3 !important;
+}
+
+.block-form a:active {
+	color: #139ff7 !important;
+}

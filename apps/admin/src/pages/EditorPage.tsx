@@ -272,6 +272,38 @@ function resolveReplaceTarget(editor: Editor, aiTab: AiTab) {
   return selected
 }
 
+type ThemeManifest = { base: string; css: string[]; js: string[] }
+
+let themeManifestCache: ThemeManifest | null = null
+let themeManifestPromise: Promise<ThemeManifest | null> | null = null
+
+async function fetchThemeManifest(): Promise<ThemeManifest | null> {
+  if (themeManifestCache) return themeManifestCache
+  if (!themeManifestPromise) {
+    themeManifestPromise = api
+      .get<ThemeManifest>('/theme-assets')
+      .then((res) => {
+        themeManifestCache = res.data
+        return themeManifestCache
+      })
+      .catch(() => null)
+  }
+  return themeManifestPromise
+}
+
+function ensureLink(doc: Document, id: string, href: string) {
+  let el = doc.getElementById(id) as HTMLLinkElement | null
+  if (!el) {
+    el = doc.createElement('link')
+    el.id = id
+    el.rel = 'stylesheet'
+    doc.head.appendChild(el)
+  }
+  if (el.getAttribute('href') !== href) {
+    el.setAttribute('href', href)
+  }
+}
+
 function injectPublicCss(editor: Editor | null | undefined) {
   try {
     if (!editor?.Canvas) return false
@@ -285,6 +317,24 @@ function injectPublicCss(editor: Editor | null | undefined) {
       doc.head.appendChild(styleEl)
     }
     styleEl.textContent = PUBLIC_CANVAS_CSS
+
+    // Bootstrap for Affin block markup (canvas preview)
+    ensureLink(
+      doc,
+      'pb-theme-bootstrap',
+      'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css',
+    )
+
+    // Affin demo theme CSS (loaded async once, then applied on each polish)
+    void fetchThemeManifest().then((manifest) => {
+      if (!manifest?.css?.length) return
+      const liveDoc = editor.Canvas.getDocument?.()
+      if (!liveDoc) return
+      manifest.css.forEach((href, index) => {
+        ensureLink(liveDoc, `pb-theme-css-${index}`, href)
+      })
+      editor.refresh?.()
+    })
 
     doc.documentElement.style.cssText = 'width:100%;height:100%;margin:0;padding:0;background:#fff;'
     doc.body.style.cssText =

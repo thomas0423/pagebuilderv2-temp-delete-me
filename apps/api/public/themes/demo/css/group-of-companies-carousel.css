@@ -1,0 +1,126 @@
+.block-group-of-companies-carousel .bg-color{
+    background-color: #F2F2F2;
+}
+
+.block-group-of-companies-carousel .bg-white{
+    background-color: #FFFFFF;
+    width: 160px;
+    height: 160px;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-group-of-companies-carousel .bg-image{
+    width: 100%;
+    max-height: 540px;
+    object-fit: contain;
+    object-position: right;
+}
+
+.block-group-of-companies-carousel .affin-logo{
+    width: 100%;
+}
+
+.block-group-of-companies-carousel .header{
+    font-size: 32px;
+    font-weight: 400;
+    color: #333333;
+    text-align: center;
+    padding: 25px 0;
+}
+
+.block-group-of-companies-carousel .title-text{
+    font-size: 24px;
+    font-weight: 400;
+    color: #333333;
+    margin-top: 0 !important;
+}
+
+.block-group-of-companies-carousel .description-text{
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333; 
+}
+
+.block-group-of-companies-carousel .fixed-height {
+    padding-right: 40px;
+}
+
+.block-group-of-companies-carousel a.company-link:hover {
+    text-decoration: none !important;
+}
+
+.block-group-of-companies-carousel .overflow-content {
+    max-height: 540px;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1050px) {
+    .block-group-of-companies-carousel .bg-white{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .block-group-of-companies-carousel .bg-white{
+        width: 100px;
+        height: 100px;
+    }
+
+    .block-group-of-companies-carousel .overflow-content {
+        max-height: 435px;
+    }
+
+    .block-group-of-companies-carousel .title-text{
+        font-size: 16px;
+    }
+    
+    .block-group-of-companies-carousel .description-text{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .block-group-of-companies-carousel .overflow-content {
+        max-height: 350px;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .block-group-of-companies-carousel .header{
+        font-size: 24px;
+        font-weight: 400;
+        color: #333333;
+        text-align: center;
+        padding: 25px 0;
+    }
+
+    .block-group-of-companies-carousel .bg-white{
+        margin-left: 2%;
+    }
+
+    .block-group-of-companies-carousel .bg-image{
+        max-height: 425px;
+        object-position: center;
+    }
+
+    .block-group-of-companies-carousel .fixed-height {
+        padding-right: 0px;
+    }
+
+    .block-group-of-companies-carousel .overflow-content {
+        margin-top: 15px;
+        max-height: none;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    .block-group-of-companies-carousel .bg-white{
+        width: 80px;
+        height: 80px;
+    }
+}

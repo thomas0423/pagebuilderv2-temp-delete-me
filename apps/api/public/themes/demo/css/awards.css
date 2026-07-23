@@ -1,0 +1,91 @@
+.block-affin-group-awards .header{
+    font-size: 48px;
+    font-weight: 400;
+    color: #444444;
+    padding-bottom: 20px;
+}
+
+.block-affin-group-awards .search-filter {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.block-affin-group-awards .margin-bottom {
+    margin-bottom: 20px;
+}
+
+.block-affin-group-awards .card {
+    background: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    height: 100% !important;
+    max-height: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.block-affin-group-awards .banner-img {
+    width: 100%;
+    min-height: 230px;
+    max-height: 230px;
+    object-fit: cover;
+}
+
+.block-affin-group-awards .awards-title-text {
+    font-size: 25px;
+    font-weight: 600;
+    color: #444444;
+    padding: 10px
+}
+
+.block-affin-group-awards .awards-content {
+    font-size: 14px;
+    color: #888888;
+    padding: 10px;
+}
+
+.block-affin-group-awards .awards-button {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-affin-group-awards select {
+    min-width: 15%;
+    max-width: 30%;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    border: none;
+    border-bottom: 1px solid #C4C4C4;
+    font-size: 16px;
+    color: #999999;
+}
+
+.block-affin-group-awards .search-btn {
+    color: #0768B3;
+    border: 1px solid #0768B3;
+    border-radius: 25px;
+    padding: 5px 20px;
+    margin-top: -25px;
+}
+
+.block-affin-group-awards .overflow-body {
+    overflow: auto;
+}
+
+.block-affin-group-awards .filter-text {
+    min-width: 15%;
+    font-size: 16px;
+    color: #333333;
+    margin-left: 2px;
+    margin-right: 40px;
+}
+
+.block-affin-group-awards .gray-hr {
+    color: #B1B1B1;
+    margin: 10px auto 30px;
+}
+
+
+

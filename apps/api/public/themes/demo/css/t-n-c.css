@@ -1,0 +1,89 @@
+.block-t-n-c .display-flow-root {
+    display: flow-root;
+}
+
+.block-t-n-c .header {
+    display: table-cell;
+    font-weight: lighter;
+    font-size: 38px;
+    color: #888888;
+    cursor: pointer;
+    padding: 5px 50px;
+}
+
+.block-t-n-c .active {
+    border-bottom: 4px solid #00ACFB;
+}
+
+.block-t-n-c .header-2 {
+    font-weight: lighter;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+}
+
+.block-t-n-c .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.block-t-n-c .content-header {
+    color: #888888;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.block-t-n-c .content-header-2 {
+    color: #888888;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.block-t-n-c .pdf-icon img{
+    size: 30px;
+    margin-right: 20px;
+}
+
+.block-t-n-c hr.solid-lightgrey-hr {
+    border-top: 1px solid #C4C4C4;
+}
+
+.block-t-n-c hr.dotted-lightgrey-hr {
+    border-top: 1px dotted #C4C4C4;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.block-t-n-c .link-text-blue {
+    font-size: 20px;
+    color: #00ACFB;
+    font-weight: lighter;
+}
+
+.block-t-n-c .display-inline {
+    display: inline-block;
+}
+
+.block-t-n-c .display-inline {
+    display: inline-block;
+}
+
+.block-t-n-c .text-grey {
+    color: #888888;
+    text-decoration: none;
+}
+
+.block-t-n-c a:link {
+    color: #0768B3 !important;
+}
+
+.block-t-n-c a:visited {
+    color: #0768B3 !important;
+}
+
+.block-t-n-c a:active {
+    color: #139ff7 !important;
+}

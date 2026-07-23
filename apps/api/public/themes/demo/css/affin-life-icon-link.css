@@ -1,0 +1,12 @@
+.block-affin-life-icon-link .img-round {
+    border-radius: 50%;
+    height: 102px;
+    width: 102px;
+    padding: 5px;
+    margin: 15px 10px;
+}
+
+.block-affin-life-icon-link .m10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

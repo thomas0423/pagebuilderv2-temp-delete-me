@@ -7,10 +7,20 @@
     @if($page->meta_description)
         <meta name="description" content="{{ $page->meta_description }}">
     @endif
+
+    {{-- AffinCMS theme deps (Bootstrap 4 + jQuery UI base, matching legacy layouts) --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    {{-- All Affin demo theme CSS from themes/demo/public --}}
+    @foreach($themeCss as $href)
+        <link rel="stylesheet" href="{{ $href }}">
+    @endforeach
+
     <style>
         :root { color-scheme: light; }
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; color: #0f172a; background: #fff; }
+        body { margin: 0; }
         .site-header, .site-footer { padding: 16px 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
         .site-header { border-bottom: 1px solid #e2e8f0; justify-content: space-between; }
         .site-header nav, .site-footer nav { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -53,5 +63,14 @@
 </footer>
 
 {!! $page->custom_body_scripts !!}
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+{{-- All Affin demo theme JS from themes/demo/public --}}
+@foreach($themeJs as $src)
+    <script src="{{ $src }}"></script>
+@endforeach
 </body>
 </html>

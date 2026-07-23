@@ -1,0 +1,64 @@
+.block-affin-invikta-banner-with-text-and-buttons {
+    background-image: url('/img/affin-invikta/invikta-banner-1.png');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.block-affin-invikta-banner-with-text-and-buttons .title-text {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 55px;
+    color: #CD7F32;
+}
+
+.block-affin-invikta-banner-with-text-and-buttons .description-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.block-affin-invikta-banner-with-text-and-buttons .button {
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    text-align: left;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 20px;
+    cursor: pointer;
+    background: #CD7F32;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+}
+
+.block-affin-invikta-banner-with-text-and-buttons .link-text {
+    font-size: 18px;
+    color: #FFF;
+    align-self: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .block-affin-invikta-banner-with-text-and-buttons .background-image {
+        height: 1000px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .block-affin-invikta-banner-with-text-and-buttons .header {
+        font-size: 30px;
+    }
+
+    .block-affin-invikta-banner-with-text-and-buttons .title-text {
+        font-size: 22px;
+    }
+
+    .block-affin-invikta-banner-with-text-and-buttons .description-text {
+        font-size: 14px;
+    }
+}

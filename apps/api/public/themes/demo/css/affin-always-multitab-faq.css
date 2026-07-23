@@ -1,0 +1,122 @@
+.block-affin-always-multitab-faq .roboto-normal{
+    font-family: Roboto;
+    font-style: normal;
+}
+
+.block-affin-always-multitab-faq .affin-always-faq-title{
+    font-weight: 300;
+    font-size: 38px;
+    padding: 2rem 0;
+    color: #888888;
+}
+
+.block-affin-always-multitab-faq .affin-always-faq-border{
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    border-radius: 20px;
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.block-affin-always-multitab-faq .affin-always-faq-border img{
+    width: 50%;
+    padding-bottom:10px;
+}
+
+.block-affin-always-multitab-faq .affin-always-faq-border p{
+    font-size: 24px;
+    padding-bottom: 10px;
+    color: #888888;
+}
+
+.block-affin-always-multitab-faq .affin-always-faq-border a{
+    background: #0768B3;
+    border-radius: 10px;
+    color:#fff;
+    font-size: 16px;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.block-affin-always-multitab-faq #affin-always-level-1 .sub-title{
+    font-size: 30px;
+    padding: 2rem 0;
+    color: #888888;
+}
+
+.block-affin-always-multitab-faq #affin-always-level-1 .always-faq-level-one{
+    color: #00ACFB;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #C4C4C4;
+    cursor: pointer;
+}
+
+.block-affin-always-multitab-faq .card{
+    border-radius:none;
+    border:none;
+    background-color:#fff;
+}
+
+.block-affin-always-multitab-faq .card-header{
+    padding: 0;
+    background-color:#fff;
+}
+
+.block-affin-always-multitab-faq .lvl-1, .lvl-2{
+    color: #0768B3;
+    background-color: transparent;
+    white-space: break-spaces;
+    padding: 10px 0;
+}
+
+.block-affin-always-multitab-faq .lvl-1{
+    font-size: 20px;
+    background: url('/img/affin-always-faq/plus.png') no-repeat right center;
+    float: left;
+}
+
+.block-affin-always-multitab-faq .lvl-2{
+    font-size: 14px;
+    background: url('/img/affin-always-faq/plus.png') no-repeat right center;
+    background-size: 19px 17px;
+    float: left;
+}
+
+.block-affin-always-multitab-faq .lvl-2:hover,.lvl-2:focus{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 440px) {
+    .block-affin-always-multitab-faq .affin-always-faq-title{
+        font-size: 30px;
+    }
+
+    .block-affin-always-multitab-faq .affin-always-faq-border button{
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    .block-affin-always-multitab-faq #affin-always-level-1 .sub-title{
+        font-size: 24px;
+    }
+    .block-affin-always-multitab-faq #affin-always-level-1 .always-faq-level-one{
+        font-size: 16px;    
+    }
+}
+
+.block-affin-always-multitab-faq .card-body a:link {
+    color: #0768B3 !important;
+}
+
+.block-affin-always-multitab-faq .card-body a:visited {
+    color: #0768B3 !important;
+}
+
+.block-affin-always-multitab-faq .card-body a:active {
+	color: #139ff7 !important;
+}

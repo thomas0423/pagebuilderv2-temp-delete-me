@@ -1,0 +1,141 @@
+.block-drop-us-your-details .header-text {
+    color: #888888;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.block-drop-us-your-details .cross-sell-card {
+    display: flex;
+    position: relative;
+    min-height: 125px;
+    padding: 30px 20px;
+    border: 1px solid #0768B3;
+    border-radius: 15px;
+}
+
+.block-drop-us-your-details .cross-sell-card-img {
+    max-width: 60px;
+    max-height: 30px;
+}
+
+.block-drop-us-your-details .cross-sell-card-title {
+    font-size: 18px;
+    color: #888888;
+    padding-left: 15px;
+    margin: 0;
+    word-break: break-word;
+}
+
+.block-drop-us-your-details .cross-sell-card-remove-btn {
+    position: absolute;
+    top: -6px;
+    right:-6px;
+    background-color:red;
+    padding: 10px 7px;
+    border-radius:50%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.block-drop-us-your-details .link-text-grey {
+    color: #888888;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.block-drop-us-your-details .margin-top-15 {
+    margin-top: 15px;
+}
+
+.block-drop-us-your-details .padding-bottom-15 {
+    padding-bottom: 15px;
+}
+
+.block-drop-us-your-details .margin-bottom {
+    margin-bottom: 25px;
+}
+
+.block-drop-us-your-details .text-red {
+    color: #FF0000;
+}
+
+.block-drop-us-your-details .form-group{
+    text-align: left;
+}
+
+.block-drop-us-your-details .button {
+    border-radius: 10px;
+    padding: 12px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    min-width: 120px;
+    width: fit-content;
+    max-width: 100%;
+    height: 50px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.block-drop-us-your-details .input-text{
+    border: 1px solid #888888;
+    border-radius: 5px;
+    padding: 10px !important;
+    font-size: 16px;
+    height: 45px !important;
+}
+
+.block-drop-us-your-details .back-button {
+    border: 1px solid #0768B3;
+    color: #0768B3;
+    background-color: #fff;
+}
+
+.block-drop-us-your-details .submit-button {
+    border: none;
+    color: white;
+    background-color: #0768B3;
+}
+
+.block-drop-us-your-details .button-text {
+    color: #FFF !important;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.block-drop-us-your-details .link-text-blue {
+    color: #0768B3;
+}
+
+.block-drop-us-your-details .link-text-white {
+    color: #fff;
+}
+
+.block-drop-us-your-details .no-padding {
+    padding: 0 !important;
+}
+
+.block-drop-us-your-details .margin-top-auto {
+    margin-top: auto;
+}
+
+.block-drop-us-your-details .margin-right-10 {
+    margin-right: 10px;
+}
+
+.block-drop-us-your-details .display-none {
+    display: none;
+}
+
+.block-drop-us-your-details .form-label-text {
+    color: #C4C4C4;
+    font-size: 16px;
+}
+
+.block-drop-us-your-details .min-width-150 {
+    min-width: 150px;
+}

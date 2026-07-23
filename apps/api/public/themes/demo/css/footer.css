@@ -1,0 +1,99 @@
+.block-footer .bg-color {
+    background-color: #0064cd;
+    width: 100%;
+}
+
+.block-footer .footer-logo {
+    max-width: 260px;
+}
+
+.block-footer .copyright {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 30px;
+    color: #FFF;
+}
+
+.block-footer .link-title, .block-footer .link-text {
+    font-weight: 300;
+    color: #FFF;
+    font-size: 12px;
+}
+
+.block-footer .link-title {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+}
+
+.block-footer p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.block-footer .margin-bottom {
+    margin-bottom: 0.5rem !important;
+}
+
+.block-footer .premier-col {
+    margin-top: -200px;
+    z-index: 1;
+    height: fit-content;
+    width: fit-content;
+}
+
+.block-footer .lifestyle-col {
+    margin-top: -100px;
+    z-index: 1;
+    height: fit-content;
+    width: fit-content;
+}
+
+.block-footer .footer-z-index {
+    height: fit-content;
+    width: fit-content;
+    z-index: 2;
+}
+
+.block-footer .back-to-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.block-footer .up-icon {
+    transform: rotate(-90deg) scale(0.5);
+}
+
+.block-footer .back-to-top-text {
+    font-size: 18px;
+    color: #FF0000;
+}
+
+@media only screen and (max-width: 767px) {
+    .block-footer .premier-col {
+        margin-top: 0;
+    }
+
+    .block-footer .lifestyle-col {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .block-footer .premier-col {
+        height: 100%;
+        width: 100%;
+    }
+
+    .block-footer .lifestyle-col {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .block-footer .footer-z-index {
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+    }
+}

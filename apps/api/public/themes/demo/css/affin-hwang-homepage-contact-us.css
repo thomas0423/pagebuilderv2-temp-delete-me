@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.block-affin-hwang-homepage-contact-us .homepage-contact-us-h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    font-weight: 300;
+    color: #0768B3;
+}
+
+.block-affin-hwang-homepage-contact-us .homepage-contact-us-h5 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.block-affin-hwang-homepage-contact-us .homepage-contact-us-p {
+    font-family: "Open Sans", sans-serif;
+    color: #00ACFB;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.block-affin-hwang-homepage-contact-us .homepage-contact-us-a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #00ACFB;
+}
+
+.block-affin-hwang-homepage-contact-us .homepage-contact-us-hr {
+    width: 99px;
+    height: 3px;
+    background-color: #FF0000;
+    border: none;
+    margin: 0;
+}
+
+.block-affin-hwang-homepage-contact-us .homepage-contact-us-company-image {
+    object-fit: cover;
+    width: 598px;
+    height: 374px;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .block-affin-hwang-homepage-contact-us .homepage-contact-us-company-image {
+        height: auto;
+        width: 100%;        
+    }    
+
+    .block-affin-hwang-homepage-contact-us .homepage-contact-us-image-icon {
+        object-fit: cover;
+        width: 25%;   
+}
+
+}

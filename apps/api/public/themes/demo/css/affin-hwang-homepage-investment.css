@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.block-affin-hwang-homepage-investment .homepage-investment-heading {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.block-affin-hwang-homepage-investment .block-content-2 h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    color: #0768B3;
+    margin-top: 0;
+    display: flex;
+    text-align: left;
+    font-style: normal;
+    line-height: 45px;
+    font-weight: 300;
+}
+
+.block-affin-hwang-homepage-investment .block-content-2 p {
+    font-family: "Open Sans", sans-serif;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.block-affin-hwang-homepage-investment .homepage-investment-btn {
+    width: 159px;
+    height: 42px;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.block-affin-hwang-homepage-investment .homepage-investment-content{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.block-affin-hwang-homepage-investment .homepage-investment-img {
+    object-fit: cover;
+    width: 374px;
+    height: 279px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .block-affin-hwang-homepage-investment .homepage-investment-img {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }   
+
+    .block-affin-hwang-homepage-investment .homepage-investment-content {
+        height: 80px !important;
+        overflow: hidden;
+    }  
+}

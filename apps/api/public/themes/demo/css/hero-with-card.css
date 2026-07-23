@@ -1,0 +1,284 @@
+.block-hero-with-card {
+    background-image: url("/img/affin-hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    max-height: 600px;
+    min-height: 600px !important;
+    position: relative;
+}
+
+.block-hero-with-card .position-relative:not(#crossSellModal .position-relative) {
+    position: initial !important;
+}
+
+.block-hero-with-card .container:not(#crossSellModal .container) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-hero-with-card .text {
+    left: 9rem;
+    padding: 100px 0;
+}
+
+.block-hero-with-card .card-img {
+    width: 377px;
+    margin-bottom: 10px;
+}
+
+.block-hero-with-card .share-img {
+    width: 35px;
+}
+
+.block-hero-with-card .border-right {
+    border-right: 2px solid #FF0000 !important;
+    height: 100%;
+}
+
+.block-hero-with-card h4 {
+    font-size: 35px;
+    padding-bottom: 5px;
+}
+
+.block-hero-with-card .amount {
+    font-size: 30px;
+}
+.block-hero-with-card .myr {
+    font-size: 16px;
+    margin-left: .5em;
+    vertical-align: text-top;
+}
+
+.block-hero-with-card .default-button {
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    background: #0768B3;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.block-hero-with-card a:hover, a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+/* Cross Sell Modal */
+/* Cross Sell*/
+.block-hero-with-card .cross-sell-tagline-text {
+    color: #888888;
+    font-size: 48px;
+    text-align: center;
+    margin: 0px;
+}
+
+/* Cross Sell Product*/
+.block-hero-with-card .cross-sell-selected {
+    border: 2px solid #0768B3;
+}
+
+.block-hero-with-card .cross-sell-product-img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.block-hero-with-card .cross-sell-product-title-text {
+    color: #888888;
+    font-size: 28px;
+    padding-left: 25px;
+    margin: 0;
+}
+
+.block-hero-with-card .cross-sell-product-description-text {
+    color: #888888;
+    text-align: center;
+}
+
+/* Cross Sell Modal */
+.block-hero-with-card .modal {
+    padding: 0 !important;
+    z-index: 10000 !important;
+}
+
+.block-hero-with-card .modal-dialog {
+    margin: 1.75rem auto;
+}
+
+.block-hero-with-card .modal-lg {
+    max-width: 85%;
+}
+
+.block-hero-with-card .modal-header {
+    border-bottom: 0 none;
+}
+
+.block-hero-with-card .close-button-x {
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+    left: 100%;
+    margin-left: 20px;
+    color: white;
+}
+
+.block-hero-with-card .modal-content {
+    border-radius: 20px;
+}
+
+.block-hero-with-card .modal-footer {
+    border-top: 0 none;
+}
+
+.block-hero-with-card .button {
+    border: none;
+    border-radius: 10px;
+    color: #0768B3;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #0768B3;
+    font-size: 20px;
+    width: 100%;
+}
+
+.block-hero-with-card .button-no-thanks {
+    border: 1px solid #0768B3;
+    color: #0768B3;
+    background-color: #fff;
+}
+
+.block-hero-with-card .button-im-interested {
+    border: 1px solid #0768B3;
+    color: #0768B3;
+    background-color: #0768B3;
+}
+
+.block-hero-with-card .button-im-interested a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.block-hero-with-card .button-no-thanks a {
+    text-decoration: none;
+}
+
+@media (min-width: 1980px) {
+    .block-hero-with-card .modal-lg {
+        max-width: 1450px;
+    }
+}
+
+@media (max-width: 576px) {
+    .block-hero-with-card .close-button-x {
+        margin-left: 7px;
+    }
+
+    .block-hero-with-card .button-no-thanks {
+        font-size: 15px;
+    }
+
+    .block-hero-with-card .button-im-interested {
+        font-size: 15px;
+    }
+
+    .block-hero-with-card .cross-sell-tagline-text {
+        font-size: 25px;
+    }
+
+    .block-hero-with-card .cross-sell-product-img {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
+    .block-hero-with-card .cross-sell-product-title-text {
+        font-size: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* Cross Sell Modal */
+
+@media (max-width: 1090px) {
+    .block-hero-with-card .card-img {
+        width: 277px;
+    }
+    .block-hero-with-card .text {
+        left: 4rem;
+    }
+    .block-hero-with-card h4 {
+        font-size: 19px;
+    }
+    .block-hero-with-card .amount {
+        font-size: 17px;
+    }
+
+    .block-hero-with-card .share-img {
+        width: 30px;
+    }
+
+    .block-hero-with-card .myr {
+        margin-left: 0em;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .block-hero-with-card .text {
+        padding: 110px 0 25px;
+    }
+
+    .block-hero-with-card h4 {
+        font-size: 13px;
+        padding-bottom: 1px;
+    }
+
+    .block-hero-with-card h5 {
+        font-size: 11px;
+    }
+
+    .block-hero-with-card a {
+        font-size: 10px;
+    }
+
+    .block-hero-with-card .card-img {
+        width: 125px;
+    }
+
+    .block-hero-with-card .share-img {
+        width: 10px;
+    }
+
+    .block-hero-with-card .border-right {
+        border: none !important;
+    }
+
+    .block-hero-with-card .amount {
+        font-size: 10px;
+    }
+
+    .block-hero-with-card .myr {
+        font-size: 7px;
+        margin-left: 0px;
+    }
+}
+
+/* @media (max-width: 575.98px) {
+    .block-hero-with-card {
+        height: 1000px;
+        max-height: 1000px;
+    }
+} */

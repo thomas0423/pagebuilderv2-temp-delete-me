@@ -1,0 +1,194 @@
+.block-hero-with-dropdown .background-image {
+    width: 100%;
+    height: 600px;
+    max-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 5;
+}
+
+.block-hero-with-dropdown .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-hero-with-dropdown .hero-content-title p:first-child {
+    font-size: 60px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.block-hero-with-dropdown .hero-content-title p:nth-child(2) {
+    font-size: 40px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.block-hero-with-dropdown .button {
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #0768B3;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+}
+
+.block-hero-with-dropdown .button-text {
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.block-hero-with-dropdown .link-text {
+    color: white;
+    text-decoration: none;
+}
+
+.block-hero-with-dropdown .hero-dropdown {
+    width: fit-content;
+    position: relative;
+}
+
+.block-hero-with-dropdown .hero-dropdown ul {
+    padding-inline-start: 0px;
+}
+
+.block-hero-with-dropdown .ul-triangle {
+    width: 0;
+    height: 0;
+    left: 10%;
+    top: -15px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid white;
+}
+
+.block-hero-with-dropdown .hero-select {
+    width: fit-content;
+}
+
+.block-hero-with-dropdown .hero-select-field {
+    /* width: 100%; */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    cursor: pointer;
+    color: black;
+    word-break: break-word;
+}
+
+.block-hero-with-dropdown .hero-select-field p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.block-hero-with-dropdown .hero-select-field img {
+    width: 100%;
+    max-height: 15px;
+    max-width: 15px;
+    margin-left: 100px;
+}
+
+.block-hero-with-dropdown .hero-select-field-hr {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.block-hero-with-dropdown .hero-select-list {
+    width: 100%;
+    position: absolute;
+    max-height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 #00000040;
+    color: black; /*Select Option Text Color*/
+    overflow-wrap: anywhere;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.block-hero-with-dropdown .hero-select-list::-webkit-scrollbar {
+    display: none;
+}
+
+.block-hero-with-dropdown .hero-select-list p {
+    font-size: 18px;
+    color: #888888;
+}
+
+.block-hero-with-dropdown .hero-select-option-outer {
+    width: 100%;
+    padding: 15px;
+}
+
+.block-hero-with-dropdown .hero-select-option-inner {
+    width: 100%;
+    padding: 15px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    word-break: break-word;
+}
+
+.block-hero-with-dropdown .hero-select-option-inner img {
+    width: 100%;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.block-hero-with-dropdown .hero-select-option-inner img[src=null] {
+    visibility: hidden;
+}
+
+.block-hero-with-dropdown .hero-select-option-inner:hover {
+    background: #E5E5E5;
+}
+
+.block-hero-with-dropdown .hero-select-option-hr {
+    margin: 0px 15px 0px 15px;
+    border-top: 1px dashed #888888;
+}
+
+.block-hero-with-dropdown .rotate {
+    transform: rotate(180deg);
+}
+
+.block-hero-with-dropdown .hide {
+    display: none;
+}
+
+@media (max-width: 577.98px) {
+    /* .block-hero-with-dropdown .background-image {
+        height: 1000px;
+        max-height: 1000px;
+    } */
+
+    .block-hero-with-dropdown .button {
+        padding: 15px 20px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .block-hero-with-dropdown .link-text {
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}

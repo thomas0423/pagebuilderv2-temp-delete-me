@@ -1,0 +1,71 @@
+.block-general-enquiries-4 .bg-color {
+    background: #F4F4F4;
+}
+
+.block-general-enquiries-4 .header-text {
+    font-size: 40px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.block-general-enquiries-4 .title-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444444;
+    word-break: break-word;
+}
+
+.block-general-enquiries-4 .subtitle-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444444;
+    padding-right: 5px;
+}
+
+.block-general-enquiries-4 .description-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #888888;
+    word-break: break-word;
+}
+
+.block-general-enquiries-4 .link-text {
+    text-decoration: none;
+}
+
+.block-general-enquiries-4 .static-logo {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.block-general-enquiries-4 .linkable-logo {
+    height: 100%;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.block-general-enquiries-4 .pr20 {
+    padding-right: 20px;
+}
+
+.block-general-enquiries-4 .pt5 {
+    padding-top: 5px;
+}
+
+/* @media screen and (max-width: 992px) {
+    
+} */
+
+@media screen and (max-width: 576px) {
+    .block-general-enquiries-4 .header-text {
+        font-size: 34px;
+    }
+
+    .block-general-enquiries-4 .subtitle-text {
+        font-size: 16px;
+    }
+    
+    .block-general-enquiries-4 .description-text {
+        font-size: 16px;
+    }
+}

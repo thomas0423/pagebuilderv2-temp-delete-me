@@ -1,0 +1,75 @@
+.block-info-card-internal-promotion.bg-color {
+    background-color: #add8e6;
+    height: 100%;
+    min-height: 330px;
+}
+
+.block-info-card-internal-promotion .card-img {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.block-info-card-internal-promotion .button--up,
+.block-info-card-internal-promotion .button--down {
+    width: 50px;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.block-info-card-internal-promotion .button--up::after {
+    content: ' \276E';
+    display: inline-block;
+    transform: scale(3) rotate(90deg);
+}
+
+.block-info-card-internal-promotion .button--down::after {
+    content: ' \276E';
+    display: inline-block;
+    transform: scale(3) rotate(-90deg);
+}
+
+.block-info-card-internal-promotion .view-more-btn {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-right: 10px;
+}
+
+.block-info-card-internal-promotion .carousel-wrapper {
+    width: 100%;
+}
+
+.block-info-card-internal-promotion .carousel-wrapper * {
+    box-sizing: border-box;
+    max-height: 185px;
+    overflow: hidden;
+}
+
+.block-info-card-internal-promotion .btn-container {
+    padding: 10px 5px;
+}
+
+.block-info-card-internal-promotion .carousel {
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 0;
+}
+
+.block-info-card-internal-promotion .carousel__photo {
+    opacity: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: 100;
+    transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.block-info-card-internal-promotion .carousel__photo.initial,
+.block-info-card-internal-promotion .carousel__photo.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}

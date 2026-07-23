@@ -1,0 +1,56 @@
+.block-affin-always-tabs .tab {
+    overflow: hidden;
+}
+
+.block-affin-always-tabs .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    color: #888888;
+}
+
+.block-affin-always-tabs .tab .active .triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #E5E5E5;
+    position: absolute;
+    margin-top: 2px;
+}
+
+.block-affin-always-tabs .tab-content {
+    display: none;
+    padding: 6px 12px;
+    background-color: #E5E5E5;
+}
+
+.block-affin-always-tabs p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 29px;
+    color: #494747;
+}
+
+.block-affin-always-tabs a {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+
+@media (max-width: 767.98px) {
+    .block-affin-always-tabs .tab .active .triangle-up {
+        margin-top: 5px;
+    }
+}

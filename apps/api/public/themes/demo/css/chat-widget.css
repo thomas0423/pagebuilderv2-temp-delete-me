@@ -1,0 +1,1461 @@
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('/AFFINONLINE/media/assets/widget_assets/OpenSans-Regular.ttf');
+}
+
+.e_medic_gif {
+    position: absolute;
+    width: 13% !important;
+    right: 6%;
+    top: 20%;
+}
+
+.cx-widget {
+
+    font-family: 'Open_Sans';
+
+}
+
+*:focus {
+    outline: none !important;
+}
+
+.cx-channel-selector .cx-channels .cx-channel:hover {
+    background-color: #FDFDFD;
+}
+
+
+.cx-sidebar .cx-icon {
+    height: 50px;
+    width: 50px;
+    padding-left: 6px;
+    padding-top: 8px;
+    background-color: #fff;
+}
+
+.cx-sidebar .cx-icon img {
+    width: 36px;
+    height: 34px;
+}
+
+.cx-sidebar .cx-sidebar-button {
+    padding: 0px;
+}
+
+.cx-sidebar, .cx-webchat .cx-overlay {
+    box-shadow: none;
+}
+
+.ark.cx-common-container.control-cx-channel-selector img {
+    width: 100%;
+}
+
+.ark.cx-common-container.control-cx-channel-selector {
+    padding: 0px;
+}
+
+.cx-titlebar {
+    display: none;
+}
+
+.cx-channel-selector .cx-channels .cx-channel .name {
+    font-weight: normal;
+    font-size: 15px;
+    color: #05499c;
+    text-align: center;
+
+}
+
+.cx-widget.cx-theme-light * {
+    border-color: #fff;
+}
+
+.cx-widget.cx-sidebar.px32.preset-blue.cx-theme-light {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.cx-calendar .cx-calendar-periods {
+    border-color: #dae1e8;
+    float: none;
+}
+
+.cx-common-container.cx-callback-container .cx-footer {
+    background: #eee;
+    /*padding: 24px 24px 0 !important;*/
+}
+
+.cx-calendar .active, .cx-calendar div:focus, .cx-calendar ul.tab li a:focus {
+    background: #004d99 !important;
+}
+
+.cx-powered-by {
+    display: none;
+}
+
+
+.cx-channel-selector .cx-channels .cx-channel {
+    height: 500px;
+    width: 13em;
+    border-width: 1px;
+    border-style: solid;
+    display: inline-block;
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 6px;
+    float: left;
+}
+
+.cx-channel-selector .cx-channels .cx-channel .cx-icon {
+    padding: 10px 0 20px;
+    margin: 10px auto 20px;
+    height: auto;
+    /*width: 162px;*/
+    width: 10em;
+}
+
+.cx-channel-selector .wrapper {
+    overflow: hidden;
+    max-width: 1024px;
+    height: 350px;
+    position: relative;
+    -webkit-overflow-scrolling: none;
+    border-bottom: 1px solid #eee;
+}
+
+.cx-common-container .cx-body .iScrollVerticalScrollbar {
+    display: none;
+}
+
+.cx-channel-selector .wrapper {
+    border: none;
+    margin: 0 auto;
+}
+
+.cx-channel-selector .wrapper p {
+    padding: 0px;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.cx-widget .mobile {
+    display: none;
+}
+
+.cx-widget .desktop {
+    display: block;
+    width: 100%;
+    /*max-width: 524px;*/
+}
+
+.cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel:first-child {
+    border-top: none;
+}
+
+.cx-common-container .cx-body, .cx-common-container.cx-overlay {
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cx-call-us .cx-content .cx-wrapper {
+    padding: 0px;
+}
+
+.cx-call-us, .cx-callback {
+    /*font-size: 22px;*/
+    width: 100%;
+    padding: 30px;
+}
+
+.cx-callback-date label span, .cx-callback-date label span {
+    /*font-size: 16px;
+    font-size: 14px;*/
+    padding-left: 13px;
+}
+
+.ark .radio-inline input[type=radio] {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    -webkit-appearance: none;
+}
+
+.ark .radio-inline input[type=radio]:checked {
+    background: #27aae1 no-repeat center center;
+    background-size: 9px 9px;
+}
+
+.cx-callback .cx-content .cx-wrapper .cx-callback-date .cx-callback-schedule input[type=radio] {
+    margin-top: 9px;
+}
+
+.ark .radio-inline input[type=radio]:focus {
+    outline-color: transparent;
+}
+
+/*.last-th label, .last-td label{
+	margin-top: 15px;
+}*/
+.cx-callback .cx-content .cx-wrapper table .last-th {
+    padding-top: 24px;
+}
+
+.cx-callback .cx-content .cx-wrapper table .last-td {
+    padding-top: 20px;
+}
+
+.cx-callback .cx-content .cx-wrapper .cx-callback-date .cx-callback-schedule .cx-callback-time {
+    border: none;
+    /*font-size: 16px;
+    font-size: 13px;*/
+}
+
+.cx-callback .cx-content .cx-wrapper .cx-callback-date .cx-callback-schedule .cx-callback-time {
+    padding: 6px 28px 0 36px;
+}
+
+.cx-callback .warning-container .cx-warning .warning-message, p#cx_chat_end_question {
+    width: 100%;
+    text-align: center;
+}
+
+.cx-warning .i18n, .cx-warning .failed-retry .btn .btn-primary .i18n, .confirmation .i18n {
+    /*float:none!important;*/
+    margin: 5px;
+}
+
+.cx-warning .cx-button-group {
+    text-align: center !important;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.comfirmation {
+    text-align: center !important;
+}
+
+.cx-common-container.cx-callback-container.disable .cx-content, .cx-common-container.cx-callback-container.disable .callback-header-container {
+    opacity: .1;
+}
+
+.cx-callback .warning-container {
+    top: 40%;
+}
+
+.cx-callback .error-container {
+    top: 38%;
+}
+
+.cx-send-message > .confirmation.send-failed {
+    top: 33%;
+}
+
+.ark.cx-common-container.control-cx-send-message.non-overlay .cx-body .cx-send-message .cx-alert.cx-send-msg-end {
+    top: 40%;
+}
+
+.cx-mobile .cx-callback .error-container, .cx-mobile.ark.cx-common-container.control-cx-send-message.non-overlay .cx-body .cx-send-message .cx-alert.cx-send-msg-end {
+    top: 35%;
+    /*margin: 0 8%;*/
+    /*width: 84%;*/
+}
+
+.cx-mobile .cx-send-message > .confirmation.send-failed {
+    top: 35%;
+    /*margin: 0 8%;*/
+    /*width: 84%;*/
+}
+
+.cx-callback .error-container, .cx-send-message .confirmation.send-failed {
+    border: #234a9a solid 1px;
+    text-align: center !important;
+    border-radius: 5px;
+    margin-top: -25px !important;
+}
+
+.cx-mobile .cx-callback .error-container, .cx-callback .warning-container, .ark.cx-common-container.control-cx-send-message.non-overlay .cx-body .cx-send-message .cx-alert.cx-send-msg-end, .cx-mobile .cx-send-message .confirmation.send-failed {
+    border: #234a9a solid 1px;
+    text-align: center !important;
+    border-radius: 5px;
+}
+
+.cx-callback .error-container > .send-failed > .cx-button-group.cx-buttons-binary {
+    display: inline-block;
+}
+
+.cx-mobile .cx-callback .error-container > .send-failed > .cx-button-group.cx-buttons-binary {
+    display: inline-block;
+}
+
+.cx-send-message .confirmation .fail-message {
+    margin-top: 2px;
+    text-align: center;
+}
+
+.control-cx-send-message.cx-mobile .cx-send-message .form-group .form-control {
+    font-size: 12px !important;
+}
+
+.cx-callback .cx-content .cx-wrapper .cx-callback-date .cx-callback-schedule {
+    /*width:auto;*/
+    width: 250px;
+    float: left;
+    margin-top: -5px;
+    padding-left: 0;
+    /*padding-top: 20px;*/
+    padding-bottom: 15px;
+}
+
+.cx-callback .cx-content .cx-wrapper .cx-callback-date {
+    /*padding: 12px 0 0 0px;*/
+    padding: 20px 0 0 20px;
+    width: 25em;
+}
+
+.ark .checkbox-inline, .ark .radio-inline {
+    padding-left: 0px;
+}
+
+.cx-call-us .cx-content .cx-main-phone .cx-phone-title {
+    float: none;
+    width: 100%;
+    margin: 0px;
+}
+
+.cx-call-us .cx-content .cx-main-phone .cx-phone-number {
+    margin: 0px;
+    border-top: #dae1e8 solid 1px;
+    border-bottom: #dae1e8 solid 1px;
+    float: none;
+    width: 100%;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+    color: #014c99;
+}
+
+.cx-call-us .cx-content .cx-main-phone {
+    overflow: hidden;
+    width: 50%;
+    display: inline-block;
+}
+
+.hahaha {
+    display: inline-block;
+    margin: 0px;
+    border-top: #dae1e8 solid 1px !important;
+    border-bottom: #dae1e8 solid 1px !important;
+    width: 49%;
+    text-align: left;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    height: auto;
+}
+
+.cx-call-us .cx-content .cx-alt-phones {
+    display: none;
+}
+
+.cx-call-us .cx-content .cx-availability .cx-hours > div {
+    font-size: 16px;
+}
+
+.cx-call-us .cx-content {
+    height: auto;
+}
+
+.cx-widget.cx-theme-light button.btn.btn-default {
+    background: none;
+    border-color: #234a9a;
+    color: #234a9a;
+    border-radius: 10px;
+}
+
+svg {
+    /*display:none !important;*/
+}
+
+.cx-common-container .cx-titlebar .cx-icon img {
+    width: 100%;
+}
+
+.cx-common-container .cx-titlebar .cx-icon {
+    display: none;
+}
+
+.cx-common-container .cx-titlebar .cx-icon p {
+    display: none;
+}
+
+.ark.cx-common-container.control-cx-send-message.non-overlay .cx-titlebar, .ark.cx-common-container.cx-webchat .cx-titlebar {
+    display: block;
+}
+
+.cx-common-container .cx-titlebar {
+    background: #004c98;
+}
+
+.ark.cx-common-container.control-cx-send-message .cx-titlebar .cx-title, .ark.cx-common-container.cx-webchat .cx-titlebar .cx-title {
+    color: white;
+}
+
+.ark p {
+    padding: 20px;
+    font-size: 13px;
+    padding-bottom: 0px;
+}
+
+.ark.cx-common-container.control-cx-send-message.non-overlay .cx-body .cx-send-message form .form-group .control-text {
+    text-align: right;
+}
+
+.cx-widget.cx-theme-light input[type=text], .cx-widget.cx-theme-light input[type=email], .cx-widget.cx-theme-light input[type=tel], .cx-widget.cx-theme-light textarea {
+    border: none;
+    border-bottom: solid 1px #dae1e8;
+}
+
+.cx-send-message form .form-group textarea, .cx-callback .cx-content .cx-wrapper .cx-callback-notes textarea {
+    background: #efefef;
+    border-radius: 5px;
+    border: solid 1px #dae1e8;
+}
+
+.cx-callback .callback-header-container .today-date {
+    font-size: 15px;
+    color: #484848 !important;
+}
+
+.ark .btn-primary {
+    background: -webkit-linear-gradient(top, #5cc1df, #5cc1df);
+    border-radius: 10px;
+}
+
+.cx-widget.cx-theme-light a {
+    color: #30347e;
+}
+
+.ow-modal {
+    width: 60%;
+    max-width: 1018px;
+    top: 15px;
+    z-index: 9999999;
+}
+
+.black_bar {
+    display: none;
+}
+
+.cx-channel.Channel00, .cx-channel.Channel01, .cx-channel.Channel02 {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.cx-channel.Channel03 {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cx-channel.Channel00 {
+    /*opacity: 1!important;
+    pointer-events: auto!important;*/
+}
+
+.cx-widget.cx-toaster > .cx-widget.ark.cx-common-container.cx-close.cx-theme-light {
+
+}
+
+.cx-widget.cx-toaster > .cx-widget.ark.cx-common-container.cx-close.cx-theme-light > .cx-body {
+    font-size: 14px;
+    /*padding: 40px 50px;*/
+    padding: 40px 50px 85px 50px;
+}
+
+.cx-buttons-binary .btn.btn-primary {
+    float: left;
+}
+
+.cx-buttons-binary .btn.btn-default {
+    float: right;
+}
+
+.cx-widget .cx-callback-container .cx-buttons-binary .btn.btn-primary {
+    /*float: left;*/
+}
+
+.cx-widget .cx-callback-container .cx-buttons-binary .btn.btn-default {
+    /*float: right;*/
+}
+
+.cx-widget.cx-theme-light button.btn.btn-default:hover {
+    color: #fdfdfd;
+    background: #466fc2;
+    background: linear-gradient(to bottom, #466fc2, #3963b8);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#466fc2), to(#3963b8));
+    background: -webkit-linear-gradient(top, #466fc2, #3963b8);
+    border-color: #2e69db;
+}
+
+.cx-widget.cx-toaster {
+    right: 25% !important;
+    bottom: 32% !important;
+    width: 50%;
+    /*height: 50%;*/
+}
+
+.cx-common-container .cx-footer {
+    padding: 35px 47px 5px 47px;
+    background: #f1f2f2;
+}
+
+.cx-webchat .transcript .message.you .bubble {
+    background-color: #27aae2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.cx-webchat .transcript .message.them .bubble {
+    background-color: #e6e7e9;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.cx-webchat .transcript .message .name {
+    color: #ffffff;
+}
+
+.cx-webchat .transcript .message.agent .name {
+    color: #222;
+}
+
+.cx-webchat .transcript .message.them .name {
+    color: #222;
+}
+
+.cx-webchat .transcript .message.agent .time {
+    color: #222;
+}
+
+.cx-webchat .transcript .message .time {
+    color: #ffffff;
+}
+
+.cx-webchat .transcript .message .message-text > p {
+    padding: 0;
+}
+
+.cx-alert .chat-end {
+
+}
+
+.avatar.agent > svg, .avatar > svg, .avatar.male > svg {
+    display: none;
+}
+
+/*.avatar.male > svg {
+    display: inherit;
+}*/
+
+.cx-webchat .transcript .message .avatar.male {
+    height: 49px;
+    width: 48px;
+    background-image: url(/AFFINONLINE/media/assets/widget_assets/avatar-male.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cx-webchat .transcript .message .avatar.agent, .cx-webchat .transcript .message.agent-typing.them .avatar-wrapper .avatar {
+    height: 53px;
+    width: 48px;
+    background-image: url(/AFFINONLINE/media/assets/widget_assets/call_back_icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#cx_chat_question_header {
+    font-weight: 800;
+    font-size: 17px;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+    padding-left: 18px;
+    padding-right: 20px;
+}
+
+p#cx_chat_end_question {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.cx-widget textarea.input.i18n.form-control {
+    /*border-radius: 100px;*/
+    border-radius: 15px;
+    /*padding: 3% 0% 10% 7%!important;*/
+    /*height: auto;*/
+}
+
+#chat_fields_label {
+    padding-bottom: 15px;
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 100;
+}
+
+.cx-tooltip-menu.actions {
+    visibility: inherit;
+}
+
+.cx-webchat div.input-container > table .textarea-cell {
+    width: 91%;
+}
+
+/*.input.i18n.form-control::placeholder{
+
+}*/
+
+textarea.input.i18n.form-control::placeholder {
+    font-size: 12px;
+}
+
+.cx-send-message .cx-form-success .cx-close-tag {
+    padding: 0px;
+}
+
+.cx-callback .cx-content .cx-wrapper .cx-callback-date .calendar-container {
+    bottom: 115px;
+    left: 0;
+    right: 30em;
+}
+
+#writetous {
+    padding: 20px;
+    font-size: 13px;
+    padding-bottom: 0px;
+}
+
+/*.cx-send-message .icon-alert-circle{*/
+.cx-send-message > .confirmation.send-failed > i.fonticon.icon-alert-circle {
+    padding-left: 18px;
+}
+
+.cx-mobile .cx-calendar .cx-calendar-periods .wrapper-right .tabcontent .cx-time-wrapper .cx-time-content .cx-calendar-row {
+    /*padding: 10px;*/
+    z-index: 9999999;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cx-mobile .cx-calendar {
+    /*overflow:hidden;
+    position: fixed;
+    min-height:100%;
+    z-index:99999;*/
+    height: 100% !important;
+}
+
+.cx-send-message .file-fragment span.icon-status-available-no {
+    display: none;
+}
+
+.cx-mobile .cx-callback > .cx-button-group.cx-callback-done {
+    position: inherit;
+}
+
+.failed-retry.btn.btn-primary.i18n {
+    float: none !important;
+}
+
+.cx-send-message .cx-button-group.cx-buttons-binary {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.radio-inline.control-label.cx-right-away {
+    display: none;
+}
+
+.cx-callback .error-container .icon-alert-circle {
+    /*padding-left: 11em;*/
+}
+
+.cx-callback .error-container .fail-message {
+    /*margin-left: -5.5em;*/
+}
+
+.cx-callback .fail-message {
+    /*display:none;*/
+}
+
+input#cx_form_callback_time::placeholder {
+    color: #000;
+}
+
+.cx-send-message form .submitForm .left-half {
+    display: none;
+}
+
+.cx-channel-selector-overlay-mobile {
+    margin-left: 0;
+    top: inherit;
+    right: inherit;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000000;
+}
+
+i.fa.fa-phone {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    margin-top: 11px;
+    z-index: 2;
+}
+
+span.i18n.ga-call-us-phone {
+    padding-left: 37px;
+}
+
+.ark.cx-common-container.control-cx-send-message.non-overlay {
+    visibility: hidden;
+}
+
+#e_medic_buynow {
+    max-width: 115px;
+    position: absolute;
+    right: 2%;
+}
+
+#e_medic_buynow_mobile {
+    max-width: 115px;
+    position: absolute;
+    right: 2%;
+}
+
+@media screen and (max-width: 1366px) {
+    .e_medic_gif {
+        position: absolute;
+        width: 13% !important;
+        right: 6%;
+        top: 19%;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .cx-widget.cx-sidebar.px32.preset-blue.cx-theme-light {
+        display: inherit;
+    }
+
+    .cx-callback .error-container .fail-message {
+        margin-left: 8em;
+    }
+
+    .cx-callback .error-container .icon-alert-circle {
+        padding-left: 2em;
+    }
+
+    .ow-modal {
+        width: 95%;
+    }
+
+    .cx-tooltip-menu.actions {
+        visibility: hidden;
+    }
+
+    #e_medic_buynow {
+        max-width: 70px;
+        position: absolute;
+        right: 2%;
+        background: none;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .ow-modal {
+        width: 95%;
+    }
+
+    .e_medic_gif {
+        position: absolute;
+        width: 13% !important;
+        right: 6%;
+        top: 13%;
+    }
+
+    .wrapper {
+        width: 100% !important;
+    }
+
+    .cx-channel-selector .cx-channels .cx-channel {
+        width: 24%;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile {
+        overflow: scroll;
+    }
+
+    .cx-widget.cx-sidebar.px32.preset-blue.cx-theme-light {
+        display: inherit;
+        /*opacity:0;*/
+    }
+
+    .cx-widget.cx-toaster {
+        right: 25% !important;
+        bottom: 33% !important;
+        width: 50%;
+    }
+
+    .cx-mobile .cx-calendar .cx-calendar-periods, .cx-calendar .cx-calendar-periods .wrapper-right .tabcontent .cx-time-wrapper {
+        -webkit-overflow-scrolling: none;
+        overflow: unset;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile, .cx-mobile .cx-calendar .cx-calendar-periods .wrapper-right .tabcontent {
+        overflow: scroll;
+    }
+
+    .cx-common-container .cx-body .iScrollVerticalScrollbar {
+        display: none;
+    }
+
+    .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel {
+        padding: 0px;
+        width: 47%;
+        text-align: center;
+        height: 20em;
+    }
+
+    .cx-channel-selector .wrapper {
+        overflow: hidden;
+        max-width: 1024px;
+        height: 40em;
+        position: relative;
+        -webkit-overflow-scrolling: none;
+        /*border-bottom: 1px solid #eee;*/
+        margin-bottom: 32px;
+    }
+
+    .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        /*padding: 10px 0 20px;*/
+        /*margin: 10px auto 20px;*/
+        height: auto;
+        /* width: 162px; */
+        padding: 0;
+        margin: 10px auto;
+        /*width: 8em;*/
+    }
+
+    .cx-channel-selector .cx-channels {
+        overflow: hidden;
+        float: left;
+        position: absolute;
+        width: inherit;
+        height: 100%;
+    }
+
+    .cx-channel-selector .wrapper p {
+        padding: 0px;
+        padding-top: 8px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .cx-callback .callback-header-container .today-date {
+        display: none;
+    }
+
+    .cx-callback .error-container.warning-container .cx-warning .cx-button-group.cx-buttons-binary > .failed-retry.btn.btn-primary {
+        /*float: left!important;*/
+    }
+
+    .cx-warning .cx-button-group {
+        text-align: center !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .cx-send-message .cx-button-group.cx-buttons-binary {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .cx-calendar .cx-calendar-periods {
+        width: auto;
+    }
+
+    .cx-calendar .cx-calendar-periods .wrapper-right {
+        overflow: hidden;
+    }
+
+    .cx-callback .error-container .fail-message {
+        margin-left: 5px;
+    }
+
+    .cx-callback .cx-content {
+        margin: 0;
+    }
+
+    .cx-common-container.cx-close .cx-buttons-window-control button.cx-button-close {
+        /*-webkit-transform: translate3d(0,0,0);*/
+    }
+
+    .cx-close.cx-button-group.cx-buttons-window-control {
+        z-index: 2;
+    }
+
+    .cx-widget.cx-channel-selector-overlay-mobile .cx-close.cx-button-group.cx-buttons-window-control {
+        /*z-index: 2;*/
+    }
+
+    .cx-tooltip-menu.actions {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 960px) and (max-height: 600px) {
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .wrapper {
+        width: 100%;
+    }
+
+    .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        width: 8em;
+    }
+
+    .ow-modal {
+        width: 100%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel {
+        width: 24%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        margin: auto;
+        float: none;
+    }
+
+    .cx-channel-selector .wrapper p {
+        font-size: 11px;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile .cx-body {
+        height: auto !important;
+    }
+
+    .cx-mobile .cx-calendar .cx-calendar-periods {
+        float: right;
+    }
+
+    .cx-full-screen-view {
+        position: fixed;
+    }
+
+    .cx-warning .cx-button-group {
+        text-align: center !important;
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+
+    .cx-send-message .cx-button-group.cx-buttons-binary, .cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    .cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    #cx_chat_question_header {
+        text-align: center;
+    }
+
+    .cx-widget.cx-toaster {
+        /*left: 25%;*/
+        /*top: 15%;*/
+        width: 50%;
+    }
+
+    .cx-tooltip-menu.actions {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 720px) and (max-height: 450px) {
+    .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        width: 8em;
+    }
+
+    .ow-modal {
+        width: 100%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel {
+        width: 24%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        margin: auto;
+        float: none;
+    }
+
+    .cx-channel-selector .wrapper p {
+        font-size: 11px;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile .cx-body {
+        height: auto !important;
+    }
+
+    .cx-mobile .cx-calendar .cx-calendar-periods {
+        float: right;
+    }
+
+    .cx-full-screen-view {
+        position: fixed;
+    }
+
+    .cx-warning .cx-button-group {
+        text-align: center !important;
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+
+    .cx-send-message .cx-button-group.cx-buttons-binary, .cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    .cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    #cx_chat_question_header {
+        text-align: center;
+    }
+
+    .cx-widget.cx-toaster {
+        left: 25%;
+        top: 15%;
+        width: 50%;
+    }
+
+    .cx-tooltip-menu.actions {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 823px) and (max-height: 414px) {
+    .cx-channel-selector .wrapper p {
+        display: none;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .wrapper {
+        width: 100%;
+    }
+
+    .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        width: 8em;
+    }
+
+    .ow-modal {
+        width: 100%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel {
+        width: 24%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        margin: auto;
+        float: none;
+    }
+
+    .cx-channel-selector .wrapper p {
+        font-size: 11px;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile .cx-body {
+        height: auto !important;
+    }
+
+    .cx-mobile .cx-calendar .cx-calendar-periods {
+        float: right;
+    }
+
+    .cx-full-screen-view {
+        position: fixed;
+    }
+
+    .cx-warning .cx-button-group {
+        text-align: center !important;
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+
+    .cx-send-message .cx-button-group.cx-buttons-binary, .cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    .cx-alert.chat-end > .cx-wrapper > .cx-button-group.cx-buttons-binary {
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    #cx_chat_question_header {
+        text-align: center;
+    }
+
+    .cx-widget.cx-toaster {
+        left: 25%;
+        top: 15%;
+        width: 50%;
+    }
+
+    .cx-tooltip-menu.actions {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .e_medic_gif {
+        background: none;
+        width: 20% !important;
+        height: auto;
+        position: absolute;
+        top: 20%;
+        left: 75%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .e_medic_gif {
+        background: none;
+        width: 20% !important;
+        height: auto;
+        position: absolute;
+        top: 9em;
+        left: 75%;
+    }
+}
+
+@media screen and (max-width: 664px) {
+    .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        width: 8em;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels {
+        padding: 0px;
+        padding-top: 36px;
+        padding-bottom: 80px;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel {
+        padding: 0px;
+        width: 47%;
+        text-align: center;
+        /*height: 225px;*/
+        height: auto;
+        padding-bottom: 10%;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel .cx-icon {
+        width: 80%;
+        margin: 0px;
+        display: inline-block;
+        text-align: center;
+        float: none;
+    }
+
+    .wrapper {
+        width: 100% !important;
+    }
+
+    .cx-widget .mobile {
+        display: block;
+        /*max-width: 524px;*/
+        width: 100%;
+    }
+
+    .cx-widget .desktop {
+        display: none;
+    }
+
+    .cx-channel-selector .wrapper p {
+        font-size: 12px;
+    }
+
+    .cx-channel-selector-overlay-mobile .ark.cx-common-container.control-cx-channel-selector .cx-body .message {
+        display: none;
+    }
+
+    .cx-mobile .cx-call-us .contacts-header-container {
+        padding: 0px;
+        font-size: 16px;
+    }
+
+    .cx-call-us .cx-content .cx-main-phone {
+        width: 100%;
+    }
+
+    .cx-phone-title .i18n, .cx-phone-number .i18n {
+        font-size: 20px !important;
+    }
+
+    .cx-phone-number .i18n {
+        font-size: 30px !important;
+    }
+
+    .cx-mobile.cx-portrait .cx-call-us .cx-main-phone .cx-phone-number {
+        float: left;
+        width: 100%;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile .cx-body {
+        height: auto !important;
+    }
+
+    .hahaha {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .cx-mobile.cx-portrait .cx-call-us .cx-availability {
+        margin-top: 0px;
+    }
+
+    .cx-call-us .cx-content .cx-main-phone .cx-phone-title {
+        padding-bottom: 10px;
+        height: auto;
+    }
+
+    .cx-mobile .cx-call-us .cx-button-group, .cx-mobile .cx-popup-container .cx-cobrowse-container {
+        padding: 10px 0px;
+    }
+
+    .cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .cx-mobile .cx-calendar .cx-calendar-header {
+        background: #eee;
+    }
+
+    .cx-callback .cx-content .cx-wrapper .cx-callback-date .calendar-container {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        z-index: 2;
+        height: 0;
+        background-color: #FDFDFD;
+    }
+
+    .cx-mobile .cx-callback .cx-content .cx-wrapper .cx-callback-date {
+        /*padding:0px;*/
+        padding-left: 20px;
+        padding-top: 24px;
+    }
+
+    .cx-mobile .cx-callback .cx-content .cx-wrapper .cx-callback-date .cx-callback-schedule {
+        padding: 0px;
+        /*padding-top:14px;*/
+        padding-bottom: 24px;
+    }
+
+    .cx-mobile .cx-callback .cx-content .cx-wrapper, .cx-mobile .cx-callback .cx-content .cx-wrapper .cx-callback-date-label {
+        font-size: 12px;
+        padding: 0;
+    }
+
+    .cx-mobile .cx-callback .cx-content .cx-wrapper .cx-callback-details textarea {
+        background: #eee;
+        border: solid 1px #dae1e8;
+        border-radius: 5px;
+    }
+
+    .ark.cx-common-container.control-cx-channel-selector .cx-body {
+        height: 100%;
+    }
+
+    .cx-channel p {
+        display: none;
+    }
+
+    .cx-channel-selector .wrapper {
+        /*height:100%;*/
+        height: 350px;
+    }
+
+    .cx-full-screen-view {
+        position: fixed;
+    }
+
+    .black_bar {
+        display: inherit;
+        background-color: black;
+        color: white;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+    }
+
+    .black_bar_icon {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    .black_bar_title {
+        font-family: 'Open Sans', sans-serif;
+        padding: 18px;
+        padding-top: 20px;
+    }
+
+    .cx-widget.cx-sidebar.px32.preset-blue.cx-theme-light {
+        display: inherit;
+        /*opacity:0;*/
+    }
+
+    .cx-button-close.icon-close {
+        margin-top: 9px;
+    }
+
+    .cx-widget.cx-toaster {
+        right: 0% !important;
+        bottom: 0% !important;
+        width: 100%;
+        height: auto;
+
+    }
+
+    .cx-widget.cx-toaster > .cx-widget.ark.cx-common-container.cx-close.cx-theme-light > .cx-body {
+        /*padding: 20px 30px;*/
+        padding: 20px 30px 55px 30px;
+    }
+
+    .cx-webchat.cx-mobile .cx-buttons-window-control {
+        top: 0px;
+    }
+
+    .ark.cx-common-container.cx-webchat .cx-titlebar {
+        padding-bottom: 3.5em;
+    }
+
+    .cx-webchat.cx-mobile .form {
+        margin-top: 20%;
+    }
+
+    .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .cx-channels .cx-channel {
+        padding: 0px;
+        width: 47%;
+        text-align: center;
+        /*height: 225px;*/
+        height: auto;
+    }
+
+    .ark.cx-common-container.control-cx-channel-selector .cx-body .cx-channel-selector .wrapper {
+        overflow: auto;
+    }
+
+    .cx-channels svg {
+        visibility: hidden;
+    }
+
+    .ow-modal {
+        width: 100%;
+        max-width: 1018px;
+        top: 10px;
+        z-index: 9999999;
+    }
+
+    .cx-callback .error-container.warning-container .cx-warning .cx-button-group.cx-buttons-binary > .failed-retry.btn.btn-primary {
+        margin-left: 16%;
+    }
+
+    .cx-callback .error-container.warning-container .cx-warning .cx-button-group.cx-buttons-binary > .btn.btn-default {
+        margin-right: 16%;
+    }
+
+    .cx-channel-selector .cx-channels {
+        overflow: hidden;
+        float: left;
+        position: absolute;
+        width: inherit;
+        height: auto;
+    }
+
+    .cx-send-message .cx-button-group.cx-buttons-binary {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .cx-calendar .cx-calendar-periods {
+        border-color: #dae1e8;
+        float: left;
+    }
+
+    .cx-callback .cx-content {
+        margin: 0;
+    }
+
+    .cx-mobile .cx-callback {
+        padding-bottom: 0;
+    }
+
+    .cx-common-container.cx-close .cx-buttons-window-control button.cx-button-close {
+        /*z-index: 10000000;*/
+        /*-webkit-appearance: none;*/
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
+    .cx-tooltip-menu.actions {
+        visibility: hidden;
+    }
+
+    /*.cx-widget.ow-modal.cx-theme-light {
+      z-index: 999999;
+    }*/
+    /*.cx-full-screen-view .cx-common-container.cx-overlay.cx-mobile{
+      overflow:scroll;
+    }*/
+    /*.cx-widget.cx-sidebar.px32.preset-blue.cx-theme-light{
+      display:inherit;
+    }*/
+    #e_medic_buynow_mobile {
+        max-width: 70px;
+        position: absolute;
+        right: 2%;
+        bottom: 23%;
+        background: none;
+    }
+}
+
+
+.cx-channel-selector .cx-channels .cx-channel .name {
+    display: none;
+}
+
+.cx-channel-selector .cx-channels .cx-channel .cx-icon {
+    display: none;
+}
+
+[data-message=TitleDescription] {
+    visibility: hidden;
+}

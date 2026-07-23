@@ -1,0 +1,16 @@
+.block-breadcrumb .separator {
+    color: #FF0000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+.block-breadcrumb .link-text-grey {
+    color: #888888;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.block-breadcrumb .row {
+    padding: 3rem 15px !important;
+}

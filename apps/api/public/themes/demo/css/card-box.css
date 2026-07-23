@@ -1,0 +1,129 @@
+.block-card-box .add-to-compare-button {
+    border: 1px solid #0768B3;
+    color: #0768B3;
+    background-color: #fff;
+}
+
+.block-card-box .apply-now-button {
+    border: none;
+    color: white;
+    background-color: #0768B3;
+}
+
+.block-card-box .button {
+    border-radius: 10px;
+    padding: 10px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    min-width: 120px;
+    width: fit-content;
+    max-width: 100%;
+    height: 50px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.block-card-box .button-text {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.block-card-box .card {
+    height: 100% !important;
+    padding: 20px 10px;
+    border: 1px solid #c4c4c4;
+    border-radius: 15px;
+}
+
+.block-card-box .card-img-top {
+    width: 100%;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.block-card-box .card-title {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: #0768B3;
+}
+
+.block-card-box .debit {
+    width: 49px;
+    max-height: 49px;
+    margin-left: 15px;
+}
+
+.block-card-box .description {
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    color: #888888;
+}
+
+.block-card-box .mastercard {
+    width: 55px;
+    max-height: 55px;
+    margin-left: 15px;
+}
+
+.block-card-box .header-text {
+    color: #888888;
+    font-size: 52px;
+    font-weight: 300;
+    margin-top: -15px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.block-card-box .link-text-grey {
+    color: #888888;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.block-card-box .link-text-white {
+    color: #fff;
+}
+
+.block-card-box .link-text-blue {
+    color: #0768B3;
+}
+
+.block-card-box .margin-top-auto {
+    margin-top: auto;
+}
+
+.block-card-box .margin-bottom {
+    margin-bottom: 25px;
+}
+
+.block-card-box .no-padding {
+    padding: 0 !important;
+}
+
+.block-card-box .text-red {
+    color: #FF0000;
+}
+
+.block-card-box .rewards {
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.block-card-box .visa {
+    width: 100px;
+    max-height: 30px;
+    margin-left: 15px;
+}
+
+.block-card-box .visa-card-text {
+    margin-top: -30px !important;
+}

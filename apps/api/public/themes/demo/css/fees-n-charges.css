@@ -1,0 +1,139 @@
+.block-fees-n-charges .display-flow-root {
+    display: flow-root;
+}
+
+.block-fees-n-charges .header {
+    display: inline-block;
+    font-size: 38px;
+    font-weight: lighter;
+    text-align: center;
+    color: #888888;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    box-shadow:2px 2px 5px #999999;
+    margin-right: 10px;
+    padding: 20px 50px;    
+    min-width: 350px;
+}
+
+.block-fees-n-charges .fnc-active {
+    background-color: #0768b3;
+    border-bottom: none;
+    color: white !important;
+}
+
+.block-fees-n-charges .text-grey-active, .block-fees-n-charges .text-grey-active:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.block-fees-n-charges .header-2 {
+    font-weight: lighter;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+}
+
+.block-fees-n-charges .header-3 {
+    font-weight: lighter;
+    font-size: 18px;
+    color: #888888;
+    cursor: pointer;
+    max-width: 80%;
+}
+
+.block-fees-n-charges .thead-blue {
+    background-color: #0768B3;
+    color: #FFFFFF;
+}
+
+.block-fees-n-charges table thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.block-fees-n-charges .text-align-center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.block-fees-n-charges .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.block-fees-n-charges .content-header {
+    color: #888888;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.block-fees-n-charges .content-header-2 {
+    color: #888888;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.block-fees-n-charges .pdf-icon img{
+    size: 30px;
+    margin-right: 20px;
+}
+
+.block-fees-n-charges hr.solid-lightgrey-hr {
+    border-top: 1px solid #C4C4C4;
+}
+
+.block-fees-n-charges hr.dotted-lightgrey-hr {
+    border-top: 1px dotted #C4C4C4;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.block-fees-n-charges .link-text-blue {
+    font-size: 20px;
+    color: #00ACFB;
+    font-weight: lighter;
+}
+
+.block-fees-n-charges .display-inline {
+    display: inline-block;
+}
+
+.block-fees-n-charges .display-inline {
+    display: inline-block;
+}
+
+.block-fees-n-charges .text-grey {
+    color: #888888;
+    text-decoration: none;
+}
+
+.block-fees-n-charges ul {
+    border: none;
+    list-style: none;
+    padding: 0;
+    color: #757575;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 576px) {
+    .block-fees-n-charges .fnc-sub-header-btn {
+        font-size: 24px;
+        min-width: 250px;
+    }
+
+    .block-fees-n-charges .header-2 {
+        font-size: 20px;
+    }
+    
+    .block-fees-n-charges .header-3 {
+        font-size: 16px;
+    }
+
+    .block-fees-n-charges .table {
+        font-size: 12px;
+    }
+}

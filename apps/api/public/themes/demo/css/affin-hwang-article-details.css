@@ -1,0 +1,285 @@
+.irlBlockAffinHwangArticleDetails .irlBackButtonContainer {
+    padding-top: 80px !important;
+}
+
+.irlBlockAffinHwangArticleDetails .irlBackButton {
+    cursor: pointer;
+    color: #0768B3;
+}
+
+.irlBlockAffinHwangArticleDetails .irlArticleTitleContainer {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    color: #0768B3;
+}
+
+.irlBlockAffinHwangArticleDetails .irlArticleAuthorContainer {
+    font-size: 20px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlBackButtonText {
+    padding-left: 5px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlArticleAuthor {
+    font-weight: bold;
+}
+
+.irlBlockAffinHwangArticleDetails .irlArticleDate {
+    color: #999999;
+}
+
+.irlBlockAffinHwangArticleDetails .irlArticleBanner {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlSidebarCard {
+    cursor: pointer;
+    border: 1px solid #0768B3;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    min-height: 120px;
+    min-width: 350px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlSidebarImageWrapper {
+    flex: 0 0 35%;
+    max-width: 35%;
+    position: relative;
+    /* aspect-ratio: 1.5 / 1; */
+}
+
+.irlBlockAffinHwangArticleDetails .irlSidebarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px 0 0 6px;
+    display: block;
+}
+
+.irlBlockAffinHwangArticleDetails .irlSidebarContent {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlSidebarArticleTitle {
+    font-size: 14px;
+    line-height: 1.3;
+    color: #0768B3;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlSidebarArticleMeta {
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
+}
+
+.irlBlockAffinHwangArticleDetails .irlMostViewedArticles {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlMostViewedArticlesTitle {
+    font-weight: 400;
+    font-size: 24px;
+    color: #0768B3;
+    padding-bottom: 20px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTableOfContentsMobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #0055a5;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCFloatingButton {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 14px 20px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCFloatingButtonIcon {
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease;
+    position: relative;
+    top: -4px;
+    line-height: 1;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCModalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCModalOverlay.is-active {
+    display: flex;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCModal {
+    width: 100%;
+    max-height: 70vh;
+    background: #0055a5;
+    padding: 20px 16px 24px;
+    border-radius: 16px 16px 0 0;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCModalClose {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCModalHeader {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCModalBody {
+    max-height: 55vh;
+    overflow-y: auto;
+    padding-top: 16px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlTOCItemButton {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.irlBlockAffinHwangArticleDetails .irlArticleActions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlLikeButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #ffffff;
+    border: 1px solid #0768B3;
+    border-radius: 5px;
+    color: #0768B3;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.irlBlockAffinHwangArticleDetails .irlLikeButton.irlArticleLiked {
+    background: #0768B3;
+    color: #ffffff;
+}
+
+.irlBlockAffinHwangArticleDetails .irlLikeButton svg path {
+    fill: #0768B3;
+}
+
+.irlBlockAffinHwangArticleDetails .irlLikeButton.irlArticleLiked svg path {
+    fill: #ffffff;
+}
+
+.irlBlockAffinHwangArticleDetails .irlLikeButton.irlArticleLiked {
+    cursor: auto;
+    pointer-events: none;
+}
+
+.irlBlockAffinHwangArticleDetails .irlLikeButton .irlActionIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlShareButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid #0768B3;
+    border-radius: 5px;
+    color: #0768B3;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.irlBlockAffinHwangArticleDetails .irlShareButton .irlActionIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.irlBlockAffinHwangArticleDetails .irlShareBlockContainer {
+    min-height: 30px;
+    background-color: #FFFFFF;
+    width: fit-content;
+    position: absolute;
+    z-index: 5;
+    left: 196px;
+    margin-top: 110px;
+}
+
+.irlBlockAffinHwangArticleDetails #irlShareBlock {
+    padding: 5px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+
+    .irlBlockAffinHwangArticleDetails .irlTableOfContentsMobile,
+    .irlBlockAffinHwangArticleDetails .irlTOCModalOverlay {
+        display: none !important;
+    }
+}
+
+@media (max-width: 976px) {
+    .irlBlockAffinHwangArticleDetails .irlArticleTitleContainer {
+        font-size: 24px;
+        line-height: 28px;
+    }
+}

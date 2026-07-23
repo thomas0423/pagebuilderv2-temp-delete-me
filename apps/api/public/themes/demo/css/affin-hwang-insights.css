@@ -1,0 +1,178 @@
+.irlBlockAffinHwangInsights .irlRedSeparator {
+    width: 99px;
+    height: 3px;
+    background-color: #FF0000;
+    border: none;
+    margin: 0;
+}
+
+.irlBlockAffinHwangInsights .irlInsightsHeader {
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 45px;
+    color: #0768B3;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCategoryTab {
+    padding: 20px 30px;
+    background: #ECECEC;
+    border-radius: 30px;
+    width: max-content;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+    min-width: fit-content;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCategoryTab.active {
+    background: #0768B3;
+    color: #FFFFFF;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCategories {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+}
+
+.irlBlockAffinHwangInsights .irlNoInsightCarousel {
+    text-align: center;
+    font-size: 36px;
+    font-style: italic;
+}
+
+.irlBlockAffinHwangInsights .irlNoInsightCarouselContainer {
+    display: none;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCarouselsContainer {
+    position: relative;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCarousels,
+.irlBlockAffinHwangInsights .irlInsightCardWrapper {
+    display: flex;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCarousels {
+    min-height: 280px;
+    margin: 0;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCardTitle {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #00ACFB;
+    text-align: left;
+
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    -webkit-box-orient: vertical;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCardDateText {
+    text-align: left;
+}
+
+.irlBlockAffinHwangInsights .irlInsightViewMoreButtonContainer {
+    padding: 15px 40px;
+    background: #0768B3;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    width: fit-content;
+    margin: auto;
+}
+
+.irlBlockAffinHwangInsights .irlInsightViewMoreButtonLink {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCardLink {
+    text-decoration: none;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCard {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 270px;
+}
+
+.irlBlockAffinHwangInsights .irlInsightCardImage {
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.irlBlockAffinHwangInsights .carousel-control-prev,
+.irlBlockAffinHwangInsights .carousel-control-next {
+    background-color: #0768B3;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 35%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.irlBlockAffinHwangInsights .irlInsightsArrowSize {
+    font-size: 24px;
+}
+
+.irlBlockAffinHwangInsights .irlInsightButtonNext,
+.irlBlockAffinHwangInsights .irlInsightButtonPrev {
+    width: 4rem;
+    height: 4rem;
+    background-color: #0768B3;
+    transform: translateY(-22%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.irlBlockAffinHwangInsights .irlInsightButtonNext {
+    position: absolute;
+    top: 35%;
+    right: 0;
+}
+
+.irlBlockAffinHwangInsights .irlInsightButtonPrev {
+    position: absolute;
+    top: 35%;
+    left: 0;
+}
+
+.irlBlockAffinHwangInsights .irlInsightButtonNext .irlInsightButtonNextImg {
+    transform: translate(62%, 47%) rotate(90deg);
+}
+
+.irlBlockAffinHwangInsights .irlInsightButtonPrev .irlInsightButtonPrevImg {
+    transform: translate(62%, 47%) rotate(-90deg);
+}
+
+@media screen and (max-width: 576px) {
+    .irlBlockAffinHwangInsights .irlInsightsHeader {
+        font-size: 20px;
+    }
+
+    .irlBlockAffinHwangInsights .irlInsightViewMoreButtonContainer {
+        font-size: 14px; 
+    }
+
+    .irlBlockAffinHwangInsights {
+        padding-left: 20px;
+    }
+
+    
+}

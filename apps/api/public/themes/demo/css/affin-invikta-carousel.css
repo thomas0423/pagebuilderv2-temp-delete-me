@@ -1,0 +1,110 @@
+.block-affin-invikta-carousel {
+    background-color: #2B2A29;
+}
+
+.block-affin-invikta-carousel .carousel-header {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
+
+.block-affin-invikta-carousel .carousel-subheader {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+.block-affin-invikta-carousel .card-img-top {
+    padding: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    min-height: 180px;
+    max-height: 180px;
+}
+
+.block-affin-invikta-carousel .card.card-radius {
+    border-radius: 15px;
+    height: 100%;
+    border: none;
+}
+
+.block-affin-invikta-carousel .card {
+    height: auto;
+}
+
+.block-affin-invikta-carousel .card .carousel-card-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #CD7F32;
+    text-align: center;
+}
+
+.block-affin-invikta-carousel .card .carousel-card-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.block-affin-invikta-carousel .carousel-photo {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.block-affin-invikta-carousel .carousel-photo.prev,
+.block-affin-invikta-carousel .carousel-photo.next {
+    z-index: 800;
+}
+
+.block-affin-invikta-carousel .carousel-prev-button,
+.block-affin-invikta-carousel .carousel-next-button {
+    position: absolute;
+    top: 45%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #CD7F32;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    border: 1px solid white;
+}
+
+.block-affin-invikta-carousel .carousel-prev-button {
+    left: -15px;
+}
+
+.block-affin-invikta-carousel .carousel-next-button {
+    right: 0;
+}
+
+.block-affin-invikta-carousel .navigator-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.block-affin-invikta-carousel .carousel-next-button .navigator-icon {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.block-affin-invikta-carousel .carousel-prev-button .navigator-icon {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.block-affin-invikta-carousel .carousel-photo.initial,
+.block-affin-invikta-carousel .carousel-photo.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}

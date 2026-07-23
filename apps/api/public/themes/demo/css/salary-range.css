@@ -1,0 +1,38 @@
+.block-salary-range .bg-color {
+    background-color: #0768B3;
+}
+
+.block-salary-range .button {
+    color: #0768B3 !important;
+    background: #FFFFFF !important;
+}
+
+.block-salary-range .range-input {
+    -webkit-appearance: none;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 75%;
+}
+
+.block-salary-range datalist {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    width: 75%;
+}
+
+.block-salary-range .range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: black;
+    box-shadow: -700px 0 0 700px red;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+
+@media (max-width: 767.98px) {
+    .block-salary-range .range-input::-webkit-slider-thumb {
+        box-shadow: -350px 0 0 350px red;
+    }
+}

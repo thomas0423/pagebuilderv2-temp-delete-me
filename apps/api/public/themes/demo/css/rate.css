@@ -1,0 +1,52 @@
+.block-rate .round-border {
+    border: 1px solid transparent;
+    background-color: #0768B3;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-rate .grey-bg {
+    background: #F4F4F2;
+}
+
+.block-rate .red-text {
+    color: #FF0000;
+}
+
+.block-rate .border-right {
+    border-right: 2px solid #FF0000 !important;
+    height: 100%;
+}
+
+.block-rate .pt-4, .block-rate .py-4 {
+    padding-top: 3.5rem!important;
+}
+
+.block-rate h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.block-rate .pad2 {
+    padding-top: 1rem;
+}
+
+.block-rate h4 {
+    font-size: 3.5rem;
+}
+
+.block-rate .row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (min-width: 767.99px) and (max-width: 1090px){
+    .block-rate .wrapper {
+        width: 113%;
+        justify-content: center;
+        margin-left: -5rem;
+    }
+}

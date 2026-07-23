@@ -1,0 +1,44 @@
+.block-affin-group-5-tabs .tab-col {
+    cursor: pointer;
+    color: #999999;
+    background-color: #EFEFEF;
+    padding: 20px;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.block-affin-group-5-tabs .tab-col.active {
+    background-color: #FFFFFF;
+    color: #1E4B9B;
+}
+
+.block-affin-group-5-tabs .icon {
+    max-width: 40px;
+    max-height: 40px;
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+.block-affin-group-5-tabs .tab-col.active .icon {
+    filter: grayscale(0);
+    opacity: 0.8;
+}
+
+.block-affin-group-5-tabs .tabs-container {
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+    background-color: #EFEFEF;
+    /*justify-content: center;*/
+
+    display: flex;
+    overflow-x: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    max-width: 100%;
+    margin: auto;
+}
+
+.block-affin-group-5-tabs .content-container {
+    margin: 0 20px;
+}

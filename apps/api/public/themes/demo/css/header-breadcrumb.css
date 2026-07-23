@@ -1,0 +1,175 @@
+.block-header-breadcrumb {
+    background-image: url("/img/affin-group-building.png");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: Roboto;
+}
+
+.block-header-breadcrumb > .py-5:first-of-type {
+    padding: 0 !important;
+}
+
+.block-header-breadcrumb .container-height {
+    min-height: 600px;
+    height: 600px;
+}
+
+.block-header-breadcrumb .container-padding-top {
+    padding-top: 65px;
+}
+
+.block-header-breadcrumb .mobile-background-image {
+    width: auto;
+    height: 200px;
+    float: right;
+}
+
+.block-header-breadcrumb .mobile-background-logo-image {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 85px;
+    right: 70px;
+}
+
+.block-header-breadcrumb .mobile-logo {
+    display: none;
+    padding: 0px 0px 0px 0px;
+}
+
+.block-header-breadcrumb .home-icon {
+    width: 18px;
+    height: 15px;
+    text-align: center;
+}
+
+.block-header-breadcrumb .seperator {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 0px 8px;
+}
+
+.block-header-breadcrumb .link-text-white {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.block-header-breadcrumb .title-text {
+    color: #FFFFFF;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    text-shadow: 2px 2px 5px black;
+}
+
+.block-header-breadcrumb .description-text {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-shadow: 2px 2px 5px black;
+}
+
+.block-header-breadcrumb .btn-primary,
+.block-header-breadcrumb .btn-primary:hover,
+.block-header-breadcrumb .btn-primary:active,
+.block-header-breadcrumb .btn-primary:visited,
+.block-header-breadcrumb .btn-primary:focus {
+    max-width: 100%;
+    background-color: #8607B3 !important;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    border: none;
+}
+
+.block-header-breadcrumb .purple-btn{
+    border-radius: 10px;
+}
+
+.block-header-breadcrumb .purple-btn a{
+    color: #FFFFFF;
+}
+
+.block-header-breadcrumb .breadcrumb-section {
+    padding: 0px 15px;
+}
+
+@media (max-width: 1279.98px) {
+    .block-header-breadcrumb .container-padding-top {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .block-header-breadcrumb .container-padding-top {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 768.98px) {
+    .block-header-breadcrumb .container-padding-top {
+        padding-top: 110px;
+    }
+
+    .block-header-breadcrumb .title-text {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .block-header-breadcrumb .container-height {
+        height: auto;
+    }
+}
+
+@media (max-width: 415px) {
+    .block-header-breadcrumb .mobile-background-image {
+        height: 180px;
+    }
+
+    .block-header-breadcrumb .mobile-background-logo-image {
+        width: 180px;
+        top: 80px;
+        right: 50px;
+    }
+
+    .block-header-breadcrumb .link-text-white {
+        font-size: 12px;
+    }
+
+    .block-header-breadcrumb .seperator {
+        font-size: 12px;
+    }
+
+    .block-header-breadcrumb .home-icon {
+        width: 16px;
+        height: 13px;
+        margin-bottom: 5px;
+    }
+
+    .block-header-breadcrumb .title-text {
+        font-size: 28px;
+    }
+
+    .block-header-breadcrumb .description-text {
+        font-size: 16px;
+    }
+
+    .block-header-breadcrumb .btn-primary,
+    .block-header-breadcrumb .btn-primary:hover,
+    .block-header-breadcrumb .btn-primary:active,
+    .block-header-breadcrumb .btn-primary:visited,
+    .block-header-breadcrumb .btn-primary:focus {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 387.98px) {
+    .block-header-breadcrumb .container-padding-top {
+        padding-top: 175px;
+    }
+}

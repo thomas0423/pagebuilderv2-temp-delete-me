@@ -1,0 +1,209 @@
+.block-affin-group-financial-information .tab-col {
+    cursor: pointer;
+    padding: 0;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.block-affin-group-financial-information .tab-title.active {
+    font-weight: 700 !important;
+    color: #444444 !important;
+    border-bottom: 3px solid #333333;
+}
+
+.block-affin-group-financial-information .tab-title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0;
+    color: #999999;
+    min-width: max-content;
+    margin: 0 10px;
+}
+
+.block-affin-group-financial-information .tabs-container {
+    padding-top: 3rem !important;
+    padding-bottom: 1rem !important;
+    padding-right: 50vh !important;
+    margin: 0 auto !important;
+    justify-content: center;
+    border-bottom: 1px solid #B1B1B120;
+}
+
+.block-affin-group-financial-information .search-filter {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.block-affin-group-financial-information select {
+    min-width: 15%;
+    max-width: 30%;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    border: none;
+    border-bottom: 1px solid #C4C4C4;
+    font-size: 16px;
+    color: #999999;
+}
+
+.block-affin-group-financial-information .statement-search-btn, .annual-search-btn {
+    color: #0768B3;
+    border: 1px solid #0768B3;
+    border-radius: 25px;
+    padding: 5px 20px;
+    margin-top: -25px;
+    cursor: pointer;
+}
+
+.block-affin-group-financial-information .overflow-body {
+    overflow: auto;
+}
+
+.block-affin-group-financial-information .filter-text {
+    min-width: 15%;
+    font-size: 16px;
+    color: #333333;
+    margin-left: 2px;
+    margin-right: 40px;
+}
+
+.block-affin-group-financial-information .gray-hr {
+    color: #B1B1B1;
+    margin: 10px auto 30px;
+}
+
+.block-affin-group-financial-information .card {
+    background: #efefef;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    height: 325px !important;
+    width: 261px;
+    max-height: 384px;
+    max-width: 277px;
+    border-radius: 1px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.block-affin-group-financial-information .banner-image {
+    width: auto;
+    max-height: 230px;
+    object-fit: cover;
+}
+
+.block-affin-group-financial-information .annual-card {
+    background: #efefef;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    height: 455px !important;
+    width: 251px;
+    max-height: 455px;
+    max-width: 277px;
+    border-radius: 1px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.block-affin-group-financial-information .card-text {
+    text-align: center;
+    padding: 15px;
+    color: #000;
+}
+
+.block-affin-group-financial-information .card-download-text {
+    display: flex;
+    justify-content: center;
+}
+
+.block-affin-group-financial-information table,
+.block-affin-group-financial-information th,
+.block-affin-group-financial-information td {
+    border: 1px solid black;
+}
+
+.block-affin-group-financial-information .table-width-20 {
+    text-align: center;
+    width: 20%;
+}
+
+.block-affin-group-financial-information .table-width-10 {
+    text-align: center;
+    width: 10%;
+}
+
+.block-affin-group-financial-information .sukuk-download {
+    padding: 30px 0px;
+}
+
+.block-affin-group-financial-information a:link {
+    color: #0768B3 !important;
+}
+
+.block-affin-group-financial-information a:visited {
+    color: #0768B3 !important;
+}
+
+.block-affin-group-financial-information a:active {
+    color: #139ff7 !important;
+}
+
+@media only screen and (max-width: 1199px) {
+    .block-affin-group-financial-information .tabs-container {
+        padding-right: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .block-affin-group-financial-information .row {
+        justify-content: center;
+    }
+    .block-affin-group-financial-information table,
+    .block-affin-group-financial-information thead,
+    .block-affin-group-financial-information tbody,
+    .block-affin-group-financial-information th,
+    .block-affin-group-financial-information td,
+    .block-affin-group-financial-information tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.block-affin-group-financial-information thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.block-affin-group-financial-information tr { border: 1px solid #ccc; }
+
+	.block-affin-group-financial-information td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	.block-affin-group-financial-information td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+    /*
+	Label the data
+	*/
+    .block-affin-group-financial-information table td:nth-of-type(1)::before { content: "Programme Description"; }
+    .block-affin-group-financial-information table td:nth-of-type(2)::before { content: "Description of Instrument Issued"; }
+    .block-affin-group-financial-information table td:nth-of-type(3)::before { content: "Date Issued"; }
+    .block-affin-group-financial-information table td:nth-of-type(4)::before { content: "Amount Issued (RM'million)"; }
+    .block-affin-group-financial-information table td:nth-of-type(5)::before { content: "Tenure"; }
+    .block-affin-group-financial-information table td:nth-of-type(6)::before { content: "Profit Rate per annum"; }
+    .block-affin-group-financial-information table td:nth-of-type(7)::before { content: "Rating by RAM Rating Services Berhad"; }
+}

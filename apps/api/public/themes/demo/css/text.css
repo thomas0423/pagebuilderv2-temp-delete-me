@@ -1,0 +1,11 @@
+.block-text .text-content {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #444444;
+    padding: 0px 15px !important;
+    padding: 0px 15px;
+}

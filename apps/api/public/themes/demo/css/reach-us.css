@@ -1,0 +1,86 @@
+.block-reach-us {
+    background: #FBFBFA;
+}
+.block-reach-us .gray-text {
+    color: #888888;
+}
+
+.block-reach-us .header-text {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.block-reach-us .sub-header-text {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 21px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.block-reach-us .primary-text-color {
+    font-size: 28px;
+    color: #00ACFB;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+
+.block-reach-us .normal-text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.block-reach-us .icon-img {
+    max-height: 70px;
+    width: auto;
+    max-width: 50px;
+    height: auto;
+}
+
+.block-reach-us .social-media-logo {
+    max-width: 60px;
+    height: auto;
+}
+
+.block-reach-us .social-media-icon {
+    max-width: 95px !important;
+    align-self: center;
+}
+
+/* @media (min-width: 1200px) {
+    .block-reach-us .full-width-img {
+        width: 75%;
+    }
+} */
+
+@media only screen and (max-width: 1200px) {
+    .block-reach-us .header-text {
+        font-size: 32px;
+    }
+
+    .block-reach-us .sub-header-text {
+        font-size: 14px;
+    }
+
+    .block-reach-us .primary-text-color {
+        font-size: 20px;
+    }
+
+    .block-reach-us .normal-text {
+        font-size: 17px;
+    }
+}

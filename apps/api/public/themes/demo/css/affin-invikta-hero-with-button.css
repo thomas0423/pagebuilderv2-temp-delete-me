@@ -1,0 +1,63 @@
+.block-affin-invikta-hero-with-button {
+    background-image: url('/img/affin-invikta/invikta-banner-1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    max-height: 600px;
+    position: relative;
+}
+
+.block-affin-invikta-hero-with-button .hero-container {
+    position: initial;
+}
+
+.block-affin-invikta-hero-with-button .banner-container {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+
+.block-affin-invikta-hero-with-button .title-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 55px;
+    color: #CD7F32;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.block-affin-invikta-hero-with-button .align-items-button {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.block-affin-invikta-hero-with-button .align-items-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.block-affin-invikta-hero-with-button .apply-button {
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    background: #CD7F32;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 768px) {
+    .block-affin-invikta-hero-with-button .title-text {
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,40 @@
+.block-affin-life-groups .top-title{
+    color: #004c98;
+    font-size: 30px;
+}
+.block-affin-life-groups .groups-card-link {
+    color: #004c98;
+    text-decoration: none;
+}
+
+.block-affin-life-groups .card {
+    border: 1px solid #C4C4C4;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}
+
+.block-affin-life-groups .card:hover {
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
+
+.block-affin-life-groups .groups-card-thumbnail {
+    width: 100%;
+    object-fit: contain;
+    height: 150px;
+    padding: 20px;
+}
+
+.block-affin-life-groups .card-body {
+    border-top: 1px solid #C4C4C4;
+}
+
+.block-affin-life-groups .card-title-text {
+    color: #004c98;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+
+
+

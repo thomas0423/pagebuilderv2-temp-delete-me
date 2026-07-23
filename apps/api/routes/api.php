@@ -8,10 +8,12 @@ use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\PageController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SettingController;
+use App\Http\Controllers\Api\ThemeAssetController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/theme-assets', ThemeAssetController::class);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthController::class, 'me']);

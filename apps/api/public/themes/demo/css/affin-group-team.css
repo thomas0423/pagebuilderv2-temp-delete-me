@@ -1,0 +1,311 @@
+.block-affin-group-team .bg-color{
+    background-color: #0768B3;
+}
+
+.block-affin-group-team .header{
+    font-size: 48px;
+    color: #444444;
+}
+
+.block-affin-group-team .sub-header{
+    font-size: 20px;
+    color: #888888;
+}
+
+.block-affin-group-team .no-padding {
+    padding: 0;
+}
+
+.block-affin-group-team .no-margin {
+    margin: 0;
+}
+.block-affin-group-team .full-height {
+    height: 100%;
+    min-height: 225px;
+}
+
+.block-affin-group-team .card-container {
+    max-width: 425px;
+    background: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    height: 100% !important;
+    word-wrap: break-word;
+}
+
+.block-affin-group-team .card-container:hover {
+    border-color: #0768B3;
+    box-shadow: 0px 0px 16px rgba(30, 75, 155, 0.39);
+    -moz-box-shadow: 0px 0px 16px rgba(30, 75, 155, 0.39);
+    -webkit-box-shadow: 0px 0px 16px rgba(30, 75, 155, 0.39);
+    -o-box-shadow: 0px 0px 16px rgba(30, 75, 155, 0.39);
+}
+
+.block-affin-group-team .button {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #0768B3;
+    width: 50%;
+}
+
+.block-affin-group-team .button-text {
+    font-size: 17px;
+    font-weight: 300;
+    color: white;
+}
+
+.block-affin-group-team .card-title-text{
+    font-size: 24px;
+    color: #003B70;
+    margin-top: 15px;
+    min-height: 100px;
+}
+
+.block-affin-group-team .card-description-text{
+    font-size: 14px;
+    font-style: italic;
+    color: #9B9B9B;
+}
+
+.block-affin-group-team .default-button{
+    display: inline-block;
+    background: #0768B3;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 10px solid transparent;
+    line-height: 1.5;
+    border-radius: .75em;
+    width: 50%;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.block-affin-group-team .profile-image{
+    max-height: 225px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.block-affin-group-team .modal { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.35s ease-in;
+}
+
+.block-affin-group-team  .modal.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.block-affin-group-team .modal-container {
+    position: relative;
+    width: 100% !important;
+    height: 65%!important;
+    border-radius: 5px;
+    background: white;
+    padding: 10px 30px;
+    margin: 10%;
+    overflow: auto;
+    top: 100%;
+    transition: all 0.35s ease-in;
+}
+
+.block-affin-group-team  .modal-container.is-visible {
+    top: 0%;
+}
+
+.block-affin-group-team .modal-category {
+    display: flex;
+    font-size: 32px;
+    width: 100%;
+}
+
+.block-affin-group-team .modal-close {
+    margin-left: auto;
+    order: 2;
+    font-weight: 600;
+}
+
+.block-affin-group-team .modal-name {
+    font-size: 20px;
+    font-weight: 600;
+    /* display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; */
+    overflow: hidden;
+    width: 85%;
+}
+
+.block-affin-group-team .modal-position {
+    font-size: 18px;
+    /* display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; */
+    overflow: hidden;
+    width: 85%;
+    margin-bottom: 25px;
+}
+
+.block-affin-group-team .height-60{
+    /* height: 100%; */
+    /* width: 100%; */
+    position: relative;
+    /* padding-bottom: 20%; */
+}
+
+.block-affin-group-team .modal-img {
+    width: 100%;
+    padding-left: 0;
+}
+
+.block-affin-group-team .modal-img img {
+    width: 100%;
+    min-height: 300px;
+    max-height: 410px;
+    object-fit: contain;
+    object-position: top;
+}
+
+.block-affin-group-team .modal-content {
+    font-size: 16px;
+    /* overflow: auto; */
+    color:#333333;
+    background-color: #F2F2F2;
+    padding: 10px;
+    /* height: 100%; */
+}
+
+.block-affin-group-team .close-button {
+    transform: scale(0.5);
+}
+
+.block-affin-group-team .close-button:after {
+    content: ' \2573';
+}
+
+.block-affin-group-team .modal-button-next,
+.block-affin-group-team .modal-button-prev {
+    position: absolute;
+    top: 80px;
+}
+
+.block-affin-group-team .modal-button-next {
+    right: 25px;
+    transform: rotate(90deg);
+}
+
+.block-affin-group-team .modal-button-prev {
+    right: 80px;
+    transform: rotate(-90deg);
+}
+
+.block-affin-group-team .modal-button-next img,
+.block-affin-group-team .modal-button-prev img {
+    background-color: #0768B3;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .block-affin-group-team .modal-container {
+        height: 50% !important;
+    }
+
+    /* .block-affin-group-team .full-height {
+        min-height: 240px;
+    } */
+
+    .block-affin-group-team .modal-name {
+        width: 75%;
+    }
+
+    .block-affin-group-team .modal-position {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .block-affin-group-team .modal-name {
+        width: 70%;
+    }
+
+    .block-affin-group-team .modal-position {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .block-affin-group-team .modal-container {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0;
+    }
+
+    .block-affin-group-team .modal-content {
+        margin-top: 10px;
+    }
+
+    .block-affin-group-team .modal-img img {
+        width: 100%;
+        /* min-height: 100%; */
+        max-height: 220px;
+        object-fit: contain;
+    }
+
+    .block-affin-group-team .modal-name {
+        width: 65%;
+    }
+
+
+    .block-affin-group-team .modal-position {
+        width: 65%;
+    }
+
+    .block-affin-group-team .modal-button-next, 
+    .block-affin-group-team .modal-button-prev {
+        top: 90px;
+    }
+
+    .block-affin-group-team .modal-button-next {
+        right: 10px;
+    }
+    
+    .block-affin-group-team .modal-button-prev {
+        right: 55px;
+    }
+
+    .block-affin-group-team .modal-button-next img,
+    .block-affin-group-team .modal-button-prev img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .block-affin-group-team .modal.is-visible {
+        z-index: 10000;
+    }
+}
+

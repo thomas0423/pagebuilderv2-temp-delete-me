@@ -1,0 +1,133 @@
+.block-media-gallery-song .block-overall-content-y-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.block-media-gallery-song .song-title {
+    color: #004c98;
+    font-size: 30px;
+    margin: 0;
+}
+
+.block-media-gallery-song .table {
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+}
+
+.block-media-gallery-song .song-table-head-main {
+    background-color: #004c98;
+    color: #ffffff;
+    text-align: center;
+}
+
+.block-media-gallery-song .song-table-body-row {
+    display: none;
+    opacity: 0;
+    -webkit-animation: mediaGallerySongPageDataFadeOut 0.5s;
+    -moz-animation: mediaGallerySongPageDataFadeOut 0.5s;
+    animation: mediaGallerySongPageDataFadeOut 0.5s;
+}
+
+.block-media-gallery-song .song-table-body-row-selected {
+    display: table-row;
+    opacity: 1;
+    -webkit-animation: mediaGallerySongPageDataFadeIn 0.5s;
+    -moz-animation: mediaGallerySongPageDataFadeIn 0.5s;
+    animation: mediaGallerySongPageDataFadeIn 0.5s;
+}
+
+@-webkit-keyframes mediaGallerySongPageDataFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes mediaGallerySongPageDataFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes mediaGallerySongPageDataFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes mediaGallerySongPageDataFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@-moz-keyframes mediaGallerySongPageDataFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes mediaGallerySongPageDataFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.block-media-gallery-song .song-table-head-sub-title {
+    width: 100%;
+}
+
+.block-media-gallery-song .song-table-data-sub-title-link {
+    color: #004c98;
+}
+
+.block-media-gallery-song .song-table-data-sub-title {
+    vertical-align: middle;
+    word-break: break-word;
+}
+
+/* PAGINATION */
+.block-media-gallery-song .pagination-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.block-media-gallery-song .pages-wrapper {
+    display: flex;
+}
+
+.block-media-gallery-song .pagination-shortcut {
+    display: none;
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.block-media-gallery-song .pagination-shortcut:hover {
+    background-color: #ddd;
+}
+
+.block-media-gallery-song .pagination-page {
+    display: none;
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+.block-media-gallery-song .pagination-page:hover {
+    background-color: #ddd;
+}
+
+.block-media-gallery-song .active-pages {
+    display: block;
+    opacity: 1;
+}
+
+.block-media-gallery-song .selected-page {
+    background-color: #004c98;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.block-media-gallery-song .display-block {
+    display: block;
+}

@@ -1,0 +1,29 @@
+.irlBlockAffinDiventiumWealthSolution .irlBlockAffinDiventiumWealthSolutionMainTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  color: #AC8B3F;
+  text-align: center;
+}
+
+.irlBlockAffinDiventiumWealthSolution .irlBlockAffinDiventiumWealthSolutionTitle {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.irlBlockAffinDiventiumWealthSolution .text-driftwood {
+  color: #AC8B3F;
+}
+
+.irlBlockAffinDiventiumWealthSolution .bg-driftwood {
+  background: #AC8B3F;
+}
+
+.irlBlockAffinDiventiumWealthSolution .irlViewMoreButton {
+  background: #000;
+  color: #fff;
+  padding: 15px 45px;
+  border-radius: 8px;
+}

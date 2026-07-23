@@ -1,0 +1,145 @@
+.block-affin-hwang-multitab-faq .affin-hwang-faq-title {
+  font-weight: 300;
+  font-size: 38px;
+  padding: 2rem 0;
+  color: #0768B3;
+}
+
+.block-affin-hwang-multitab-faq .affin-hwang-faq-border {
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  color: #0768B3;
+  border-radius: 20px;
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.block-affin-hwang-multitab-faq .affin-hwang-faq-border.active {
+  background: #0768B3;
+  color: #ffffff !important;
+}
+
+.block-affin-hwang-multitab-faq .affin-hwang-faq-border img {
+  width: 50%;
+  padding-bottom: 10px;
+}
+
+.block-affin-hwang-multitab-faq .affin-hwang-faq-border p {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.block-affin-hwang-multitab-faq .affin-hwang-faq-border a {
+  background: #0768B3;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.block-affin-hwang-multitab-faq #affin-hwang-level-1 .sub-title {
+  font-size: 30px;
+  padding: 2rem 0;
+  color: #888888;
+}
+
+.block-affin-hwang-multitab-faq #affin-hwang-level-1 .always-faq-level-one {
+  color: #00ACFB;
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #C4C4C4;
+  cursor: pointer;
+}
+
+.block-affin-hwang-multitab-faq .card {
+  border-radius: none;
+  border: none;
+  background-color: #fff;
+}
+
+.block-affin-hwang-multitab-faq .card-header {
+  padding: 0;
+  background-color: #fff;
+}
+
+.block-affin-hwang-multitab-faq .lvl-1,
+.lvl-2 {
+  color: #0768B3;
+  background-color: transparent;
+  white-space: break-spaces;
+  padding: 10px 0;
+}
+
+.block-affin-hwang-multitab-faq .lvl-1 {
+  font-size: 15px;
+  float: left;
+  position: relative;
+}
+
+.block-affin-hwang-multitab-faq .lvl-1::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url('/img/affin-hwang-faq/arrow-up.png') no-repeat right center;
+  position: absolute;
+  top: 30%;
+  right: 0;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.block-affin-hwang-multitab-faq .lvl-1.active::before {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.block-affin-hwang-multitab-faq .lvl-2:hover,
+.block-affin-hwang-multitab-faq .lvl-2:focus {
+  text-decoration: none;
+}
+
+.block-affin-hwang-multitab-faq .arrow-button {
+  border: none;
+  background: transparent;
+  width: 100% !important;
+  outline: none !important;
+}
+
+.block-affin-hwang-multitab-faq .card-body a:link {
+  color: #0768B3 !important;
+}
+
+.block-affin-hwang-multitab-faq .card-body a:visited {
+  color: #0768B3 !important;
+}
+
+.block-affin-hwang-multitab-faq .card-body a:active {
+  color: #139ff7 !important;
+}
+
+@media screen and (max-width: 575.98px) {
+  .block-affin-hwang-multitab-faq .irlAffinHwangFaqLevelOneTitle {
+    width: 85%;
+  }
+
+  .block-affin-hwang-multitab-faq .affin-hwang-faq-title {
+    font-size: 30px;
+  }
+
+  .block-affin-hwang-multitab-faq .affin-hwang-faq-border button {
+    font-size: 14px;
+    padding: 5px 0;
+  }
+
+  .block-affin-hwang-multitab-faq #affin-hwang-level-1 .sub-title {
+    font-size: 24px;
+  }
+
+  .block-affin-hwang-multitab-faq #affin-hwang-level-1 .always-faq-level-one {
+    font-size: 16px;
+  }
+}

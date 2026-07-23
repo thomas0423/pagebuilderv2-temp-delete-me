@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Page;
+use App\Support\ThemeAssets;
 
 class PublicPageController extends Controller
 {
@@ -65,6 +66,8 @@ class PublicPageController extends Controller
         $html = $isPreview ? ($page->compiled_html ?: '') : ($page->liveHtml() ?: '');
         $css = $isPreview ? ($page->compiled_css ?: '') : ($page->liveCss() ?: '');
 
+        $theme = ThemeAssets::manifest();
+
         return view('public.page', [
             'page' => $page,
             'header' => $header,
@@ -72,6 +75,8 @@ class PublicPageController extends Controller
             'isPreview' => $isPreview,
             'renderHtml' => $html,
             'renderCss' => $css,
+            'themeCss' => $theme['css'],
+            'themeJs' => $theme['js'],
         ]);
     }
 }

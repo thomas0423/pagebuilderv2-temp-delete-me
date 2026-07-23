@@ -1,0 +1,21 @@
+.block-2-column-text .bg-color {
+    background-color: #fff;
+}
+
+.block-2-column-text .primary-text {
+    color: #00A3FF;
+}
+
+.block-2-column-text .normal-text {
+    color: #333333;
+}
+
+.block-2-column-text .grey-text {
+    color: #888888;
+}
+
+.block-2-column-text .header-text {
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 56px;
+}

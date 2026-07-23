@@ -1,0 +1,31 @@
+.block-3-column-with-icon .icon-img {
+    max-width: 60px;
+    max-height: 60px;
+    width: 100%;
+}
+
+.block-3-column-with-icon .text-section {
+    padding-left: 20px;
+}
+
+.block-3-column-with-icon .icons-title-text {
+    font-size: 18px;
+    word-break: break-word;
+    color: #888888;
+}
+
+.block-3-column-with-icon .icons-description-text {
+    font-size: 13px;
+    word-break: break-word;
+    color: #888888;
+}
+
+.block-3-column-with-icon a:link {
+    color:#0768B3 !important;
+}
+.block-3-column-with-icon a:visited {
+    color:#0768B3 !important;
+}
+.block-3-column-with-icon a:active {
+    color:#139ff7 !important;
+}

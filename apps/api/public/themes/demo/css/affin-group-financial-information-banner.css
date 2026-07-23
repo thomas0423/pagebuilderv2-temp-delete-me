@@ -1,0 +1,63 @@
+.affin-group-financial-information-banner .button {
+    display: inline-flex;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #0768B3;
+    color: #fff;
+    padding: 15px 50px;
+    min-width: 200px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 60px;
+    font-size: 20px;
+}
+
+.affin-group-financial-information-banner .button-text {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.affin-group-financial-information-banner .link-text {
+    color: #fff;
+}
+
+.affin-group-financial-information-banner .content-text {
+    padding: 30px 0px;
+}
+
+.affin-group-financial-information-banner .header {
+    font-size: 35px;
+    color: #0768B3;
+    margin: 0px;
+}
+
+.affin-group-financial-information-banner .p100 {
+    padding: 100px 20px;
+}
+
+.affin-group-financial-information-banner .financial-information-banner-container {
+    margin: 0 !important;
+}
+
+.affin-group-financial-information-banner .background-image {
+    background-image: url("/img/financial-info.jfif");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: Roboto;
+    min-height: 400px;
+}
+
+@media only screen and (max-width: 575px) {
+    .affin-group-financial-information-banner .p100 {
+        padding: 60px 55px;
+    }
+
+    .affin-group-financial-information-banner .background-image {
+        background-size: cover;
+    }
+}

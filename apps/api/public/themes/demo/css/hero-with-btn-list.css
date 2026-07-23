@@ -1,0 +1,164 @@
+
+.block-hero-with-btn-list {
+    background-image: url("/img/serve_better.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    max-height: 600px;
+    position: relative;
+}
+
+.block-hero-with-btn-list .position-relative {
+    position: initial !important;
+}
+
+.block-hero-with-btn-list .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block-hero-with-btn-list .white-text {
+    color: white;
+}
+
+.block-hero-with-btn-list .title-text {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    text-shadow: 2px 2px 5px black;
+}
+
+.block-hero-with-btn-list .description-text {
+    font-size:  24px;
+    padding-left: 5px;
+}
+
+.block-hero-with-btn-list .item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    max-height: 55px;
+    color: white;
+    padding: 5px 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.block-hero-with-btn-list .item img {
+    max-height: 30px;
+    min-height: 30px;
+    margin: 0px 10px;
+    padding: 2px 0px;
+    object-fit: contain;
+}
+
+.block-hero-with-btn-list .items-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.block-hero-with-btn-list .button-container {
+    display: inline-flex;
+    margin-left: 40px;
+    overflow: hidden;
+    position: relative;
+    max-width: 50%;
+}
+
+.block-hero-with-btn-list .caption {
+    display: block;
+    color: white;
+    margin: 0;
+}
+
+.block-hero-with-btn-list .current-selected {
+    background: rgba(255,255,255,0.6);
+}
+
+.block-hero-with-btn .current-selected a {
+    color: #0768B3 !important;
+    font-weight: 600;
+}
+
+.block-hero-with-btn-list .caption img {
+    max-height: 30px;
+    margin-right: 10px;
+}
+
+.block-hero-with-btn-list .btn-left:after,
+.block-hero-with-btn-list .btn-right:after {
+    content: ' \2794';
+    background-color: white;
+    color: #0768B3;
+    border-radius: 50%;
+    padding: 0px 3px;
+    position: absolute;
+}
+
+.block-hero-with-btn-list .btn-left:after {
+    bottom: 10px;
+    transform: scale(2) rotate(180deg);
+}
+
+.block-hero-with-btn-list .btn-right:after {
+    /* right: 37%; */
+    margin-left: 25px;
+    bottom: 10px;
+    transform: scale(2);
+}
+
+@media only screen and (max-width: 767.98px) {
+    /* .block-hero-with-btn-list .white-text {
+        padding: 110px 0 25px;
+    } */
+
+    .block-hero-with-btn-list .title-text {
+        font-size: 32px;;
+    }
+
+    .block-hero-with-btn-list .description-text {
+        font-size:  18px;
+        padding-left: 2px;
+    }
+
+    .block-hero-with-btn-list .button-container {
+        font-size:  10px;
+        padding-left: 2px;
+    }
+
+    .block-hero-with-btn-list .caption img {
+        max-height: 15px;
+        margin-right: 10px;
+    }
+
+    .block-hero-with-btn-list .btn-left:after {
+        bottom: 3px;
+        left: 5px;
+        transform: scale(1.2) rotate(180deg);
+    }
+
+    .block-hero-with-btn-list .btn-right:after {
+        bottom: 3px;
+        transform: scale(1.2);
+    }
+
+    .block-hero-with-btn-list .item {
+        padding: 0px 10px;
+    }
+}
+
+/* @media only screen and (max-width: 575.98px) {
+    .block-hero-with-btn-list {
+        height: 1000px;
+        max-height: 1000px;
+    }
+} */

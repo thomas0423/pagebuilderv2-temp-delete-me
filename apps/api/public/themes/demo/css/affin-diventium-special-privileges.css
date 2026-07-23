@@ -1,0 +1,20 @@
+.irlBlockAffinDiventiumSpecialPrivileges {
+  background: #F5F6F8;
+}
+
+.irlBlockAffinDiventiumSpecialPrivileges .irlBlockAffinDiventiumSpecialPrivilegesMainTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  color: #AC8B3F;
+  text-align: center;
+}
+
+.irlBlockAffinDiventiumSpecialPrivileges .irlBlockAffinDiventiumSpecialPrivilegesTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #AC8B3F;
+}

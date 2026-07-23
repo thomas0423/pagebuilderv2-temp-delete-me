@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.block-affin-hwang-privacy-notice .privacy-notice-h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 35px !important;
+    margin-bottom: 10px;
+    color: #0768B3;
+}
+
+.block-affin-hwang-privacy-notice .privacy-notice-h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.block-affin-hwang-privacy-notice .privacy-notice-p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.block-affin-hwang-privacy-notice .privacy-notice-important-text {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+}

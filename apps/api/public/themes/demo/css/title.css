@@ -1,0 +1,10 @@
+.block-title .title {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 38px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #333333;
+    padding: 0px 15px;
+}

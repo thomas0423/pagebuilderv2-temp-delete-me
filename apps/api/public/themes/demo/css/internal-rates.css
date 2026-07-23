@@ -1,0 +1,71 @@
+.block-internal-rate .internal-rate-caret-icon {
+    padding-right: 20px;
+    color: #a3d8ee;
+    font-size: 5rem;
+}
+
+.block-internal-rate .main-rate-title {
+    color: #0e5c9e;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    padding: 10px 0;
+}
+
+.block-internal-rate .rate_listing_title {
+    padding: 10px 0;
+    font-size: 20px;
+    color: #0e5c9e;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.block-internal-rate .rate_listing_title:hover {
+    background-color: #a3d8ee;
+}
+
+.block-internal-rate .rate_listing_title small {
+    padding-left: 10px;
+}
+
+.block-internal-rate .rate-listing, .rate-data {
+    display: none;
+}
+
+.block-internal-rate .rate-category {
+    color: black;
+    font-size: 20px;
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.block-internal-rate .rate_pdf_link {
+    color: #0e5c9e;
+}
+
+.block-internal-rate .rate_pdf_link:active {
+    color: #0e5c9e;
+}
+
+.block-internal-rate .rate_pdf_link[tabindex]:focus {
+    color: #0e5c9e;
+}
+
+.block-internal-rate .rates_back_btn {
+    width: 3rem;
+    height: 3rem;
+    background-color: #0768B3;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.block-internal-rate .rates_back_btn img {
+    transform: translate(28%, 26%) rotate(-90deg) scale(.8);
+}
+
+

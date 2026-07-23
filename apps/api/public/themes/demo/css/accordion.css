@@ -1,0 +1,60 @@
+.block-accordion .bg-color {
+    background: white;
+}
+.block-accordion .header {
+    font-weight: 300;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+    word-break: break-word;
+}
+  
+.block-accordion .symbol:after {
+    content: '\002B';
+    font-weight: 300;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+}
+  
+.block-accordion .active:after {
+    content: "\2212";
+}
+  
+.block-accordion .panel {
+    color: #888888;
+    font-weight: 300;
+    font-size: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.block-accordion .hr-margin-10{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #888888;
+}
+
+.block-accordion .description-text{
+    font-size: 14px;
+    color: #888888;
+}
+
+.block-accordion .accordion-select-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block-accordion a:link {
+    color: #0768B3 !important;
+}
+
+.block-accordion a:visited {
+    color: #0768B3 !important;
+}
+
+.block-accordion a:active {
+    color: #139ff7 !important;
+}
+  

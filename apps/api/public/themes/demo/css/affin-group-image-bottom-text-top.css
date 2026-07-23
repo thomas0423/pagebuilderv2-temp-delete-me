@@ -1,0 +1,56 @@
+.block-affin-group-image-bottom-text-top .text-content {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.block-affin-group-image-bottom-text-top .title {
+    font-size: 48px;
+    line-height: 56px;
+    color: #444444;
+    pointer-events: all !important;
+}
+
+.block-affin-group-image-bottom-text-top .subtitle {
+    font-size: 25px;
+    line-height: 29px;
+    color: #444444;
+    pointer-events: all !important;
+}
+
+.block-affin-group-image-bottom-text-top .description {
+    font-size: 20px;
+    line-height: 24px;
+    color: #888888;
+    padding: 0 10rem;
+    pointer-events: all !important;
+}
+
+.block-affin-group-image-bottom-text-top .bg-image {
+    width: 100%;
+    height: auto;
+    background: url('/img/bg-image-7.png') no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+
+.block-affin-group-image-bottom-text-top .content {
+    background: linear-gradient(rgba(255, 255, 255, .84), rgba(255, 255, 255, .84));
+    pointer-events: none;
+}
+
+.block-affin-group-image-bottom-text-top .custom-padding {
+    padding-top: 10rem;
+    padding-bottom: 20rem;
+}
+
+.block-affin-group-image-bottom-text-top .bottom-image {
+    width: 100%;
+}
+
+.block-affin-group-image-bottom-text-top .bottom-image-container {
+    margin-top: -18rem;
+    position: relative;
+}

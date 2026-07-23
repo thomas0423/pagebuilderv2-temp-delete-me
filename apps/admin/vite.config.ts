@@ -22,6 +22,12 @@ export default defineConfig({
         timeout: 60_000,
         proxyTimeout: 60_000,
       },
+      '/themes': {
+        target: apiTarget,
+        changeOrigin: true,
+        timeout: 60_000,
+        proxyTimeout: 60_000,
+      },
       '/preview': {
         target: apiTarget,
         changeOrigin: true,

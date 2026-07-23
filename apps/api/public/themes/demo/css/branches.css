@@ -1,0 +1,147 @@
+.block-branches .header {
+    font-weight: lighter;
+    font-size: 48px;
+}
+
+.block-branches .scrollable-wrapper {
+    overflow: auto;
+    height: 500px;
+}
+
+.block-branches .gmap iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.block-branches .button-padding div {
+    margin-right: 20px;
+}
+
+.block-branches .button {
+    font-weight: lighter;
+    border: none;
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #0768B3;
+    padding: 3px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #ffffff;
+    min-width: auto;
+    width: fit-content;
+    max-width: 100%;
+    height: 40px;
+    margin: 5px 0px;
+}
+
+.block-branches .button-text {
+    font-size: 18px;
+}
+
+.block-branches .margin-bottom {
+    margin-bottom: 25px;
+}
+
+.block-branches .branch {
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: auto !important;
+    margin: 15px 0;
+}
+
+.block-branches .branch-radius {
+    /* margin-bottom: 2rem; */
+    border-radius: 25px;
+}
+
+.block-branches .branch-body {
+    padding: 20px;
+}
+
+.block-branches .branch-title {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.block-branches .branch-details {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.block-branches .branch-subjects {
+    font-weight: bold;
+}
+
+.block-branches .banking-hours-table {
+    width: auto;
+}
+
+.block-branches .banking-hours-table td {
+    padding-right: 3px;
+    width: auto;
+}
+
+.block-branches .branch-btm-btn div {
+    margin-left: 15px;
+}
+
+.block-branches .branch-icon-btn {
+    border: 1px solid #C4C4C4;
+    border-radius: 45px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    min-width: auto;
+    width: fit-content;
+    width: 40px;
+    height: 40px;
+}
+
+.block-branches .icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+.block-branches .vertical-align-top {
+    vertical-align: top;
+}
+
+.block-branches .justify-content-center {
+    justify-content: center;
+}
+
+.block-branches .display-inline-flex {
+    display: inline-flex;
+}
+
+.block-branches .text-red {
+    color: #FF0000;
+}
+
+.block-branches .text-blue {
+    color: #0768B3;
+}
+
+.block-branches .text-lightblue {
+    color: #00ACFB;
+}
+
+.block-branches .text-grey {
+    color: #888888;
+}
+
+.block-branches .text-bold {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 576px) {
+    .block-branches .gmap iframe {
+        height: 300px;
+    }
+}

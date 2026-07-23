@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.block-affin-hwang-investment-banking .investment-banking-h1 {
+    font-weight: 300;
+    font-size: 35px !important;
+    margin-bottom: 10px;
+    color: #0768B3;
+}
+
+.block-affin-hwang-investment-banking .investment-banking-title-treasury {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.block-affin-hwang-investment-banking .investment-banking-structured-text {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 21.79px;
+    font-weight: 300;
+}
+
+.block-affin-hwang-investment-banking .investment-banking-charges-text {
+    font-family: "Open Sans", sans-serif;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #126EB5;
+}
+
+.block-affin-hwang-investment-banking .investment-banking-treasury {
+    text-align: justify;
+}
+
+.block-affin-hwang-investment-banking .investment-banking-body-table {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+}
+
+.block-affin-hwang-investment-banking .investment-banking-table {
+    width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-affin-hwang-investment-banking .mw-unset {
+    max-width: unset;
+}

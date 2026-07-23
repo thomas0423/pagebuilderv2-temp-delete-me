@@ -1,0 +1,77 @@
+.block-pds .display-flow-root {
+    display: flow-root;
+}
+
+.block-pds .header {
+    display: table-cell;
+    font-weight: lighter;
+    font-size: 38px;
+    color: #888888;
+    cursor: pointer;
+    padding: 5px 50px;
+}
+
+.block-pds .active {
+    border-bottom: 4px solid #00ACFB;
+}
+
+.block-pds .header-2 {
+    font-weight: lighter;
+    font-size: 28px;
+    color: #888888;
+    cursor: pointer;
+}
+
+.block-pds .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.block-pds .content-header {
+    color: #888888;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.block-pds .content-header-2 {
+    color: #888888;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.block-pds .pdf-icon img{
+    size: 30px;
+    margin-right: 20px;
+}
+
+.block-pds hr.solid-lightgrey-hr {
+    border-top: 1px solid #C4C4C4;
+}
+
+.block-pds hr.dotted-lightgrey-hr {
+    border-top: 1px dotted #C4C4C4;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.block-pds .link-text-blue {
+    font-size: 20px;
+    color: #00ACFB;
+    font-weight: lighter;
+}
+
+.block-pds .display-inline {
+    display: inline-block;
+}
+
+.block-pds .display-inline {
+    display: inline-block;
+}
+
+.block-pds .text-grey {
+    color: #888888;
+    text-decoration: none;
+}

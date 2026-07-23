@@ -32,6 +32,13 @@ Servers verified: admin `:5173`, API/public `:8000`, login OK, AI null-key hint 
 - [x] Extract helper: `scripts/extract_affincms_tables.php`
 - [ ] Load `affincms_legacy` DB from dump and run importer on this machine
 
+### Affin theme assets (2026-07-23)
+
+- [x] Copy `themes/demo/public` CSS+JS into `apps/api/public/themes/demo`
+- [x] Public pages load theme CSS/JS (`docs/THEME_ASSETS.md`)
+- [x] GrapesJS canvas injects theme CSS for WYSIWYG preview
+- [ ] Optional: register Affin PHPageBuilder blocks as GrapesJS blocks
+
 ### Not done yet (add slowly after presentation)
 
 - [ ] Real OpenAI/Anthropic/Gemini HTTP calls (currently: key required, then structured placeholder generation)

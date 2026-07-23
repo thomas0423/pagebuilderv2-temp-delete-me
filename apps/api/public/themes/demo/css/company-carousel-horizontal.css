@@ -1,0 +1,60 @@
+.block-company-carousel-horizontal .bg-color{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.block-company-carousel-horizontal .bg-white{
+    background-color: #FFFFFF;
+    width: 160px;
+    height: 160px;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-company-carousel-horizontal .affin-bg-image{
+    width: 350px;
+    height: 115px;
+    object-fit: cover;
+}
+
+.block-company-carousel-horizontal .title-text{
+    font-size: 25px;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.block-company-carousel-horizontal .fixed-height {
+    max-height: 160px;
+    overflow: auto;
+}
+
+.block-company-carousel-horizontal a.company-link:hover {
+    text-decoration: none !important;
+}
+
+.block-company-carousel-horizontal .content-box {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.block-company-carousel-horizontal .box-arrow {
+    background-color: rgba(255, 255, 255, .25);
+    transform: rotate(90deg);
+    border: 1px solid #FFFFFF;
+}
+
+.block-company-carousel-horizontal .box-arrow img {
+    padding: 5px;
+}

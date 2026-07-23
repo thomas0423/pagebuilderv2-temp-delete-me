@@ -1,0 +1,270 @@
+/* Custom Products Box Group (Accordion) */
+.block-custom-products-box-group-accordion .button {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #0768B3;
+    width: 100%;
+}
+
+.block-custom-products-box-group-accordion .button-text {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.block-custom-products-box-group-accordion .card {
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: 100% !important;
+    /*box-shadow: 0 4px 4px 0 #00000040;*/
+}
+
+.block-custom-products-box-group-accordion .card-img {
+    width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    object-fit: cover;
+}
+
+.block-custom-products-box-group-accordion .card-radius {
+    margin-bottom: 2rem;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.block-custom-products-box-group-accordion .card-text-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-align: center;
+    color: #0768B3;
+}
+
+.block-custom-products-box-group-accordion .card-text-content {
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    color: darkgray;
+}
+
+.block-custom-products-box-group-accordion .container {
+    padding: 25px !important;
+}
+
+.block-custom-products-box-group-accordion .header {
+    font-weight: 300;
+    font-size: 48px;
+    color: #888888;
+}
+
+.block-custom-products-box-group-accordion .padding-bottom {
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.block-custom-products-box-group-accordion .padding-left {
+    padding-left: 16px;
+}
+
+.block-custom-products-box-group-accordion .content-title-text-gray {
+    color: darkgray;
+    font-weight: 600
+}
+
+.block-custom-products-box-group-accordion .content-desc-text-gray {
+    color: darkgray;
+    font-style: italic;
+}
+
+.block-custom-products-box-group-accordion .child-text-gray {
+    color: darkgray;
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+.block-custom-products-box-group-accordion .child-text-link-blue {
+    color: #00ACFB;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.block-custom-products-box-group-accordion .link-text-white {
+    color: #fff;
+}
+
+.block-custom-products-box-group-accordion .next-btn,
+.block-custom-products-box-group-accordion .previous-btn{
+    background: #0768B3;
+    border-radius: 50%;
+    overflow: hidden;
+    color: white;
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 30px;
+}
+
+.block-custom-products-box-group-accordion .carousel-wrapper {
+    width: 100%;
+}
+
+.block-custom-products-box-group-accordion .carousel-wrapper * {
+    box-sizing: border-box;
+}
+
+.block-custom-products-box-group-accordion .carousel {
+    transform-style: preserve-3d;
+}
+
+.block-custom-products-box-group-accordion .carousel__photo {
+    opacity: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: 100;
+    transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.block-custom-products-box-group-accordion .carousel__photo.initial,
+.block-custom-products-box-group-accordion .carousel__photo.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+.block-custom-products-box-group-accordion .carousel__photo.prev,
+.block-custom-products-box-group-accordion .carousel__photo.next {
+    z-index: 800;
+}
+
+.block-custom-products-box-group-accordion .carousel__button--prev,
+.block-custom-products-box-group-accordion .carousel__button--next {
+    position: absolute;
+    top:45%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #0768B3;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 1001;
+    border: 1px solid white;
+}
+
+.block-custom-products-box-group-accordion .carousel__button--prev {
+    left:-15px;
+}
+
+.block-custom-products-box-group-accordion .carousel__button--next {
+    right:0;
+}
+
+.block-custom-products-box-group-accordion .carousel__button--next img,
+.block-custom-products-box-group-accordion .carousel__button--prev img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.block-custom-products-box-group-accordion .carousel__button--next img {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.block-custom-products-box-group-accordion .carousel__button--prev img {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.block-custom-products-box-group-accordion .accordion {
+    background-color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    color: darkgray;
+    font-size: 18px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+  
+.block-custom-products-box-group-accordion .accordion:after {
+    content: '\2039';
+    transform-origin: center center;
+    transform: scale(2) rotate(-90deg);
+    color: #0768B3;
+    font-weight: bold;
+    float: right;
+    margin-right: 15px;
+    margin-left: auto;
+    margin-bottom: 10px;
+    order: 2;
+}
+  
+.block-custom-products-box-group-accordion .my-active:after {
+    content: "\2039";
+    transform-origin: center center;
+    transform: scale(2) rotate(90deg);
+    margin-right: 8px;
+}
+  
+.block-custom-products-box-group-accordion .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.block-custom-products-box-group-accordion .gray-hr {
+    border: 1px solid #C4C4C4;
+    width: 120%;
+    margin: 5px -15px;
+}
+
+.block-custom-products-box-group-accordion .card-text-title a:link {
+    color: #0768B3 !important;
+}
+
+.block-custom-products-box-group-accordion .card-text-title a:visited {
+    color: #0768B3 !important;
+}
+
+.block-custom-products-box-group-accordion .card-text-title a:active {
+    color: #139ff7 !important;
+}
+
+.block-custom-products-box-group-accordion .card-text-content a:link {
+    color: #0768B3 !important;
+}
+
+.block-custom-products-box-group-accordion .card-text-content a:visited {
+    color: #0768B3 !important;
+}
+
+.block-custom-products-box-group-accordion .card-text-content a:active {
+    color: #139ff7 !important;
+}
+
+.block-custom-products-box-group-accordion .text-left a:link {
+    color: #0768B3 !important;
+}
+
+.block-custom-products-box-group-accordion .text-left a:visited {
+    color: #0768B3 !important;
+}
+
+.block-custom-products-box-group-accordion .text-left a:active {
+    color: #139ff7 !important;
+}
+
+/* Custom Products Box Group (Accordion) */

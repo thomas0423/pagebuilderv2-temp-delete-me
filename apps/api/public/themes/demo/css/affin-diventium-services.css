@@ -1,0 +1,31 @@
+.block-affin-diventium-services .service-card-container {
+    margin-top: -80px;
+}
+
+.block-affin-diventium-services .service-card {
+    align-items: center;
+    border-radius: 16px;
+    padding: 24px;
+    background: #F5F6F8;
+    height: 100%;
+}
+
+.block-affin-diventium-services .service-title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    color: #AC8B3F;
+}
+
+.block-affin-diventium-services .service-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+    .block-affin-diventium-services .service-card-container {
+        margin-top: 0;
+    }
+}

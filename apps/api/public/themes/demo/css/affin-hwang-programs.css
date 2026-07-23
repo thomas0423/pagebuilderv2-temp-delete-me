@@ -1,0 +1,248 @@
+.irlBlockPrograms.bg-black-haze {
+  background-color: #F5F6F6;
+}
+
+.irlBlockPrograms .swiper {
+  width: unset !important;
+}
+
+.irlBlockPrograms .section-heading {
+  font-family: sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #2B73B9;
+  padding: 2rem 0;
+}
+
+.irlBlockPrograms #tranding {
+  padding: 4rem 0;
+}
+
+/* distance of arrow below */
+.irlBlockPrograms #tranding .tranding-slider {
+  height: 40rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+/* side by side width */
+.irlBlockPrograms .tranding-slide {
+  width: 316px;
+  height: 560px;
+  position: relative;
+
+}
+
+/* Slide height and width */
+.irlBlockPrograms .tranding-slide .tranding-slide-img img {
+  width: 316px;
+  height: 560px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.irlBlockPrograms .tranding-slide .tranding-slide-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #333333b3;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.irlBlockPrograms .tranding-slide.swiper-slide-active .tranding-slide-content {
+  background: none;
+}
+
+.irlBlockPrograms .tranding-slide-content .food-price {
+  position: absolute;
+  width: 100%;
+  padding: 3rem;
+  margin-top: 0;
+  color: #51B0F5;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.irlBlockPrograms .swiper-slide-active .tranding-slide-content .food-price {
+  background: #333333b3;
+}
+
+.irlBlockPrograms .tranding-slide-content .card-bottom-date {
+  color: #ffffff;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+  padding: 1.5rem;
+}
+
+.irlBlockPrograms .swiper-slide-active .tranding-slide-content .card-bottom-date {
+  background: #333333b3;
+}
+
+.irlBlockPrograms .tranding-slide-content .tranding-slide-content-bottom {
+  position: absolute;
+  bottom: 14rem;
+  left: 2rem;
+  color: var(--white);
+}
+
+.irlBlockPrograms .food-rating {
+  padding-top: 0rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.irlBlockPrograms .rating ion-icon {
+  color: var(--primary);
+}
+
+.irlBlockPrograms .swiper-slide-shadow-left,
+.irlBlockPrograms .swiper-slide-shadow-right {
+  display: none;
+}
+
+.irlBlockPrograms .tranding-slider-control {
+  bottom: 2rem;
+  display: flex;
+  bottom: 55%;
+  align-items: center;
+  justify-content: center;
+}
+
+.irlBlockPrograms .tranding-slider-control .swiper-button-next {
+  left: 100% !important;
+  transform: translateX(-100%) !important;
+}
+
+.irlBlockPrograms .tranding-slider-control .swiper-button-prev {
+  left: 0% !important;
+  transform: translateX(-0%) !important;
+}
+
+.irlBlockPrograms .tranding-slider-control .slider-arrow {
+  background: #0768B3;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  left: 42%;
+  transform: translateX(-42%);
+}
+
+.irlBlockPrograms .tranding-slider-control .slider-arrow::after {
+  content: '';
+}
+
+.irlBlockPrograms .tranding-slider-control .swiper-pagination {
+  position: relative;
+  width: 15rem;
+  bottom: 1rem;
+}
+
+.irlBlockPrograms .tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.irlBlockPrograms .tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--primary);
+}
+
+.irlBlockPrograms .sliderButton {
+  padding: 20px 30px;
+  background: #ECECEC;
+  border-radius: 30px;
+  width: max-content;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  margin: 0 10px;
+  cursor: pointer;
+  min-width: fit-content;
+}
+
+.irlBlockPrograms .sliderButton:hover,
+.irlBlockPrograms .sliderButton.active {
+  background-color: #1D6AB4;
+  color: #FFFFFF;
+}
+
+.irlBlockPrograms .custom-btn {
+  background-color: #ECECEC;
+  color: #000000;
+  outline: none;
+  color: black;
+  border: none;
+}
+
+.irlBlockPrograms .custom-btn:hover {
+  color: #ffffff;
+  outline: none;
+}
+
+.irlBlockPrograms .btn-rounded {
+  border-radius: 30px;
+}
+
+.irlBlockPrograms .irlViewMoreButton {
+  border-radius: 10px;
+}
+
+@media (max-width:1399.98px) {
+  .irlBlockPrograms #tranding {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width:991.98px) {
+  .irlBlockPrograms .tranding-slider-control .swiper-button-next {
+    left: 99% !important;
+    transform: translateX(-97%) !important;
+  }
+
+  .irlBlockPrograms .tranding-slider-control .swiper-button-prev {
+    left: 1% !important;
+    transform: translateX(-2%) !important;
+  }
+}
+
+@media (max-width:575.98px) {
+  .irlBlockPrograms #tranding .tranding-slider {
+    height: 45rem;
+  }
+
+  .irlBlockPrograms .tranding-slide {
+    width: 290px !important;
+    height: 576px !important;
+  }
+
+  .irlBlockPrograms .tranding-slide .tranding-slide-img img {
+    width: 290px !important;
+    height: 576px !important;
+  }
+
+
+  .irlBlockPrograms .tranding-slider-control .swiper-button-next {
+    left: 98% !important;
+    transform: translateX(-95%) !important;
+  }
+
+  .irlBlockPrograms .tranding-slider-control .swiper-button-prev {
+    left: 2% !important;
+    transform: translateX(-5%) !important;
+  }
+
+  .irlBlockPrograms .irlProgramBlockTitle {
+    font-size: 20px;  
+  }
+
+  .irlBlockPrograms .irlViewMoreButton {
+    font-size: 14px;
+  }
+}
+
+/* ending-Homepage3DSlider */

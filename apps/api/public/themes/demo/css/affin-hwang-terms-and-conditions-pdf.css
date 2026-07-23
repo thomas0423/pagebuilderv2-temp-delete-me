@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-paragraph {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #00ACFB;
+    margin-bottom: 0;
+    padding-left: 40px;
+}
+
+.block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-border-line {
+    width: 1030px;
+    margin-top: 0;    
+}
+
+.block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #00ACFB;
+    margin-bottom: 0;    
+}
+
+.block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-icon {
+    flex-basis: 19%;  
+    padding-bottom: 9px;      
+}
+
+.block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-list {
+    flex-basis: 81%;
+}
+
+@media only screen and (max-width: 768px) {
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-border-line {
+        width: 685px;
+        margin-top: 0;
+        margin-left: 40px;
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-list
+    {
+        flex-basis: 80%;
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-icon {
+        flex-basis: 20%;             
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-border-line {
+        width: 450px;
+        margin-top: 0;
+        margin-left: 40px;        
+    }    
+
+    .block-affin-hwang-terms-and-conditions-pdf .row {
+        flex-wrap: nowrap;        
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-list
+    {
+        flex-basis: 90%;
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-icon {
+        flex-basis: 10%;        
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-button {       
+        display: none;
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-PDF-icon {        
+        padding-right: 19px;
+        padding-bottom: 4px;
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .icon-and-link-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .block-affin-hwang-terms-and-conditions-pdf .terms-and-conditions-paragraph {
+        font-size: 14px;               
+    }
+}
